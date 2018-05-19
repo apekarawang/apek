@@ -14,7 +14,7 @@
     "start": "nuxt",
     "build": "nuxt build",
     "serve": "nuxt start",
-    "generate": "nuxt generate",
+    "generate": "nuxt-generate -w 4",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "lint-staged"
   },
@@ -56,6 +56,7 @@
     "material-icons": "^0.2.1",
     "nuxt": "^1.4.0",
     "nuxt-fontawesome": "^0.1.3",
+    "nuxt-generate-cluster": "^1.3.0",
     "prettier": "^1.12.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
