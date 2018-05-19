@@ -177,14 +177,14 @@ module.exports = {
         ],
       ],
     },
-    vendor: ['@/plugins/vuetify'],
+    // vendor: ['@/plugins/vuetify'],
     extractCSS: true,
     cssSourceMap: false,
 
     plugins: [
-      new NetlifyServerPushPlugin({
-        headersFile: '_headers'
-      })
+      // new NetlifyServerPushPlugin({
+      //   headersFile: '_headers'
+      // })
     ],
     /*
     ** You can extend webpack config here
