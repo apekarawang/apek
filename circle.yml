@@ -19,7 +19,7 @@ jobs:
 
       - run:
           name: installing dev dependencies...
-          command: npm ci
+          command: npm i
 
       - save_cache:
           paths:
