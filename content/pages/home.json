@@ -1,5 +1,5 @@
 {
-  "cover": "/images/cover-andri@1080x.jpg",
+  "cover": "/images/dirgahayu.jpg",
   "carousel": [],
   "business": [
     {
@@ -55,10 +55,6 @@
     {
       "title": "Jawa Barat",
       "image": "/images/jabar.png"
-    },
-    {
-      "title": "ASEAN",
-      "image": "/images/asean.png"
     }
   ]
 }

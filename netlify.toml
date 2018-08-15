@@ -8,12 +8,12 @@
   NPM_VERSION = "6.3.0"
 
 [[redirects]]
-from = "https://apek.netlify.com/*"
-to = "https://apek.or.id/:splat"
+from = "https://apek-stage.netlify.com/*"
+to = "https://stage.apek.or.id/:splat"
 status = 301
 force = true
 [[redirects]]
-from = "http://apek.netlify.com/*"
-to = "https://apek.or.id/:splat"
+from = "http://apek-stage.netlify.com/*"
+to = "https://stage.apek.or.id/:splat"
 status = 301
 force = true
