@@ -9,7 +9,7 @@ backend:
     uploadMedia: 'chore(cms): upload {{path}}'
     deleteMedia: 'chore(cms): delete {{path}}'
 publish_mode: editorial_workflow
-display_url: https://apek-stage.netlify.com
+display_url: https://stage.apek.or.id
 media_folder: static/images # Media files will be stored in the repo under static/images
 public_folder: /images # The src attribute for uploaded media will begin with /images
 collections:
