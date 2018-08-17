@@ -53,7 +53,7 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "vue-recaptcha": "^1.1.0",
-    "vuetify": "^1.2.0-beta.0",
+    "vuetify": "^1.2.0-beta.2",
     "vuetify-loader": "^0.2.0"
   },
   "devDependencies": {
