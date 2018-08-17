@@ -1,6 +1,10 @@
 {
   "cover": "/images/dirgahayu.jpg",
-  "carousel": [],
+  "carousel": [
+    {
+      "image": "/images/ioi-mai.jpeg"
+    }
+  ],
   "business": [
     {
       "title": "Mesin Produksi",
