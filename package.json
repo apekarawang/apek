@@ -11,10 +11,8 @@
     "url": "https://github.com/ekoeryanto/apek.git"
   },
   "scripts": {
-    "start": "nuxt",
-    "build": "nuxt build",
-    "serve": "nuxt start",
-    "generate": "nuxt generate",
+    "start": "vuepress dev docs",
+    "build": "vuepress build docs",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "lint-staged"
   },
@@ -37,33 +35,26 @@
     "@fortawesome/free-regular-svg-icons": "^5.2.0",
     "@fortawesome/free-solid-svg-icons": "^5.2.0",
     "@fortawesome/vue-fontawesome": "^0.1.0",
-    "@nuxtjs/google-analytics": "^2.0.2",
-    "@nuxtjs/pwa": "^2.0.8",
-    "@nuxtjs/sitemap": "~0.1.0",
-    "babel-plugin-transform-imports": "^1.5.0",
-    "crawler-user-agents": "0.0.1",
+    "@mdi/svg": "^2.6.95",
     "cross-env": "^5.0.1",
     "es6-promise": "^4.2.4",
-    "eslint-loader": "^2.0.0",
-    "github-markdown-css": "^2.10.0",
-    "marked": "^0.4.0",
     "material-icons": "^0.2.1",
-    "nuxt-edge": "latest",
-    "nuxt-fontawesome": "^0.3.0",
-    "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.1",
-    "vue-recaptcha": "^1.1.0",
-    "vuetify": "^1.2.0-beta.2",
-    "vuetify-loader": "^0.2.0"
+    "vue-mdc-adapter": "^0.18.2",
+    "vue-recaptcha": "^1.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
     "cp": "^0.2.0",
     "eslint": "^4.15.0",
     "eslint-plugin-vue": "^4.0.0",
-    "lint-staged": "^7.0.4",
     "husky": "^0.14.3",
     "imagemin-lint-staged": "^0.3.0",
-    "prettier": "^1.12.0"
+    "lint-staged": "^7.0.4",
+    "node-sass": "^4.9.3",
+    "prettier": "^1.12.0",
+    "sass-loader": "^7.1.0",
+    "vue-svg-inline-loader": "^1.0.7",
+    "vuepress": "^0.14.2",
+    "vuepress-theme-bulma": "^1.0.6"
   }
 }

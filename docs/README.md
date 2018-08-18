@@ -1,0 +1,33 @@
+---
+home: true
+heroImage: /images/dirgahayu.jpg
+carousel: []
+features:
+  - title: Mesin Produksi
+    icon: fas industry
+  - title: Spare-part Industri
+    icon: fas cogs
+  - title: Alat Kerja Pabrik
+    icon: fas dolly-flatbed
+  - title: Sarana Pabrik
+    icon: fas boxes
+  - title: Construction & Civil
+    icon: fas people-carry
+  - title: Mechanical Electrical
+    icon: fas bolt
+  - title: Technical Supplier
+    icon: fas diagnoses
+sponsor:
+  - title: Kemenkop
+    image: /images/kemenkop.jpg
+  - title: Kemenristekdikti
+    image: /images/kemenristekdikti.png
+  - title: bp2d
+    image: /images/bp2d.png
+  - title: perindustrian
+    image: /images/perindustrian.png
+  - title: Kab. Karawang
+    image: /images/karawangkab.png
+  - title: Jawa Barat
+    image: /images/jabar.png
+---
