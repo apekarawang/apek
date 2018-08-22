@@ -34,6 +34,12 @@ module.exports = {
     navTitle: false,
     logo: '/logo/logo-only.png',
     docsDir: 'docs',
+    serviceWorker: {
+      updatePopup: {
+        message: "New content is available.",
+        buttonText: "Refresh"
+      }
+    },
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Members', link: '/members/' },
