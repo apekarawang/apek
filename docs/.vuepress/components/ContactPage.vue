@@ -139,7 +139,7 @@ export default {
     VSnackbar,
     VueRecaptcha,
   },
-  beforeMount() {
+  mounted() {
     const recaptcha = document.createElement('script');
     recaptcha.setAttribute(
       'src',
