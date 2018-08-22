@@ -29,6 +29,7 @@ module.exports = {
   ],
   themeConfig: {
     serviceWorker: true,
+    navTitle: false,
     logo: '/logo/logo-only.png',
     docsDir: 'docs',
     nav: [
