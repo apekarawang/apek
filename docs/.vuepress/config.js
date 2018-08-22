@@ -1,3 +1,6 @@
+const path = require('path')
+const _ = require('lodash')
+
 module.exports = {
   title: 'APEK',
   description: 'Asosiasi Pengusaha Engineering Karawang',
@@ -20,7 +23,15 @@ module.exports = {
       { text: 'Contact', link: '/contact/' },
     ]
   },
-  chainWebpack: config => {
-    //
+  markdown: {
+    anchor: { permalink: false, permalinkBefore: true, permalinkSymbol: '#' }
+  },
+  configureWebpack: {
+    resolve: {
+      alias: {
+        '@vuetify': path.resolve(__dirname, '..', '..', 'node_modules', 'vuetify'),
+        '@docs': path.resolve(__dirname)
+      }
+    }
   },
 }

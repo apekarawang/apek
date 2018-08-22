@@ -5,7 +5,7 @@
       <v-data-iterator
         :items="posts"
       >
-        <template  slot="item" slot-scope="props">
+        <template slot="item" slot-scope="props">
           <v-list-tile avatar :to="props.item._path">
             <v-list-tile-avatar>
               <img :src="props.item.thumbnail">

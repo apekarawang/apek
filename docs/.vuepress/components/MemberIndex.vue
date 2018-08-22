@@ -1,5 +1,77 @@
 <template>
-  <div>
+  <v-container
+    grid-list-md
+  >
+    <v-text-field
+        append-icon="search"
+        autofocus
+        label="Search"
+        single-line
+        hide-details
+        v-model="search"
+        class="mb-3"
+    />
+
+    <v-data-iterator
+      :search="search"
+      :items="members"
+      item-key="title"
+      content-tag="v-layout"
+      :rows-per-page-items="rowsPerPageItems"
+      :pagination.sync="pagination"
+      row
+      wrap
+    >
+      <v-flex
+        slot="item"
+        slot-scope="props"
+        sm12
+        md6
+      >
+        <v-card tile ripple :to="props.item.path" hover>
+          <v-card-title>
+            <h4>
+              {{ props.item.title }}
+            </h4>
+          </v-card-title>
+          <v-divider />
+          <v-list dense>
+            <v-list-tile>
+              <v-list-tile-action>
+                <v-icon>star</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>{{ props.item.frontmatter.business.join(', ') }}</v-list-tile-content>
+            </v-list-tile>
+            <v-list-tile>
+              <v-list-tile-action>
+                <v-icon>home</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>{{ props.item.frontmatter.address }}</v-list-tile-content>
+            </v-list-tile>
+            <v-list-tile>
+              <v-list-tile-action>
+                <v-icon>email</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>{{ props.item.frontmatter.email.join(', ') }}</v-list-tile-content>
+            </v-list-tile>
+            <v-list-tile>
+              <v-list-tile-action>
+                <v-icon>phone</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>{{ props.item.frontmatter.phone.join(', ') }}</v-list-tile-content>
+            </v-list-tile>
+            <v-list-tile>
+              <v-list-tile-action>
+                <v-icon>print</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>{{ props.item.frontmatter.fax && props.item.frontmatter.fax.join() || '-' }}</v-list-tile-content>
+            </v-list-tile>
+          </v-list>
+        </v-card>
+      </v-flex>
+    </v-data-iterator>
+  </v-container>
+  <!-- <div>
     <div v-for="post in posts">
       <h2>
           <router-link :to="post.path">{{ post.frontmatter.title }}</router-link>
@@ -23,27 +95,32 @@
           {{ name }}
         </li>
       </ul>
-      <!-- <p>{{ post.excerpt }}</p> -->
+
       <div v-html="post.excerpt" @click="$router.push(post.path)" style="cursor: pointer"></div>
 
       <p><router-link :to="post.path">Read more</router-link></p>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
+import VDataIterator from '@vuetify/es5/components/VDataIterator';
+import VTextField from '@vuetify/es5/components/VTextField';
+
 export default {
-  props: {
-    cat: {
-      type: String,
-      default: 'blog',
+  components: {
+    VDataIterator,
+    VTextField,
+  },
+  data: () => ({
+    search: '',
+    rowsPerPageItems: [{ text: 'All', value: -1 }, 2, 4, 8, 16, 20],
+    pagination: {
+      rowsPerPage: 4,
     },
-  },
-  mounted() {
-    // console.log(this.$site.pages);
-  },
+  }),
   computed: {
-    posts() {
+    members() {
       return this.$site.pages
         .filter(x => x.path.startsWith(`/members/`) && !x.frontmatter.index)
         .sort(

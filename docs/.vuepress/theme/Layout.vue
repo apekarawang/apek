@@ -1,21 +1,50 @@
 <template>
-  <div
-    class="theme-container"
+  <v-app
     :class="pageClasses"
-    @touchstart="onTouchStart"
-    @touchend="onTouchEnd"
   >
-    <Navbar
+    <!--<Navbar
       v-if="shouldShowNavbar"
       @toggle-sidebar="toggleSidebar"
-    />
+    />-->
+    <v-toolbar app clipped-left clipped-right>
 
-    <div
+      <router-link
+        :to="$localePath"
+        class="d-flex"
+      >
+        <img
+          class="logo"
+          v-if="$site.themeConfig.logo"
+          :src="$withBase($site.themeConfig.logo)"
+          :alt="$siteTitle"
+          height="24px"
+        >
+      </router-link>
+
+      <v-toolbar-title
+        ref="siteName"
+        class="pb-1 hidden-xs-only"
+        v-if="$siteTitle && $site.themeConfig.navTitle !== false"
+      >{{ $siteTitle }}
+      </v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      <NavLinks class="hidden-xs-only"/>
+
+      <v-toolbar-side-icon @click.stop="drawer = !drawer" class="hidden-sm-and-up"/>
+
+    </v-toolbar>
+
+    <v-navigation-drawer app clipped right temporary v-model="drawer">
+      <NavLinks side />
+    </v-navigation-drawer>
+    <!--<div
       class="sidebar-mask"
       @click="toggleSidebar(false)"
-    ></div>
+    ></div>-->
 
-    <Sidebar
+    <!--<Sidebar
       :items="sidebarItems"
       @toggle-sidebar="toggleSidebar"
     >
@@ -27,33 +56,35 @@
         name="sidebar-bottom"
         slot="bottom"
       />
-    </Sidebar>
+    </Sidebar>-->
 
-    <div
-      class="custom-layout"
-      v-if="$page.frontmatter.layout"
-    >
-      <component :is="$page.frontmatter.layout"/>
-    </div>
+    <v-content>
+      <div
+        class="custom-layout"
+        v-if="$page.frontmatter.layout"
+      >
+        <component :is="$page.frontmatter.layout"/>
+      </div>
 
-    <Home v-else-if="$page.frontmatter.home"/>
+      <Home v-else-if="$page.frontmatter.home"/>
 
-    <Page
-      v-else
-      :sidebar-items="sidebarItems"
-    >
-      <slot
-        name="page-top"
-        slot="top"
-      />
-      <slot
-        name="page-bottom"
-        slot="bottom"
-      />
-    </Page>
+      <Page
+        v-else
+        :sidebar-items="sidebarItems"
+      >
+        <slot
+          name="page-top"
+          slot="top"
+        />
+        <slot
+          name="page-bottom"
+          slot="bottom"
+        />
+      </Page>
 
-    <SWUpdatePopup :updateEvent="swUpdateEvent"/>
-  </div>
+      <SWUpdatePopup :updateEvent="swUpdateEvent"/>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
@@ -65,12 +96,14 @@ import Page from './Page.vue';
 import Sidebar from './Sidebar.vue';
 import SWUpdatePopup from './SWUpdatePopup.vue';
 import { resolveSidebarItems } from './util';
+import NavLinks from './NavLinks';
 
 export default {
-  components: { Home, Page, Sidebar, Navbar, SWUpdatePopup },
+  components: { Home, Page, Sidebar, Navbar, NavLinks, SWUpdatePopup },
 
   data() {
     return {
+      drawer: false,
       isSidebarOpen: false,
       swUpdateEvent: null,
     };
@@ -115,9 +148,9 @@ export default {
       const userPageClass = this.$page.frontmatter.pageClass;
       return [
         {
-          'no-navbar': !this.shouldShowNavbar,
-          'sidebar-open': this.isSidebarOpen,
-          'no-sidebar': !this.shouldShowSidebar,
+          // 'no-navbar': !this.shouldShowNavbar,
+          // 'sidebar-open': this.isSidebarOpen,
+          // 'no-sidebar': !this.shouldShowSidebar,
         },
         userPageClass,
       ];
@@ -146,29 +179,29 @@ export default {
   },
 
   methods: {
-    toggleSidebar(to) {
-      this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen;
-    },
+    // toggleSidebar(to) {
+    //   this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
+    // },
 
     // side swipe
-    onTouchStart(e) {
-      this.touchStart = {
-        x: e.changedTouches[0].clientX,
-        y: e.changedTouches[0].clientY,
-      };
-    },
+    // onTouchStart(e) {
+    //   this.touchStart = {
+    //     x: e.changedTouches[0].clientX,
+    //     y: e.changedTouches[0].clientY,
+    //   }
+    // },
 
-    onTouchEnd(e) {
-      const dx = e.changedTouches[0].clientX - this.touchStart.x;
-      const dy = e.changedTouches[0].clientY - this.touchStart.y;
-      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
-        if (dx > 0 && this.touchStart.x <= 80) {
-          this.toggleSidebar(true);
-        } else {
-          this.toggleSidebar(false);
-        }
-      }
-    },
+    // onTouchEnd(e) {
+    //   const dx = e.changedTouches[0].clientX - this.touchStart.x
+    //   const dy = e.changedTouches[0].clientY - this.touchStart.y
+    //   if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+    //     if (dx > 0 && this.touchStart.x <= 80) {
+    //       this.toggleSidebar(true)
+    //     } else {
+    //       this.toggleSidebar(false)
+    //     }
+    //   }
+    // },
 
     onSWUpdated(e) {
       this.swUpdateEvent = e;
@@ -179,4 +212,4 @@ export default {
 
 <style src="prismjs/themes/prism-tomorrow.css">
 </style>
-<style src="./styles/theme.styl" lang="stylus"></style>
+<style src="@vuetify/src/stylus/app.styl" lang="stylus"></style>

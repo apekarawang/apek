@@ -1,36 +1,65 @@
 <template>
-  <nav
-    class="nav-links"
+  <component
+    :is="side ? 'v-list' : 'v-toolbar-items'"
     v-if="userLinks.length || repoLink"
   >
     <!-- user links -->
-    <div
-      class="nav-item"
+    <template
       v-for="item in userLinks"
-      :key="item.link"
     >
-      <DropdownLink
+
+      <template
         v-if="item.type === 'links'"
-        :item="item"
-      />
+      >
+        <v-list-group v-if="side">
+          <v-list-tile slot="activator">
+            <v-list-tile-content>
+              <v-list-tile-title>
+                {{item.text}}
+              </v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+          <NavLink v-for="x in item.items" :item="x" side :key="x.link" />
+        </v-list-group>
+        <DropdownLink
+          v-else
+          :item="item"
+          :key="item.link"
+        />
+      </template>
       <NavLink
         v-else
+        :side="side"
         :item="item"
+        :key="item.link"
       />
-    </div>
+    </template>
 
     <!-- repo link -->
-    <a
+    <component
+      :is="side ? 'v-list-tile' : 'v-btn'"
+      flat
       v-if="repoLink"
       :href="repoLink"
       class="repo-link"
       target="_blank"
       rel="noopener noreferrer"
     >
-      {{ repoLabel }}
-      <OutboundLink/>
-    </a>
-  </nav>
+      <template v-if="side">
+        <v-list-tile-content>
+          <v-list-tile-title>{{repoLabel}}</v-list-tile-title>
+        </v-list-tile-content>
+        <v-list-tile-action>
+          <v-icon small>call_missed_outgoing</v-icon>
+        </v-list-tile-action>
+      </template>
+      <template v-else>
+        {{ repoLabel }}
+        <v-icon small>call_missed_outgoing</v-icon>
+      </template>
+
+    </component>
+  </component>
 </template>
 
 <script>
@@ -39,6 +68,13 @@ import { resolveNavLinkItem } from './util';
 import NavLink from './NavLink.vue';
 
 export default {
+  props: {
+    side: {
+      type: Boolean,
+      default: false,
+    },
+  },
+
   components: { NavLink, DropdownLink },
 
   computed: {
@@ -115,36 +151,37 @@ export default {
 </script>
 
 <style lang="stylus">
-@import './styles/config.styl'
+  @import './styles/config.styl'
 
-.nav-links
-  display inline-block
-  a
-    line-height 1.4rem
-    color inherit
-    &:hover, &.router-link-active
-      color $accentColor
-  .nav-item
-    position relative
-    display inline-block
-    margin-left 1.5rem
-    line-height 2rem
-    &:first-child
-      margin-left 0
-  .repo-link
-    margin-left 1.5rem
-
-@media (max-width: $MQMobile)
   .nav-links
-    .nav-item, .repo-link
-      margin-left 0
+    display inline-block
+    a
+      line-height 1.4rem
+      color inherit
+      &:hover, &.router-link-active
+        color $accentColor
+    .nav-item
+      position relative
+      display inline-block
+      margin-left 1.5rem
+      line-height 2rem
+      &:first-child
+        margin-left 0
+    .repo-link
+      margin-left 1.5rem
 
-@media (min-width: $MQMobile)
-  .nav-links a
-    &:hover, &.router-link-active
-      color $textColor
-  .nav-item > a:not(.external)
-    &:hover, &.router-link-active
-      margin-bottom -2px
-      border-bottom 2px solid lighten($accentColor, 8%)
+  @media (max-width: $MQMobile)
+    .nav-links
+      .nav-item, .repo-link
+        margin-left 0
+
+  @media (min-width: $MQMobile)
+    .nav-links a
+      &:hover, &.router-link-active
+        color $textColor
+
+    .nav-item > a:not(.external)
+      &:hover, &.router-link-active
+        margin-bottom -2px
+        border-bottom 2px solid lighten($accentColor, 8%)
 </style>

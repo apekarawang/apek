@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <v-container>
     <slot name="top"/>
 
     <Content :custom="false"/>
@@ -58,7 +58,7 @@
     </div>
 
     <slot name="bottom"/>
-  </div>
+  </v-container>
 </template>
 
 <script>
