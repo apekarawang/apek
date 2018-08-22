@@ -11,15 +11,17 @@
       />
     </v-container>
 
-    <v-container
-      v-if="$page.frontmatter.carousel && $page.frontmatter.carousel.length > 0"
-      fluid
-      class="px-0 py-0"
-    >
-      <v-carousel lazy :hide-controls="$page.frontmatter.carousel.length < 2" :hide-delimiters="$page.frontmatter.carousel.length < 2">
-        <v-carousel-item v-for="(item, i) in $page.frontmatter.carousel" :src="item.image" :key="i"></v-carousel-item>
-      </v-carousel>
-    </v-container>
+    <ClientOnly>
+      <v-container
+        v-if="$page.frontmatter.carousel && $page.frontmatter.carousel.length > 0"
+        fluid
+        class="px-0 py-0"
+      >
+        <v-carousel lazy :hide-controls="$page.frontmatter.carousel.length < 2" :hide-delimiters="$page.frontmatter.carousel.length < 2">
+          <v-carousel-item v-for="(item, i) in $page.frontmatter.carousel" :src="item.image" :key="i"></v-carousel-item>
+        </v-carousel>
+      </v-container>
+    </ClientOnly>
 
     <div
       v-if="$page.frontmatter.business"
