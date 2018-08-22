@@ -4,7 +4,6 @@ const _ = require('lodash')
 module.exports = {
   title: 'APEK',
   description: 'Asosiasi Pengusaha Engineering Karawang',
-  evergreen: true,
   serviceWorker: true,
   head: [
     ['link', {rel: "apple-touch-icon", sizes:"180x180", href: "/apple-touch-icon.png"}],
