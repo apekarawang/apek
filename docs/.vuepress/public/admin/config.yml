@@ -93,7 +93,7 @@ collections:
         file: docs/contact/README.md
         fields:
           - { name: title, label: Title, widget: string }
-          - { name: intro, label: Intro, widget: markdown }
+          - { name: subtitle, label: Subtitle, widget: text }
           - { name: address, label: Address, widget: string }
           - { name: address2, label: Address 2, widget: string }
           - { name: email, label: Email, widget: list }

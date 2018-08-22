@@ -1,7 +1,7 @@
 ---
 layout: PageLayout
 title: Contact Us
-intro: >-
+subtitle: >-
   Please use the message form or one of our contacts below in order to get in
   touch with us.
 address: 'Jl. Bypass Jomin, Jomin Barat'
