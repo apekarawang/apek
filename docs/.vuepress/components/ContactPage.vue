@@ -56,13 +56,13 @@
             />
 
             <v-layout row grid-list-md align-center justify-space-between class="mt-3">
-              <vue-recaptcha
+              <!-- <vue-recaptcha
                 sitekey="6LeN308UAAAAAPSx9gSXVD2HxgV4s3S0rqxhC8PG"
                 ref="invisibleRecaptcha"
                 @verify="onVerify"
                 size="invisible"
                 badge="inline"
-              />
+              /> -->
               <v-btn
                 color="secondary"
                 type="submit"
@@ -127,14 +127,14 @@
 import VForm from '@vuetify/es5/components/VForm';
 import VTextField from '@vuetify/es5/components/VTextField';
 import VTextarea from '@vuetify/es5/components/VTextarea';
-import VueRecaptcha from 'vue-recaptcha';
+// import VueRecaptcha from 'vue-recaptcha';
 import { encode } from '@docs/utils';
 export default {
   components: {
     VForm,
     VTextField,
     VTextarea,
-    VueRecaptcha,
+    // VueRecaptcha,
   },
   data: () => ({
     snackbar: false,
@@ -175,12 +175,17 @@ export default {
         );
     },
     resetRecaptcha() {
-      this.$refs.recaptcha.reset(); // Direct call reset method
+      // this.$refs.recaptcha.reset(); // Direct call reset method
     },
     send() {
       if (this.$refs.contact.validate()) {
-        this.$refs.invisibleRecaptcha.execute();
+        this.onVerify(Math.random());
+        // this.$refs.invisibleRecaptcha.execute();
       }
+    },
+    clear() {
+      this.$refs.contact.reset();
+      this.snackbar = false;
     },
   },
 };
