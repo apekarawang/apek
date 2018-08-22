@@ -91,7 +91,7 @@
             </v-list-tile>
             <v-list-tile>
               <v-list-tile-action>
-                <v-icon>printer</v-icon>
+                <v-icon>print</v-icon>
               </v-list-tile-action>
               <v-list-tile-content v-text="$page.frontmatter.fax.join(', ')" />
             </v-list-tile>
