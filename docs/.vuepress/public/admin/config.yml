@@ -105,7 +105,6 @@ collections:
             fields:
               - { name: vendor, label: Vendor, widget: string }
               - { name: url, label: URL, widget: string }
-              - { name: icon, label: Icon, widget: fontawesome-brands }
               - { name: color, label: Color, widget: color }
 
   - name: activity
@@ -115,6 +114,10 @@ collections:
     create: true
     slug: "{{slug}}"
     fields: # The fields for each document, usually in front matter
+      - label: "Layout"
+        name: "layout"
+        widget: "hidden"
+        default: "PostLayout"
       - { label: Title, name: title, widget: string }
       - { label: Publish Date, name: date, widget: date }
       - {
@@ -132,6 +135,10 @@ collections:
     create: true
     slug: "{{slug}}"
     fields: # The fields for each document, usually in front matter
+      - label: "Layout"
+        name: "layout"
+        widget: "hidden"
+        default: "PostLayout"
       - { label: Title, name: title, widget: string }
       - { label: Publish Date, name: date, widget: date }
       - {
@@ -149,6 +156,10 @@ collections:
     create: true
     slug: "{{slug}}"
     fields: # The fields for each document, usually in front matter
+      - label: "Layout"
+        name: "layout"
+        widget: "hidden"
+        default: "PostLayout"
       - { label: Title, name: title, widget: string }
       - { label: Publish Date, name: date, widget: date }
       - {
