@@ -140,12 +140,14 @@ export default {
     VueRecaptcha,
   },
   mounted() {
-    const recaptcha = document.createElement('script');
-    recaptcha.setAttribute(
-      'src',
-      'https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit'
-    );
-    document.body.appendChild(recaptcha);
+    if (typeof window !== 'undefined') {
+      const recaptcha = window.document.createElement('script');
+      recaptcha.setAttribute(
+        'src',
+        'https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit'
+      );
+      window.document.body.appendChild(recaptcha);
+    }
   },
   data: () => ({
     snackbar: false,

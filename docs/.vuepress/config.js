@@ -16,14 +16,6 @@ module.exports = {
     ['meta', {name: "application-name", content: "APEK"}],
     ['meta', {name: "msapplication-TileColor", content: "#2d89ef"}],
     ['meta', {name: "theme-color", content: "#ffffff"}],
-    [
-      'link',
-      {
-        rel: 'prefetch',
-        href: 'https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit',
-        as: 'script'
-      },
-    ]
   ],
   themeConfig: {
     logo: '/logo/logo-only.png',
