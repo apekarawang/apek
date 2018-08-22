@@ -3,7 +3,7 @@ layout: BlankLayout
 cover: /images/dirgahayu.jpg
 carousel: [
   {
-    image: /images/atom.jpg
+    image: /images/ioi-mai.jpeg
   },
   {
     image: /images/cover-andri.jpg
