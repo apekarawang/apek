@@ -9,6 +9,7 @@ import VGrid from '@vuetify/es5/components/VGrid'
 import VList from '@vuetify/es5/components/VList'
 import VBtn from '@vuetify/es5/components/VBtn'
 import VIcon from '@vuetify/es5/components/VIcon'
+import VSnackbar from '@vuetify/es5/components/VSnackbar'
 import VDivider from '@vuetify/es5/components/VDivider'
 import transitions from '@vuetify/es5/components/transitions'
 import directives from '@vuetify/es5/directives'
@@ -30,6 +31,7 @@ export default ({
       VList,
       VBtn,
       VIcon,
+      VSnackbar,
       VDivider,
       transitions,
     },
