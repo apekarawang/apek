@@ -1,8 +1,6 @@
-[install]
-  command = "npm ci"
 [build]
-  publish = "dist"
-  command = "npm run generate"
+  publish = "docs/.vuepress/dist"
+  command = "npm run build"
 [build.environment]
   NODE_VERSION = "8"
   NPM_VERSION = "6.3.0"

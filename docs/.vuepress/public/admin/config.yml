@@ -1,16 +1,16 @@
 backend:
   name: git-gateway
-  branch: stage
+  branch: press
   squash_merges: true
   commit_messages:
-    create: 'chore(cms): create {{collection}} {{slug}}'
-    update: 'chore(cms): update {{collection}} {{slug}}'
-    delete: 'chore(cms): delete {{collection}} {{slug}}'
-    uploadMedia: 'chore(cms): upload {{path}}'
-    deleteMedia: 'chore(cms): delete {{path}}'
+    create: "chore(cms): create {{collection}} {{slug}}"
+    update: "chore(cms): update {{collection}} {{slug}}"
+    delete: "chore(cms): delete {{collection}} {{slug}}"
+    uploadMedia: "chore(cms): upload {{path}}"
+    deleteMedia: "chore(cms): delete {{path}}"
 publish_mode: editorial_workflow
-display_url: https://stage.apek.or.id
-media_folder: static/images # Media files will be stored in the repo under static/images
+display_url: https://press.apek.or.id
+media_folder: docs/.vuepress/public/images # Media files will be stored in the repo under static/images
 public_folder: /images # The src attribute for uploaded media will begin with /images
 collections:
   - name: setting
@@ -21,27 +21,31 @@ collections:
     files:
       - name: advanced
         label: Advanced Settings
-        file: content/data/settings.json
+        file: docs/.vuepress/config.yaml
         fields:
           - name: menu
             label: Menu
             widget: list
             fields:
-              - {name: text, label: Title, widget: string, required: true}
-              - {name: show, label: Show, widget: boolean, default: true}
-              - {name: to, label: Path, widget: string, required: true}
-              - {name: icon, label: Icon, widget: material-icons}
-              - {name: icon-alt, label: Alternative Icon, widget: material-icons}
-              - {name: model, label: Expanded, widget: boolean}
-              - {name: exact, label: Exact Path, widget: boolean}
+              - { name: text, label: Title, widget: string, required: true }
+              - { name: show, label: Show, widget: boolean, default: true }
+              - { name: to, label: Path, widget: string, required: true }
+              - { name: icon, label: Icon, widget: material-icons }
+              - {
+                  name: icon-alt,
+                  label: Alternative Icon,
+                  widget: material-icons,
+                }
+              - { name: model, label: Expanded, widget: boolean }
+              - { name: exact, label: Exact Path, widget: boolean }
               - name: children
                 label: Children
                 widget: list
                 fields:
-                  - {name: text, label: Title, widget: string, required: true}
-                  - {name: to, label: Path, widget: string, required: true}
-                  - {name: icon, label: Icon, widget: material-icons}
-                  - {name: exact, label: Exact Path, widget: boolean}
+                  - { name: text, label: Title, widget: string, required: true }
+                  - { name: to, label: Path, widget: string, required: true }
+                  - { name: icon, label: Icon, widget: material-icons }
+                  - { name: exact, label: Exact Path, widget: boolean }
 
   - name: page
     label: Page
@@ -51,7 +55,7 @@ collections:
     files:
       - name: home
         label: Home
-        file: content/pages/home.json
+        file: docs/README.md
         fields:
           - name: cover
             label: Cover
@@ -61,87 +65,99 @@ collections:
             label: Carousel
             widget: list
             fields:
-              - {label: Image, name: image, widget: image}
+              - { label: Image, name: image, widget: image }
 
           - name: business
             label: Business Fields
             widget: list
             fields:
-              - {label: Title, name: title, widget: string}
-              - {label: Icon, name: icon, widget: fontawesome-solid}
+              - { label: Title, name: title, widget: string }
+              - { label: Icon, name: icon, widget: material-icons }
 
           - name: sponsor
             label: Sponsors
             widget: list
             fields:
-              - {label: Title, name: title, widget: string}
-              - {label: Image, name: image, widget: image}
+              - { label: Title, name: title, widget: string }
+              - { label: Image, name: image, widget: image }
 
       - name: about
         label: About
-        file: content/pages/about.json
+        file: docs/about/README.md
         fields:
-          - {name: title, label: Title, widget: string, required: true}
-          - {name: body, label: Body, widget: markdown}
+          - { name: title, label: Title, widget: string, required: true }
+          - { name: body, label: Body, widget: markdown }
 
       - name: contact
         label: Contact
-        file: content/pages/contact.json
+        file: docs/contact/README.md
         fields:
-          - {name: title, label: Title, widget: string}
-          - {name: intro, label: Intro, widget: markdown}
-          - {name: address, label: Address, widget: string}
-          - {name: address2, label: Address 2, widget: string}
-          - {name: email, label: Email, widget: list}
-          - {name: phone, label: Phone, widget: list}
-          - {name: fax, label: Fax, widget: list}
+          - { name: title, label: Title, widget: string }
+          - { name: intro, label: Intro, widget: markdown }
+          - { name: address, label: Address, widget: string }
+          - { name: address2, label: Address 2, widget: string }
+          - { name: email, label: Email, widget: list }
+          - { name: phone, label: Phone, widget: list }
+          - { name: fax, label: Fax, widget: list }
           - name: social
             label: Social
             widget: list
             fields:
-              - {name: vendor, label: Vendor, widget: string}
-              - {name: url, label: URL, widget: string}
-              - {name: icon, label: Icon, widget: fontawesome-brands}
-              - {name: color, label: Color, widget: color}
+              - { name: vendor, label: Vendor, widget: string }
+              - { name: url, label: URL, widget: string }
+              - { name: icon, label: Icon, widget: fontawesome-brands }
+              - { name: color, label: Color, widget: color }
 
   - name: activity
     label: Activities
     label_singular: Activity
-    folder: content/blog/posts/activities
+    folder: blog/activities
     create: true
     slug: "{{slug}}"
-    format: 'json'
     fields: # The fields for each document, usually in front matter
-      - {label: Title, name: title, widget: string}
-      - {label: Publish Date, name: date, widget: date}
-      - {label: Featured Image, name: thumbnail, widget: image, required: false}
-      - {label: Body, name: body, widget: markdown}
+      - { label: Title, name: title, widget: string }
+      - { label: Publish Date, name: date, widget: date }
+      - {
+          label: Featured Image,
+          name: thumbnail,
+          widget: image,
+          required: false,
+        }
+      - { label: Body, name: body, widget: markdown }
 
   - name: announcement
     label: Announcements
     label_singular: Announcement
-    folder: content/blog/posts/announcements
+    folder: blog/announcements
     create: true
     slug: "{{slug}}"
-    format: 'json'
     fields: # The fields for each document, usually in front matter
-      - {label: Title, name: title, widget: string}
-      - {label: Publish Date, name: date, widget: date}
-      - {label: Featured Image, name: thumbnail, widget: image, required: false}
-      - {label: Body, name: body, widget: markdown}
+      - { label: Title, name: title, widget: string }
+      - { label: Publish Date, name: date, widget: date }
+      - {
+          label: Featured Image,
+          name: thumbnail,
+          widget: image,
+          required: false,
+        }
+      - { label: Body, name: body, widget: markdown }
 
   - name: technology
     label: Technologies
     label_singular: Technology
-    folder: content/blog/posts/technologies
+    folder: blog/technologies
     create: true
     slug: "{{slug}}"
-    format: 'json'
     fields: # The fields for each document, usually in front matter
-      - {label: Title, name: title, widget: string}
-      - {label: Publish Date, name: date, widget: date}
-      - {label: Featured Image, name: thumbnail, widget: image, required: false}
-      - {label: Body, name: body, widget: markdown}
+      - { label: Title, name: title, widget: string }
+      - { label: Publish Date, name: date, widget: date }
+      - {
+          label: Featured Image,
+          name: thumbnail,
+          widget: image,
+          required: false,
+        }
+      - { label: Body, name: body, widget: markdown }
 
   - name: member
     label: Member
@@ -150,22 +166,31 @@ collections:
     editor:
       preview: false
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    format: 'json'
     fields:
-      - {label: Company, name: title, widget: string}
-      - {label: Address, name: address, widget: string}
-      - {label: Businness, name: business, widget: list, required: false}
-      - {label: Email, name: email, widget: list, required: false}
-      - {label: Phone, name: phone, widget: list, required: false}
-      - {label: Fax, name: fax, widget: list, required: false}
-      - {label: Registered Date, name: registered, widget: date, required: false}
-      - {label: Tumbnail Image, name: thumbnail, widget: image, required: false}
+      - { label: Company, name: title, widget: string }
+      - { label: Address, name: address, widget: string }
+      - { label: Businness, name: business, widget: list, required: false }
+      - { label: Email, name: email, widget: list, required: false }
+      - { label: Phone, name: phone, widget: list, required: false }
+      - { label: Fax, name: fax, widget: list, required: false }
+      - {
+          label: Registered Date,
+          name: registered,
+          widget: date,
+          required: false,
+        }
+      - {
+          label: Tumbnail Image,
+          name: thumbnail,
+          widget: image,
+          required: false,
+        }
       - label: Products
         name: products
         widget: list
         required: false
         fields:
-          - {label: Name, name: name, widget: string}
-          - {label: Image, name: image, widget: image}
-          - {label: Description, name: description, widget: text}
-      - {label: Detail, name: detail, widget: markdown, required: false}
+          - { label: Name, name: name, widget: string }
+          - { label: Image, name: image, widget: image }
+          - { label: Description, name: description, widget: text }
+      - { label: Detail, name: detail, widget: markdown, required: false }
