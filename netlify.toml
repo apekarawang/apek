@@ -1,19 +1,18 @@
-[install]
-  command = "npm ci"
 [build]
-  publish = "dist"
-  command = "npm run generate"
+  publish = "docs/.vuepress/dist"
+  command = "yarn build"
 [build.environment]
   NODE_VERSION = "8"
   NPM_VERSION = "6.3.0"
+  YARN_VERSION = "1.9.4"
 
 [[redirects]]
-from = "https://apek-stage.netlify.com/*"
-to = "https://stage.apek.or.id/:splat"
+from = "https://apek.netlify.com/*"
+to = "https://apek.or.id/:splat"
 status = 301
 force = true
 [[redirects]]
-from = "http://apek-stage.netlify.com/*"
-to = "https://stage.apek.or.id/:splat"
+from = "http://apek.netlify.com/*"
+to = "https://apek.or.id/:splat"
 status = 301
 force = true

@@ -1,0 +1,22 @@
+@require './config'
+//@require './nprogress'
+//@require './code'
+//@require './custom-blocks'
+//@require './arrow'
+//@require './wrapper'
+//@require './toc'
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons')
+
+@require '~vuetify/src/stylus/app'
+
+// fix code background
+code
+  background-color transparent
+  box-shadow none
+
+.btn-nav-active
+  border-bottom 0.5px solid red;
+
+.header-anchor
+  text-decoration none

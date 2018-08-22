@@ -6,15 +6,9 @@ npm-debug.log
 npm-error.log
 yarn-error.log
 
-# Nuxt build
-.nuxt
-
-# Nuxt generate
+# generated files
 dist
 
-# Nuxt PWA
-sw.*
-
-# Nuxt sitemap
+# generated sitemap
 sitemap.xml
 sitemap.xml.gz
