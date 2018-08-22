@@ -2,7 +2,6 @@
   <v-toolbar-items>
     <v-menu
       bottom offset-y
-      :close-on-content-click="false"
       open-on-hover
     >
 
