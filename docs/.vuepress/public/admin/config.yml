@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: press
+  branch: master
   squash_merges: true
   commit_messages:
     create: "chore(cms): create {{collection}} {{slug}}"
@@ -9,7 +9,7 @@ backend:
     uploadMedia: "chore(cms): upload {{path}}"
     deleteMedia: "chore(cms): delete {{path}}"
 publish_mode: editorial_workflow
-display_url: https://press.apek.or.id
+display_url: https://apek.or.id
 media_folder: docs/.vuepress/public/images # Media files will be stored in the repo under static/images
 public_folder: /images # The src attribute for uploaded media will begin with /images
 collections:
