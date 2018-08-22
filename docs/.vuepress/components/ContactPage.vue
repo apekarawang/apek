@@ -124,7 +124,6 @@
 </template>
 
 <script>
-VForm, VTextField, VSnackbar, VTextarea;
 import VForm from '@vuetify/es5/components/VForm';
 import VTextField from '@vuetify/es5/components/VTextField';
 import VTextarea from '@vuetify/es5/components/VTextarea';
