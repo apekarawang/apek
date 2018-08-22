@@ -21,7 +21,6 @@ module.exports = {
   themeConfig: {
     navTitle: false,
     logo: '/logo/logo-only.png',
-    repo: 'apekarawang/apek',
     docsDir: 'docs',
     serviceWorker: {
       updatePopup: {
