@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link rel="preload" as="style" href="https://cdn.jsdelivr.net/combine/npm/react-select@1/dist/react-select.min.css,npm/react-virtualized@9/styles.min.css,npm/react-virtualized-select@3/styles.min.css">
-  <link rel="preload" as="script" href="https://cdn.jsdelivr.net/combine/npm/react@16/umd/react.production.min.js,npm/prop-types@15/prop-types.min.js,npm/netlify-cms@2,npm/@fortawesome/fontawesome-free@5,npm/@fortawesome/fontawesome-svg-core@1,npm/@fortawesome/free-solid-svg-icons@5,npm/@fortawesome/free-regular-svg-icons@5,npm/@fortawesome/free-brands-svg-icons@5,npm/@fortawesome/react-fontawesome,npm/react-virtualized-select@3/dist/umd/react-virtualized-select.js,npm/@pake/react-color@3/lib/umd/sketch.min.js,npm/netlify-cms-widget-color@3,npm/netlify-cms-widget-material-icons@3,npm/netlify-cms-widget-fontawesome">
+  <link rel="preload" as="script" href="https://cdn.jsdelivr.net/combine/npm/react@16/umd/react.production.min.js,npm/prop-types@15/prop-types.min.js,npm/netlify-cms@2,npm/react-virtualized-select@3/dist/umd/react-virtualized-select.js,npm/@pake/react-color@3/lib/umd/sketch.min.js,npm/netlify-cms-widget-color@3,npm/netlify-cms-widget-material-icons@3">
 
   <title>Content Manager</title>
 
@@ -24,7 +24,7 @@
 
 <body>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script src="https://cdn.jsdelivr.net/combine/npm/react@16/umd/react.production.min.js,npm/prop-types@15/prop-types.min.js,npm/netlify-cms@2,npm/@fortawesome/fontawesome-free@5,npm/@fortawesome/fontawesome-svg-core@1,npm/@fortawesome/free-solid-svg-icons@5,npm/@fortawesome/free-regular-svg-icons@5,npm/@fortawesome/free-brands-svg-icons@5,npm/@fortawesome/react-fontawesome,npm/react-virtualized-select@3/dist/umd/react-virtualized-select.js,npm/@pake/react-color@3/lib/umd/sketch.min.js,npm/netlify-cms-widget-color@3,npm/netlify-cms-widget-material-icons@3,npm/netlify-cms-widget-fontawesome"></script>
+  <script src="https://cdn.jsdelivr.net/combine/npm/react@16/umd/react.production.min.js,npm/prop-types@15/prop-types.min.js,npm/netlify-cms@2,npm/react-virtualized-select@3/dist/umd/react-virtualized-select.js,npm/@pake/react-color@3/lib/umd/sketch.min.js,npm/netlify-cms-widget-color@3,npm/netlify-cms-widget-material-icons@3"></script>
   <script>
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
@@ -36,8 +36,6 @@
       });
     }
 
-    CMS.registerWidget('fontawesome-solid', NetlifyCMSWidgetFontawesome.Solid)
-    CMS.registerWidget('fontawesome-brands', NetlifyCMSWidgetFontawesome.Brands)
     CMS.registerWidget('material-icons', NetlifyCMSWidgetMaterialIcons.Control)
     CMS.registerWidget('color', NetlifyCMSWidgetColor.Control)
   </script>
