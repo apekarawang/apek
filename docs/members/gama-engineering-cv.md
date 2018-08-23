@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'GAMA ENGINEERING, CV.'
 business:
   - General Supplier

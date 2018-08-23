@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'ALFIYASATAMA MAKMUR SEJATI, PT.'
 business:
   - Civil Engineering

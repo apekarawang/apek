@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'ALTA DINAMIKA, PT.'
 business:
   - Machining & Fabrication

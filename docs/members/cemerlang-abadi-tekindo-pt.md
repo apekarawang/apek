@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'CEMERLANG ABADI TEKINDO, PT.'
 business:
   - Mechanical & Automation System

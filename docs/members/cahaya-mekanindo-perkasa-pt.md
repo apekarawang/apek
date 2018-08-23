@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'CAHAYA MEKANINDO PERKASA, PT.'
 business:
   - Machining

@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'HARITSINDO PRIMA TEKNIK, PT.'
 business:
   - Machining & Fabrication

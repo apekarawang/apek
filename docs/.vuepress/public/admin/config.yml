@@ -111,13 +111,17 @@ collections:
     label: Activities
     label_singular: Activity
     folder: blog/activities
+    filter: {field: category, value: activity}
     create: true
     slug: "{{slug}}"
     fields: # The fields for each document, usually in front matter
-      - label: "Layout"
-        name: "layout"
-        widget: "hidden"
-        default: "PostLayout"
+      - {
+          label: "Layout",
+          name: "layout",
+          widget: "hidden",
+          default: "PostLayout",
+        }
+      - { label: Category, name: category, widget: hidden, default: activity }
       - { label: Title, name: title, widget: string }
       - { label: Publish Date, name: date, widget: date }
       - {
@@ -132,6 +136,7 @@ collections:
     label: Announcements
     label_singular: Announcement
     folder: blog/announcements
+    filter: {field: category, value: announcement}
     create: true
     slug: "{{slug}}"
     fields: # The fields for each document, usually in front matter
@@ -139,6 +144,7 @@ collections:
         name: "layout"
         widget: "hidden"
         default: "PostLayout"
+      - { label: Category, name: category, widget: hidden, default: announcement }
       - { label: Title, name: title, widget: string }
       - { label: Publish Date, name: date, widget: date }
       - {
@@ -153,6 +159,7 @@ collections:
     label: Technologies
     label_singular: Technology
     folder: blog/technologies
+    filter: {field: category, value: technology}
     create: true
     slug: "{{slug}}"
     fields: # The fields for each document, usually in front matter
@@ -160,6 +167,7 @@ collections:
         name: "layout"
         widget: "hidden"
         default: "PostLayout"
+      - { label: Category, name: category, widget: hidden, default: technology }
       - { label: Title, name: title, widget: string }
       - { label: Publish Date, name: date, widget: date }
       - {
@@ -172,12 +180,18 @@ collections:
 
   - name: member
     label: Member
-    folder: content/members # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
+    folder: docs/members
+    filter: {field: category, value: member}
+    create: true
     editor:
       preview: false
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields:
+      - label: "Layout"
+        name: "layout"
+        widget: "hidden"
+        default: "PostLayout"
+      - { label: Category, name: category, widget: hidden, default: member }
       - { label: Company, name: title, widget: string }
       - { label: Address, name: address, widget: string }
       - { label: Businness, name: business, widget: list, required: false }

@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'TRI KARYA ENGINEERING, CV.'
 business:
   - Mechanical & Electrical

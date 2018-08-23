@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'NAURA TEKNIK, CV.'
 business:
   - Fabrication & General Trading

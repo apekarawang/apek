@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'ADE TEKNIK UTAMA, CV.'
 business:
 - Egineering General Supplier

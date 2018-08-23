@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'DREIG PRATAMA INDONESIA, PT.'
 business:
   - Engineering Design Mechanical

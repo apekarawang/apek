@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'BINTANG MANDIRI PUTRA, PT.'
 business:
   - Air Conditioner System

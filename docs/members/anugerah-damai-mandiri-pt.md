@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'ANUGERAH DAMAI MANDIRI, PT.'
 business:
   - Fabrication & Construction

@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'TRIKARSA UPAYASA, PT.'
 business:
   - Machinning

@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'GENERAL DINAMIK, PT.'
 business:
   - Industrial Part

@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'JAVATECH EKA SEJAHTERA, CV.'
 business:
   - Mechanical Fabrication

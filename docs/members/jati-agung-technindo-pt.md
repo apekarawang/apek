@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'JATI AGUNG TECHNINDO, PT.'
 business:
   - Machining & Fabrication

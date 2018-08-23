@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'MEGUMI AGUNG INDONESIA, PT.'
 business:
   - Manufaktur

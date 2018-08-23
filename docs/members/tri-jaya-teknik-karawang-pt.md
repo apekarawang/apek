@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'TRI JAYA TEKNIK KARAWANG, PT.'
 address: 'Jl. Raya Alternatif Krajan II, Ds. Warung,Bambu, Karawang Timur 41373'
 business:

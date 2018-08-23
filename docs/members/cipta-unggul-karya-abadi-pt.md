@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'CIPTA UNGGUL KARYA ABADI, PT.'
 business:
   - Dies

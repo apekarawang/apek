@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'SURYA GEMILANG ENGINEERING, PT.'
 business:
   - Manufacturer

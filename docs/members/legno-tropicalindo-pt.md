@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'LEGNO TROPICALINDO, PT.'
 business:
   - General Contractor

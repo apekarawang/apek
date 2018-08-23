@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'BONDOMORO, PT.'
 business:
   - Fabrication & Mechanical

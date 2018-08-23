@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'CIPTA UTAMA MEKANIKA, PT.'
 business:
   - Engineering
