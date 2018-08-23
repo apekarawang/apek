@@ -30,4 +30,4 @@ social:
     icon: fab google-plus-g
     color: '#F44336'
 ---
-<ContactPage />
+<ContactPage v-bind="$page.frontmatter"/>
