@@ -79,21 +79,26 @@
             <v-list-tile>
               <v-list-tile-action>
                 <v-icon>email</v-icon>
-                <!-- <fa :icon="['fas', 'envelope']" size="lg"/> -->
               </v-list-tile-action>
-              <v-list-tile-content v-text="$page.frontmatter.email.join(', ')" />
+              <v-list-tile-content>
+                <v-list-tile-title v-text="$page.frontmatter.email.join(', ')" />
+              </v-list-tile-content>
             </v-list-tile>
             <v-list-tile>
               <v-list-tile-action>
                 <v-icon>phone</v-icon>
               </v-list-tile-action>
-              <v-list-tile-content v-text="$page.frontmatter.phone.join(', ')" />
+              <v-list-tile-content>
+                <v-list-tile-title v-text="$page.frontmatter.phone.join(', ')" />
+              </v-list-tile-content>
             </v-list-tile>
             <v-list-tile>
               <v-list-tile-action>
                 <v-icon>print</v-icon>
               </v-list-tile-action>
-              <v-list-tile-content v-text="$page.frontmatter.fax.join(', ')" />
+              <v-list-tile-content>
+                <v-list-tile-title v-text="$page.frontmatter.fax.join(', ')" />
+              </v-list-tile-content>
             </v-list-tile>
             <v-list-tile>
               <v-list-tile-action>
