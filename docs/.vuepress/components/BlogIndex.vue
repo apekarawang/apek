@@ -1,29 +1,53 @@
 <template>
-  <v-container grid-list-md>
-    <v-list three-line>
-      <v-data-iterator
-        :items="posts"
-        item-key="key"
+  <v-container fluid grid-list-md>
+    <v-data-iterator
+      :items="posts"
+      item-key="key"
+      :rows-per-page-items="rowsPerPageItems"
+      :pagination.sync="pagination"
+      content-tag="v-layout"
+      row
+      wrap
+    >
+      <v-flex
+        slot="item"
+        slot-scope="props"
+        md12
+        lg6
       >
-        <template slot="item" slot-scope="props">
-          <v-list-tile avatar :to="props.item.path">
-            <v-list-tile-avatar>
-              <img :src="props.item.frontmatter.thumbnail">
-            </v-list-tile-avatar>
-            <v-list-tile-content>
-              <v-list-tile-title v-html="props.item.frontmatter.title"></v-list-tile-title>
-              <v-list-tile-sub-title
-                v-html="props.item.frontmatter.description || props.item.excerpt || props.item.frontmatter.body" />
-            </v-list-tile-content>
-          </v-list-tile>
-        </template>
-      </v-data-iterator>
-    </v-list>
+        <v-card :to="props.item.path">
+          <v-layout>
+            <v-flex xs5>
+              <v-img
+                :src="props.item.frontmatter.thumbnail"
+                height="125px"
+                contain
+              ></v-img>
+            </v-flex>
+            <v-flex>
+              <v-card-title primary-title>
+                <div>
+                  <div class="headline">{{props.item.frontmatter.title}}</div>
+                  <div v-if="props.item.frontmatter.date">
+                    {{ new Date(props.item.frontmatter.date) | dateFormat('DD/MM/YYYY') }}
+                  </div>
+                </div>
+              </v-card-title>
+            </v-flex>
+          </v-layout>
+          <v-divider light></v-divider>
+          <v-card-text v-html="props.item.frontmatter.description || props.item.excerpt || props.item.frontmatter.body"></v-card-text>
+        </v-card>
+      </v-flex>
+    </v-data-iterator>
   </v-container>
 </template>
 
 <script>
 import VDataIterator from '@vuetify/es5/components/VDataIterator';
+import VImg from '@vuetify/es5/components/VImg';
+
+import { dateFormat } from '@docs/utils';
 
 export default {
   props: {
@@ -32,9 +56,19 @@ export default {
       default: 'blog',
     },
   },
+  filters: {
+    dateFormat,
+  },
   components: {
+    VImg,
     VDataIterator,
   },
+  data: () => ({
+    rowsPerPageItems: [{ text: 'All', value: -1 }, 2, 4, 8, 16, 20],
+    pagination: {
+      rowsPerPage: 4,
+    },
+  }),
   mounted() {
     // console.log(this.posts);
   },
@@ -45,6 +79,12 @@ export default {
         .sort(
           (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
         );
+    },
+  },
+  methods: {
+    formatDate(date) {
+      const d = new Date(date);
+      return [d.getDay(), d.getMonth(), d.getFullYear()].join('-');
     },
   },
 };

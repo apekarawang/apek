@@ -40,31 +40,51 @@
               <v-list-tile-action>
                 <v-icon>star</v-icon>
               </v-list-tile-action>
-              <v-list-tile-content>{{ props.item.frontmatter.business.join(', ') }}</v-list-tile-content>
+              <v-list-tile-content>
+                <v-list-tile-title>
+                  {{ props.item.frontmatter.business.join(', ') }}
+                </v-list-tile-title>
+              </v-list-tile-content>
             </v-list-tile>
             <v-list-tile>
               <v-list-tile-action>
                 <v-icon>home</v-icon>
               </v-list-tile-action>
-              <v-list-tile-content>{{ props.item.frontmatter.address }}</v-list-tile-content>
+              <v-list-tile-content>
+                <v-list-tile-title>
+                  {{ props.item.frontmatter.address }}
+                </v-list-tile-title>
+              </v-list-tile-content>
             </v-list-tile>
             <v-list-tile>
               <v-list-tile-action>
                 <v-icon>email</v-icon>
               </v-list-tile-action>
-              <v-list-tile-content>{{ props.item.frontmatter.email.join(', ') }}</v-list-tile-content>
+              <v-list-tile-content>
+                <v-list-tile-title>
+                  {{ props.item.frontmatter.email.join(', ') }}
+                </v-list-tile-title>
+              </v-list-tile-content>
             </v-list-tile>
             <v-list-tile>
               <v-list-tile-action>
                 <v-icon>phone</v-icon>
               </v-list-tile-action>
-              <v-list-tile-content>{{ props.item.frontmatter.phone.join(', ') }}</v-list-tile-content>
+              <v-list-tile-content>
+                <v-list-tile-title>
+                  {{ props.item.frontmatter.phone.join(', ') }}
+                </v-list-tile-title>
+              </v-list-tile-content>
             </v-list-tile>
             <v-list-tile>
               <v-list-tile-action>
                 <v-icon>print</v-icon>
               </v-list-tile-action>
-              <v-list-tile-content>{{ props.item.frontmatter.fax && props.item.frontmatter.fax.join() || '-' }}</v-list-tile-content>
+              <v-list-tile-content>
+                <v-list-tile-title>
+                  {{ props.item.frontmatter.fax && props.item.frontmatter.fax.join() || '-' }}
+                </v-list-tile-title>
+              </v-list-tile-content>
             </v-list-tile>
           </v-list>
         </v-card>
