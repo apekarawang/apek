@@ -26,7 +26,6 @@
               name="name"
               :rules="form.nameRules"
               v-model="form.name"
-              autofocus
               autocomplete="off"
               clearable
               flex

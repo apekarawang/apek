@@ -4,7 +4,6 @@
   >
     <v-text-field
         append-icon="search"
-        autofocus
         label="Search"
         single-line
         hide-details
