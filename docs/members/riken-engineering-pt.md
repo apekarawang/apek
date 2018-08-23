@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'RIKEN ENGINEERING, PT.'
 business:
   - Machining & Fabrication

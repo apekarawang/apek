@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'WONGSO TEKNIK MANDIRI, PT.'
 address: >-
   Jl. Agate Selatan D17 No. 1 RT 03/18, Permata Regency, Ds. Cikampek Utara,

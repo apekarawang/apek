@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'SEGATAMA KYASTECH MANDIRI, CV.'
 business:
   - Mechanical

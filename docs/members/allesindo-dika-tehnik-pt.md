@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'ALLESINDO DIKA TEHNIK, PT.'
 business:
   - Factory Automation

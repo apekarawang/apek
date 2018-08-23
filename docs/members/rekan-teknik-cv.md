@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'REKAN TEKNIK, CV.'
 business:
   - Machining & Fabrication

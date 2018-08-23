@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'BINTANG JAYA, PD.'
 business:
   - Engineering Maintenance Equipment

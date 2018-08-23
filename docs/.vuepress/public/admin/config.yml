@@ -13,39 +13,39 @@ display_url: https://apek.or.id
 media_folder: docs/.vuepress/public/images # Media files will be stored in the repo under static/images
 public_folder: /images # The src attribute for uploaded media will begin with /images
 collections:
-  - name: setting
-    label: Setting
-    delete: false # Prevent users from deleting documents in this collection
-    editor:
-      preview: false
-    files:
-      - name: advanced
-        label: Advanced Settings
-        file: docs/.vuepress/config.yaml
-        fields:
-          - name: menu
-            label: Menu
-            widget: list
-            fields:
-              - { name: text, label: Title, widget: string, required: true }
-              - { name: show, label: Show, widget: boolean, default: true }
-              - { name: to, label: Path, widget: string, required: true }
-              - { name: icon, label: Icon, widget: material-icons }
-              - {
-                  name: icon-alt,
-                  label: Alternative Icon,
-                  widget: material-icons,
-                }
-              - { name: model, label: Expanded, widget: boolean }
-              - { name: exact, label: Exact Path, widget: boolean }
-              - name: children
-                label: Children
-                widget: list
-                fields:
-                  - { name: text, label: Title, widget: string, required: true }
-                  - { name: to, label: Path, widget: string, required: true }
-                  - { name: icon, label: Icon, widget: material-icons }
-                  - { name: exact, label: Exact Path, widget: boolean }
+  # - name: setting
+  #   label: Setting
+  #   delete: false
+  #   editor:
+  #     preview: false
+  #   files:
+  #     - name: advanced
+  #       label: Advanced Settings
+  #       file: docs/.vuepress/config.yaml
+  #       fields:
+  #         - name: menu
+  #           label: Menu
+  #           widget: list
+  #           fields:
+  #             - { name: text, label: Title, widget: string, required: true }
+  #             - { name: show, label: Show, widget: boolean, default: true }
+  #             - { name: to, label: Path, widget: string, required: true }
+  #             - { name: icon, label: Icon, widget: material-icons }
+  #             - {
+  #                 name: icon-alt,
+  #                 label: Alternative Icon,
+  #                 widget: material-icons,
+  #               }
+  #             - { name: model, label: Expanded, widget: boolean }
+  #             - { name: exact, label: Exact Path, widget: boolean }
+  #             - name: children
+  #               label: Children
+  #               widget: list
+  #               fields:
+  #                 - { name: text, label: Title, widget: string, required: true }
+  #                 - { name: to, label: Path, widget: string, required: true }
+  #                 - { name: icon, label: Icon, widget: material-icons }
+  #                 - { name: exact, label: Exact Path, widget: boolean }
 
   - name: page
     label: Page
@@ -110,14 +110,18 @@ collections:
   - name: activity
     label: Activities
     label_singular: Activity
-    folder: blog/activities
+    folder: docs/activities
+    filter: {field: category, value: activity}
     create: true
     slug: "{{slug}}"
     fields: # The fields for each document, usually in front matter
-      - label: "Layout"
-        name: "layout"
-        widget: "hidden"
-        default: "PostLayout"
+      - {
+          label: "Layout",
+          name: "layout",
+          widget: "hidden",
+          default: "PostLayout",
+        }
+      - { label: Category, name: category, widget: hidden, default: activity }
       - { label: Title, name: title, widget: string }
       - { label: Publish Date, name: date, widget: date }
       - {
@@ -131,7 +135,8 @@ collections:
   - name: announcement
     label: Announcements
     label_singular: Announcement
-    folder: blog/announcements
+    folder: docs/announcements
+    filter: {field: category, value: announcement}
     create: true
     slug: "{{slug}}"
     fields: # The fields for each document, usually in front matter
@@ -139,6 +144,7 @@ collections:
         name: "layout"
         widget: "hidden"
         default: "PostLayout"
+      - { label: Category, name: category, widget: hidden, default: announcement }
       - { label: Title, name: title, widget: string }
       - { label: Publish Date, name: date, widget: date }
       - {
@@ -152,7 +158,8 @@ collections:
   - name: technology
     label: Technologies
     label_singular: Technology
-    folder: blog/technologies
+    folder: docs/technologies
+    filter: {field: category, value: technology}
     create: true
     slug: "{{slug}}"
     fields: # The fields for each document, usually in front matter
@@ -160,6 +167,7 @@ collections:
         name: "layout"
         widget: "hidden"
         default: "PostLayout"
+      - { label: Category, name: category, widget: hidden, default: technology }
       - { label: Title, name: title, widget: string }
       - { label: Publish Date, name: date, widget: date }
       - {
@@ -172,12 +180,18 @@ collections:
 
   - name: member
     label: Member
-    folder: content/members # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
+    folder: docs/members
+    filter: {field: category, value: member}
+    create: true
     editor:
       preview: false
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields:
+      - label: "Layout"
+        name: "layout"
+        widget: "hidden"
+        default: "PostLayout"
+      - { label: Category, name: category, widget: hidden, default: member }
       - { label: Company, name: title, widget: string }
       - { label: Address, name: address, widget: string }
       - { label: Businness, name: business, widget: list, required: false }

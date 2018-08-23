@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'FRENINDO SOLUTION, PT.'
 business:
   - Industrial Supplier

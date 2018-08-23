@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'LESTARI, CV.'
 business:
   - Bubut

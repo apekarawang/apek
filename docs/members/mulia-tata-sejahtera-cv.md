@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'MULIA TATA SEJAHTERA, CV.'
 business:
   - Manufacturing

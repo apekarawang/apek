@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'SUKMA GUNA TEKNINDO, PT.'
 business:
   - Machining & fabrication

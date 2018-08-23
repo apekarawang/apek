@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'SURYA UTAMA SEJAHTERA, CV.'
 business:
   - Engineering

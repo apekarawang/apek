@@ -1,4 +1,5 @@
 ---
+category: technology
 layout: PostLayout
 title: Teknologi Robotik
 date: 2018-04-02

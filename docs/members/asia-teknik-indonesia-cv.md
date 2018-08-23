@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'ASIA TEKNIK INDONESIA, CV.'
 business:
   - General Trading

@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'REKAYASA PUTRA MANDIRI, PT.'
 business:
   - Hard Chrome & Engineering Service

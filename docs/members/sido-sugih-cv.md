@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'SIDO SUGIH, CV.'
 business:
   - Plastick Forming

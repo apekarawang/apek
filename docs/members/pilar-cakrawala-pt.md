@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'PILAR CAKRAWALA, PT.'
 business:
   - Jasa Electroplating dan ED Coating

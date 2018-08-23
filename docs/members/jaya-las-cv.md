@@ -1,4 +1,5 @@
 ---
+category: member
 title: 'JAYA LAS, CV.'
 business:
   - Fabrication
