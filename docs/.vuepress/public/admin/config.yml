@@ -110,7 +110,7 @@ collections:
   - name: activity
     label: Activities
     label_singular: Activity
-    folder: blog/activities
+    folder: docs/activities
     filter: {field: category, value: activity}
     create: true
     slug: "{{slug}}"
@@ -135,7 +135,7 @@ collections:
   - name: announcement
     label: Announcements
     label_singular: Announcement
-    folder: blog/announcements
+    folder: docs/announcements
     filter: {field: category, value: announcement}
     create: true
     slug: "{{slug}}"
@@ -158,7 +158,7 @@ collections:
   - name: technology
     label: Technologies
     label_singular: Technology
-    folder: blog/technologies
+    folder: docs/technologies
     filter: {field: category, value: technology}
     create: true
     slug: "{{slug}}"
