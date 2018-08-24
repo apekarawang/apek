@@ -179,6 +179,7 @@ export default {
       const { email, name, message } = this.form;
       fetch('https://apek.netlify.com/', {
         method: 'POST',
+        mode: 'no-cors',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({ 'form-name': 'contact', email, name, message, uid }),
       })
