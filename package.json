@@ -50,6 +50,7 @@
     "cpr": "^3.0.1",
     "eslint": "^4.15.0",
     "eslint-plugin-vue": "^4.0.0",
+    "firebase-tools": "^4.2.0",
     "html-webpack-externals-plugin": "^3.8.0",
     "husky": "^0.14.3",
     "imagemin-lint-staged": "^0.3.0",
