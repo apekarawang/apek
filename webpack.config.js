@@ -4,7 +4,6 @@ const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
-  mode: 'development',
   entry: './cms/cms.js',
   output: {
     path: path.resolve(__dirname, 'docs/.vuepress/public/admin'),
