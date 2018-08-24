@@ -27,7 +27,6 @@
                 <v-list-tile-title>{{ subItem.text }}</v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
-            <!-- <h4 v-if="subItem.type === 'links'">{{ subItem.text }}</h4> -->
 
               <v-list-tile
               v-if="subItem.type === 'links'"
@@ -36,7 +35,6 @@
                 v-for="childSubItem in subItem.items"
                 :to="childSubItem.link"
               >
-                <!-- <NavLink :item="childSubItem"/> -->
                 <v-list-tile-content>
                   <v-list-tile-title>{{ childSubItem.text }}</v-list-tile-title>
                 </v-list-tile-content>

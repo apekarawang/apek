@@ -46,7 +46,6 @@
               xs12
               class="my-3"
             >
-              <!-- <fa :icon="b.icon.split(' ')" class="white--text" size="6x"/> -->
               <v-icon color="white" size="64px">{{b.icon}}</v-icon>
               <div class="title my-4 white--text">{{ b.title }}</div>
             </v-flex>

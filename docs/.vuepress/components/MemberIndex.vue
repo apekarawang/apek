@@ -90,36 +90,6 @@
       </v-flex>
     </v-data-iterator>
   </v-container>
-  <!-- <div>
-    <div v-for="post in posts">
-      <h2>
-          <router-link :to="post.path">{{ post.frontmatter.title }}</router-link>
-      </h2>
-      <address>{{post.frontmatter.address}}</address>
-      <ul>
-        <caption>Business</caption>
-        <li v-for="(name, b) in post.frontmatter.business" :key="b">
-          {{ name }}
-        </li>
-      </ul>
-      <ul>
-        <caption>email</caption>
-        <li v-for="(name, b) in post.frontmatter.email" :key="b">
-          {{ name }}
-        </li>
-      </ul>
-      <ul>
-        <caption>phone</caption>
-        <li v-for="(name, b) in post.frontmatter.phone" :key="b">
-          {{ name }}
-        </li>
-      </ul>
-
-      <div v-html="post.excerpt" @click="$router.push(post.path)" style="cursor: pointer"></div>
-
-      <p><router-link :to="post.path">Read more</router-link></p>
-    </div>
-  </div> -->
 </template>
 
 <script>
