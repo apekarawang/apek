@@ -48,3 +48,5 @@ CMS.registerPreviewTemplate("home", HomePreview);
 CMS.registerPreviewTemplate("about", AboutPreview);
 CMS.registerPreviewTemplate("contact", ContactPreview);
 CMS.registerPreviewTemplate("technology", PostPreview);
+CMS.registerPreviewTemplate("announcement", PostPreview);
+CMS.registerPreviewTemplate("activities", PostPreview);
