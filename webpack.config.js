@@ -1,20 +1,28 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('vuepress-html-webpack-plugin')
-const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
-const { VueLoaderPlugin } = require('vue-loader')
+const path = require("path");
+const HtmlWebpackPlugin = require("vuepress-html-webpack-plugin");
+const HtmlWebpackExternalsPlugin = require("html-webpack-externals-plugin");
+const { VueLoaderPlugin } = require("vue-loader");
 
-module.exports = {
-  entry: './cms/cms.js',
+module.exports = (e, a) => ({
+  entry: "./cms/cms.js",
   output: {
-    path: path.resolve(__dirname, 'docs/.vuepress/public/admin'),
+    path: path.resolve(
+      __dirname,
+      "docs/.vuepress",
+      a.mode === "production" ? "dist" : "public",
+      'admin'
+    )
+  },
+  externals: {
+    "netlify-cms": "CMS"
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js',
-      '@components': path.resolve(__dirname, 'docs', '.vuepress', 'components'),
-      '@docs': path.resolve(__dirname, 'docs'),
-      '@theme': path.resolve(__dirname, 'docs', '.vuepress', 'theme'),
-      '@vuetify': path.resolve(__dirname, 'node_modules', 'vuetify'),
+      vue$: "vue/dist/vue.esm.js",
+      "@components": path.resolve(__dirname, "docs", ".vuepress", "components"),
+      "@docs": path.resolve(__dirname, "docs"),
+      "@theme": path.resolve(__dirname, "docs", ".vuepress", "theme"),
+      "@vuetify": path.resolve(__dirname, "node_modules", "vuetify")
     }
   },
   module: {
@@ -27,76 +35,70 @@ module.exports = {
       // },
       {
         test: /\.jsx?$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/,
+        loader: "babel-loader",
+        exclude: /node_modules/
       },
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
+        loader: "vue-loader",
         options: {
           compilerOptions: {
             preserveWhitespace: true
-          },
+          }
         }
       },
       {
         test: /\.styl(us)?$/,
-        use: [
-          'css-loader',
-          'stylus-loader'
-        ]
+        use: ["css-loader", "stylus-loader"]
       },
       {
         test: /\.css$/,
-        loader: ['css-loader'],
-      },
-    ],
+        loader: ["css-loader"]
+      }
+    ]
   },
   plugins: [
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Content Manager',
+      title: "Content Manager"
     }),
     new HtmlWebpackExternalsPlugin({
       externals: [
         {
-          module: 'netlify-identity-widget',
-          entry: 'https://identity.netlify.com/v1/netlify-identity-widget.js',
-          global: 'netlifyIdentity'
+          module: "netlify-identity-widget",
+          entry: "https://identity.netlify.com/v1/netlify-identity-widget.js",
+          global: "netlifyIdentity"
         },
         {
-          module: 'react',
-          entry: 'umd/react.production.min.js',
-          global: 'React'
+          module: "react",
+          entry: "umd/react.production.min.js",
+          global: "React"
         },
         {
-          module: 'react-dom',
-          entry: 'umd/react-dom.production.min.js',
-          global: 'ReactDOM'
+          module: "react-dom",
+          entry: "umd/react-dom.production.min.js",
+          global: "ReactDOM"
         },
         {
-          module: 'netlify-cms',
-          entry: 'dist/netlify-cms.js',
-          global: 'CMS'
+          module: "netlify-cms",
+          entry: "dist/netlify-cms.js",
+          global: "CMS"
         },
         {
-          module: 'react-select',
-          entry: 'dist/react-select.css'
+          module: "react-select",
+          entry: "dist/react-select.css"
         },
         {
-          module: 'react-virtualized',
-          entry: 'styles.css'
+          module: "react-virtualized",
+          entry: "styles.css"
         },
         {
-          module: 'react-virtualized-select',
-          global: 'VirtualizedSelect',
-          entry: [
-            'styles.css',
-            'dist/umd/react-virtualized-select.js'
-          ]
-        },
+          module: "react-virtualized-select",
+          global: "VirtualizedSelect",
+          entry: ["styles.css", "dist/umd/react-virtualized-select.js"]
+        }
       ]
     })
   ],
-  devtool: 'source-map',
-}
+  devtool: "source-map"
+});
