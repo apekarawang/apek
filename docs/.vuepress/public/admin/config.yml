@@ -184,13 +184,13 @@ collections:
     filter: {field: category, value: member}
     create: true
     editor:
-      preview: false
+      preview: true
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields:
       - label: "Layout"
         name: "layout"
         widget: "hidden"
-        default: "PostLayout"
+        default: "MemberLayout"
       - { label: Category, name: category, widget: hidden, default: member }
       - { label: Company, name: title, widget: string }
       - { label: Address, name: address, widget: string }
@@ -218,4 +218,4 @@ collections:
           - { label: Name, name: name, widget: string }
           - { label: Image, name: image, widget: image }
           - { label: Description, name: description, widget: text }
-      - { label: Detail, name: detail, widget: markdown, required: false }
+      - { label: Body, name: body, widget: markdown, required: false }

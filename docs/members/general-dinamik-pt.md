@@ -1,4 +1,5 @@
 ---
+layout: MemberLayout
 category: member
 title: 'GENERAL DINAMIK, PT.'
 business:

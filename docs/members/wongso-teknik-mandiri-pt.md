@@ -1,4 +1,5 @@
 ---
+layout: MemberLayout
 category: member
 title: 'WONGSO TEKNIK MANDIRI, PT.'
 address: >-

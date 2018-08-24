@@ -1,4 +1,5 @@
 ---
+layout: MemberLayout
 category: member
 title: 'RIKEN ENGINEERING, PT.'
 business:

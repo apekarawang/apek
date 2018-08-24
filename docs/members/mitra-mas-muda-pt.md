@@ -1,4 +1,5 @@
 ---
+layout: MemberLayout
 category: member
 title: 'MITRA MAS MUDA, PT.'
 business:

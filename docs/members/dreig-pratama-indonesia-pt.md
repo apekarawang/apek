@@ -1,4 +1,5 @@
 ---
+layout: MemberLayout
 category: member
 title: 'DREIG PRATAMA INDONESIA, PT.'
 business:

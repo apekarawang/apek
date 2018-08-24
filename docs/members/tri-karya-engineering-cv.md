@@ -1,4 +1,5 @@
 ---
+layout: MemberLayout
 category: member
 title: 'TRI KARYA ENGINEERING, CV.'
 business:

@@ -1,4 +1,5 @@
 ---
+layout: MemberLayout
 category: member
 title: 'TIARA TEKNIK MANDIRI, CV.'
 business:

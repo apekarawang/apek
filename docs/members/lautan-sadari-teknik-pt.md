@@ -1,4 +1,5 @@
 ---
+layout: MemberLayout
 category: member
 title: 'LAUTAN SADARI TEKNIK, PT.'
 business:

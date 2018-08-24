@@ -21,6 +21,7 @@ import HomePreview from "./Preview/HomePreview";
 import AboutPreview from "./Preview/AboutPreview";
 import ContactPreview from "./Preview/ContactPreview";
 import PostPreview from "./Preview/PostPreview";
+import MemberPreview from "./Preview/MemberPreview";
 
 Vue.component("ClientOnly", ClientOnly);
 
@@ -48,3 +49,4 @@ CMS.registerPreviewTemplate("contact", ContactPreview);
 CMS.registerPreviewTemplate("technology", PostPreview);
 CMS.registerPreviewTemplate("announcement", PostPreview);
 CMS.registerPreviewTemplate("activities", PostPreview);
+CMS.registerPreviewTemplate("member", MemberPreview);

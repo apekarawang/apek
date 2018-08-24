@@ -1,4 +1,5 @@
 ---
+layout: MemberLayout
 category: member
 title: 'SHOWA MULTI SARANA, PT.'
 business:
