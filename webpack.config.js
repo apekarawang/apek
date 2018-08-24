@@ -6,15 +6,14 @@ const { VueLoaderPlugin } = require("vue-loader");
 module.exports = (e, a) => ({
   entry: "./cms/cms.js",
   output: {
-    path: path.resolve(
-      __dirname,
-      "docs/.vuepress",
-      a.mode === "production" ? "dist" : "public",
-      'admin'
-    )
+    path:
+      a.mode === "production"
+        ? path.resolve("dist")
+        : path.resolve(__dirname, "docs/.vuepress", "dist")
   },
   externals: {
-    "netlify-cms": "CMS"
+    "netlify-cms": "CMS",
+    "react-virtualized-select": "VirtualizedSelect"
   },
   resolve: {
     alias: {
@@ -26,7 +25,6 @@ module.exports = (e, a) => ({
     }
   },
   module: {
-    noParse: /^(vue|netlify-cms|react|react-dom)$/,
     rules: [
       // {
       //   test: /\.js$/,
@@ -35,17 +33,37 @@ module.exports = (e, a) => ({
       // },
       {
         test: /\.jsx?$/,
-        loader: "babel-loader",
+        use: [
+          {
+            loader: "cache-loader",
+            options: {
+              cacheDirectory: path.resolve("node_modules", ".cache", "loader")
+            }
+          },
+          {
+            loader: "babel-loader"
+          }
+        ],
         exclude: /node_modules/
       },
       {
         test: /\.vue$/,
-        loader: "vue-loader",
-        options: {
-          compilerOptions: {
-            preserveWhitespace: true
+        use: [
+          {
+            loader: "cache-loader",
+            options: {
+              cacheDirectory: path.resolve("node_modules", ".cache", "loader")
+            }
+          },
+          {
+            loader: "vue-loader",
+            options: {
+              compilerOptions: {
+                preserveWhitespace: true
+              }
+            }
           }
-        }
+        ]
       },
       {
         test: /\.styl(us)?$/,
