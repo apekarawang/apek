@@ -1,4 +1,5 @@
 ---
+layout: MemberLayout
 category: member
 title: 'MEGUMI AGUNG INDONESIA, PT.'
 business:

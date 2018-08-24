@@ -1,4 +1,5 @@
 ---
+layout: MemberLayout
 category: member
 title: 'REKAYASA PUTRA MANDIRI, PT.'
 business:

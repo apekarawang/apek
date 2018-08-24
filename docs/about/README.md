@@ -64,4 +64,5 @@ Mengadakan Pameran Exhibition dibidang Engineering Manufacturing.
 
 ## Struktur Organisasi
 
-![Struktur Organisasi](/images/struktur-org-with-photo.jpg 'Struktur Organisasi')
+![Struktur Organisasi](/images/struktur-org-with-photo.jpg)
+![Pra APEK](/images/pra-APEK@512x.jpg)

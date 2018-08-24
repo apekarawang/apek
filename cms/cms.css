@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons');
+@import url('https://unpkg.com/vuetify@next/dist/vuetify.min.css');
+
+.bgx {
+  background-image: linear-gradient(322deg,#da2b2b 20%,#000000 78%)
+}
+.bgy {
+  background-image: linear-gradient(-322deg, #000000 8%, #da2b2b 78%);
+}

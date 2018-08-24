@@ -29,7 +29,7 @@
                 <div>
                   <div class="headline">{{props.item.frontmatter.title}}</div>
                   <div v-if="props.item.frontmatter.date">
-                    {{ new Date(props.item.frontmatter.date) | dateFormat('DD/MM/YYYY') }}
+                    {{ new Date(props.item.frontmatter.date).toLocaleDateString() }}
                   </div>
                 </div>
               </v-card-title>
@@ -47,17 +47,12 @@
 import VDataIterator from '@vuetify/es5/components/VDataIterator';
 import VImg from '@vuetify/es5/components/VImg';
 
-import { dateFormat } from '@docs/utils';
-
 export default {
   props: {
     cat: {
       type: String,
       default: 'blog',
     },
-  },
-  filters: {
-    dateFormat,
   },
   components: {
     VImg,

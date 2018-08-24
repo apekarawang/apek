@@ -1,0 +1,15 @@
+{
+  "presets": [
+    "@vue/babel-preset-app",
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "vuera/babel",
+    ["transform-imports", {
+      "vuetify": {
+        "transform": "vuetify/es5/components/${member}",
+        "preventFullImport": true
+      }
+     }]
+  ]
+}

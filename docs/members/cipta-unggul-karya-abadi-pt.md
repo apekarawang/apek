@@ -1,4 +1,5 @@
 ---
+layout: MemberLayout
 category: member
 title: 'CIPTA UNGGUL KARYA ABADI, PT.'
 business:

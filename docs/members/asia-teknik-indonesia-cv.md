@@ -1,4 +1,5 @@
 ---
+layout: MemberLayout
 category: member
 title: 'ASIA TEKNIK INDONESIA, CV.'
 business:

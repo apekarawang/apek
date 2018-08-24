@@ -1,4 +1,5 @@
 ---
+layout: MemberLayout
 category: member
 title: 'SUKMA GUNA TEKNINDO, PT.'
 business:

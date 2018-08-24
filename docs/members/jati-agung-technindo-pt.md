@@ -1,4 +1,5 @@
 ---
+layout: MemberLayout
 category: member
 title: 'JATI AGUNG TECHNINDO, PT.'
 business:

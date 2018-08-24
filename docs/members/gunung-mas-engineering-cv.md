@@ -1,4 +1,5 @@
 ---
+layout: MemberLayout
 category: member
 title: 'GUNUNG MAS ENGINEERING, CV.'
 business:

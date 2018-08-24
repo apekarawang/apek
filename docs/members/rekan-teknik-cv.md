@@ -1,4 +1,5 @@
 ---
+layout: MemberLayout
 category: member
 title: 'REKAN TEKNIK, CV.'
 business:

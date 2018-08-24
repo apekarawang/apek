@@ -1,4 +1,5 @@
 ---
+layout: MemberLayout
 category: member
 title: 'SURYA UTAMA SEJAHTERA, CV.'
 business:

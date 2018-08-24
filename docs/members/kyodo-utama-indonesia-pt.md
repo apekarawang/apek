@@ -1,4 +1,5 @@
 ---
+layout: MemberLayout
 category: member
 title: 'KYODO UTAMA INDONESIA, PT.'
 address: 'KP. Cinangka RT 06/03, Desa Cinangka, Kec. Bungursari, Kab. Purwakarta'

@@ -75,37 +75,37 @@
 
         <v-flex>
           <v-list style="background: transparent">
-            <v-list-tile>
+            <v-list-tile v-if="email">
               <v-list-tile-action>
                 <v-icon>email</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
-                <v-list-tile-title v-text="$page.frontmatter.email.join(', ')" />
+                <v-list-tile-title v-text="email.join(', ')" />
               </v-list-tile-content>
             </v-list-tile>
-            <v-list-tile>
+            <v-list-tile v-if="phone">
               <v-list-tile-action>
                 <v-icon>phone</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
-                <v-list-tile-title v-text="$page.frontmatter.phone.join(', ')" />
+                <v-list-tile-title v-text="phone.join(', ')" />
               </v-list-tile-content>
             </v-list-tile>
-            <v-list-tile>
+            <v-list-tile v-if="fax">
               <v-list-tile-action>
                 <v-icon>print</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
-                <v-list-tile-title v-text="$page.frontmatter.fax.join(', ')" />
+                <v-list-tile-title v-text="fax.join(', ')" />
               </v-list-tile-content>
             </v-list-tile>
-            <v-list-tile>
+            <v-list-tile v-if="address">
               <v-list-tile-action>
                 <v-icon>place</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
-                <v-list-tile-title v-text="$page.frontmatter.address" />
-                <v-list-tile-sub-title v-if="$page.frontmatter.address2" v-text="$page.frontmatter.address2" />
+                <v-list-tile-title v-text="address" />
+                <v-list-tile-sub-title v-if="address2" v-text="address2" />
               </v-list-tile-content>
             </v-list-tile>
           </v-list>
@@ -132,8 +132,24 @@ import VForm from '@vuetify/es5/components/VForm';
 import VTextField from '@vuetify/es5/components/VTextField';
 import VTextarea from '@vuetify/es5/components/VTextarea';
 // import VueRecaptcha from 'vue-recaptcha';
-import { encode } from '@docs/utils';
+
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+}
+
 export default {
+  props: [
+    'title',
+    'subtitle',
+    'address',
+    'address2',
+    'email',
+    'phone',
+    'fax',
+    'social',
+  ],
   components: {
     VForm,
     VTextField,

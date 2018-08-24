@@ -39,4 +39,6 @@ sponsor:
     image: /images/jabar.png
 ---
 
-<HomePage />
+<HomePage 
+  v-bind="$page.frontmatter"
+/>

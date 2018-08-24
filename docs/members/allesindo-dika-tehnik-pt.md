@@ -1,4 +1,5 @@
 ---
+layout: MemberLayout
 category: member
 title: 'ALLESINDO DIKA TEHNIK, PT.'
 business:

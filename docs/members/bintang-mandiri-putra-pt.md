@@ -1,4 +1,5 @@
 ---
+layout: MemberLayout
 category: member
 title: 'BINTANG MANDIRI PUTRA, PT.'
 business:
