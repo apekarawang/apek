@@ -29,5 +29,4 @@ jobs:
           key: cache-packages-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
-            - node_modules
             - .firebase
