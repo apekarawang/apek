@@ -1,6 +1,7 @@
 <template>
   <v-app
     :class="pageClasses"
+    id="apek"
   >
     <!--<Navbar
       v-if="shouldShowNavbar"
