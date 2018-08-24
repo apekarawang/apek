@@ -13,7 +13,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@components': path.resolve(__dirname, 'docs', '.vuepress', 'components'),
-      '@docs': path.resolve(__dirname, 'docs/.vuepress/'),
+      '@docs': path.resolve(__dirname, 'docs'),
       '@theme': path.resolve(__dirname, 'docs', '.vuepress', 'theme'),
       '@vuetify': path.resolve(__dirname, 'node_modules', 'vuetify'),
     }

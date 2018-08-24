@@ -37,12 +37,10 @@ Vue.use(Vuetify, {
   }
 });
 
-
-CMS.registerPreviewStyle("https://unpkg.com/vuetify@next/dist/vuetify.min.css");
-CMS.registerPreviewStyle(require('to-string-loader!./cms.css'), {raw: true});
-
 CMS.registerWidget("material-icons", NetlifyCMSWidgetMaterialIcons.Control);
 CMS.registerWidget("color", NetlifyCMSWidgetColor.Control);
+
+CMS.registerPreviewStyle(require('to-string-loader!./cms.css'), {raw: true});
 
 CMS.registerPreviewTemplate("home", HomePreview);
 CMS.registerPreviewTemplate("about", AboutPreview);
