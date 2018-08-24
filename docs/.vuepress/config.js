@@ -100,7 +100,13 @@ module.exports = {
               "transform-imports",
               {
                 vuetify: {
-                  transform: "vuetify/es5/components/${member}",
+                  transform: path.resolve(
+                    "node_modules",
+                    "vuetify",
+                    "es5",
+                    "components",
+                    "${member}"
+                  ),
                   preventFullImport: true
                 }
               }
