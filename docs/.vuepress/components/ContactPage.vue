@@ -177,7 +177,7 @@ export default {
   methods: {
     onVerify: function(uid) {
       const { email, name, message } = this.form;
-      fetch('/', {
+      fetch('https://apek.netlify.com/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({ 'form-name': 'contact', email, name, message, uid }),

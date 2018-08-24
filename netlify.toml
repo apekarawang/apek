@@ -5,14 +5,3 @@
   NODE_VERSION = "8"
   NPM_VERSION = "6.3.0"
   YARN_VERSION = "1.9.4"
-
-[[redirects]]
-from = "https://apek.netlify.com/*"
-to = "https://apek.or.id/:splat"
-status = 301
-force = true
-[[redirects]]
-from = "http://apek.netlify.com/*"
-to = "https://apek.or.id/:splat"
-status = 301
-force = true
