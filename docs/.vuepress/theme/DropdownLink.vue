@@ -4,6 +4,7 @@
       bottom
       offset-y
       open-on-hover
+      :close-on-content-click="false"
     >
 
       <v-btn
@@ -15,38 +16,35 @@
       </v-btn>
 
       <v-list>
-        <template
+        <v-list-group
+          v-for="(subItem, index) in item.items"
           v-if="subItem.type === 'links'"
+          :key="subItem.link || index"
+          :group="subItem.text"
+          class="dropdown-item"
+          no-action
         >
-          <v-list-group
-            v-for="(subItem, index) in item.items"
-            :key="subItem.link || index"
-            :group="subItem.text"
-            class="dropdown-item"
-            no-action
+          <v-list-tile slot="activator">
+            <v-list-tile-content>
+              <v-list-tile-title>{{ subItem.text }}</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+
+          <template
+            v-if="subItem.type === 'links'"
           >
-            <v-list-tile slot="activator">
+            <v-list-tile
+              v-for="childSubItem in subItem.items"
+              :key="childSubItem.link"
+              class="dropdown-subitem"
+              :to="childSubItem.link"
+            >
               <v-list-tile-content>
-                <v-list-tile-title>{{ subItem.text }}</v-list-tile-title>
+                <v-list-tile-title>{{ childSubItem.text }}</v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
-
-            <template
-              v-if="subItem.type === 'links'"
-            >
-              <v-list-tile
-                v-for="childSubItem in subItem.items"
-                :key="childSubItem.link"
-                class="dropdown-subitem"
-                :to="childSubItem.link"
-              >
-                <v-list-tile-content>
-                  <v-list-tile-title>{{ childSubItem.text }}</v-list-tile-title>
-                </v-list-tile-content>
-              </v-list-tile>
-            </template>
-          </v-list-group>
-        </template>
+          </template>
+        </v-list-group>
         <v-list-tile
           v-else
           :to="subItem.link"
