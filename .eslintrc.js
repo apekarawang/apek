@@ -20,6 +20,7 @@ module.exports = {
   // add your custom rules here
   rules: {
     'vue/require-prop-types': 0,
-    'vue/no-v-html': 0
+    'vue/no-v-html': 0,
+    'vue/no-use-v-if-with-v-for': 0
   }
 }
