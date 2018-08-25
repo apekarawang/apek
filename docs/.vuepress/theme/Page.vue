@@ -1,32 +1,35 @@
 <template>
   <v-container>
-    <slot name="top"/>
+    <slot name="top" />
 
-    <Content :custom="false"/>
+    <Content :custom="false" />
 
     <div class="page-edit">
       <div
-        class="edit-link"
         v-if="editLink"
+        class="edit-link"
       >
         <a
           :href="editLink"
           target="_blank"
           rel="noopener noreferrer"
         >{{ editLinkText }}</a>
-        <OutboundLink/>
+        <OutboundLink />
       </div>
 
       <div
-        class="last-updated"
         v-if="lastUpdated"
+        class="last-updated"
       >
         <span class="prefix">{{ lastUpdatedText }}: </span>
         <span class="time">{{ lastUpdated }}</span>
       </div>
     </div>
 
-    <div class="page-nav" v-if="prev || next">
+    <div 
+      v-if="prev || next" 
+      class="page-nav"
+    >
       <p class="inner">
         <span
           v-if="prev"
@@ -57,7 +60,7 @@
       </p>
     </div>
 
-    <slot name="bottom"/>
+    <slot name="bottom" />
   </v-container>
 </template>
 

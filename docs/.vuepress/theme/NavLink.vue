@@ -1,17 +1,17 @@
 <template>
   <component
-    flat
     :is="tag"
+    v-if="!isExternal(link)"
+    flat
     :to="link"
     :active-class="side ? undefined : 'btn-nav-active'"
-    v-if="!isExternal(link)"
     :exact="exact"
   >{{ item.text }}
   </component>
   <component
-    flat
     :is="tag"
     v-else
+    flat
     :href="link"
     :target="isMailto(link) || isTel(link) ? null : '_blank'"
     :rel="isMailto(link) || isTel(link) ? null : 'noopener noreferrer'"

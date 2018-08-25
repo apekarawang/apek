@@ -12,6 +12,7 @@
   },
   "scripts": {
     "start": "vuepress dev docs",
+    "clean": "rimraf node_modules/vuepress/node_modules/.cache/",
     "build:docs": "vuepress build docs",
     "build:cms": "webpack --mode=production",
     "build": "npm-run-all --parallel build:*",
@@ -44,12 +45,12 @@
   },
   "devDependencies": {
     "@babel/preset-react": "^7.0.0-rc.2",
-    "babel-eslint": "^8.2.1",
+    "babel-eslint": "^8.2.6",
     "babel-plugin-transform-imports": "^1.5.0",
     "cp": "^0.2.0",
     "cpr": "^3.0.1",
-    "eslint": "^4.15.0",
-    "eslint-plugin-vue": "^4.0.0",
+    "eslint": "^5.4.0",
+    "eslint-plugin-vue": "^5.0.0-beta.3",
     "firebase-tools": "^4.2.0",
     "html-webpack-externals-plugin": "^3.8.0",
     "husky": "^0.14.3",

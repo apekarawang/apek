@@ -6,7 +6,10 @@
     :value="enabled"
   >
     {{ message }}
-    <v-btn flat @click.native="reload">{{buttonText}}</v-btn>
+    <v-btn 
+      flat 
+      @click.native="reload"
+    >{{ buttonText }}</v-btn>
   </v-snackbar>
 </template>
 

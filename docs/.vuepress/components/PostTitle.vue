@@ -13,10 +13,13 @@
       <h1 class="display-2 font-weight-thin mb-3">
         {{ title }}
       </h1>
-      <h4 class="subheading" v-if="subtitle">
+      <h4 
+        v-if="subtitle" 
+        class="subheading"
+      >
         {{ subtitle }}
       </h4>
-      <slot></slot>
+      <slot />
     </v-layout>
   </v-parallax>
 </template>
@@ -24,10 +27,10 @@
 import VParallax from '@vuetify/es5/components/VParallax';
 
 export default {
-  props: ['img', 'title', 'subtitle', 'height'],
   components: {
     VParallax,
   },
+  props: ['img', 'title', 'subtitle', 'height'],
   data: () => ({
     images: ['/images/human-resource.jpg', '/images/atom.jpg'],
   }),

@@ -5,7 +5,11 @@
         <v-flex class="text-xs-center">
           <h1 :data-heading="404">404</h1>
           <blockquote>{{ getMsg() }}</blockquote>
-          <v-btn flat color="error" to="/">Take me home.</v-btn>
+          <v-btn 
+            flat 
+            color="error" 
+            to="/"
+          >Take me home.</v-btn>
         </v-flex>
       </v-layout>
     </v-container>

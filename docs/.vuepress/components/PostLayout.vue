@@ -1,6 +1,9 @@
 <template>
   <div class="post-layout">
-    <PostTitle :title="$page.title" :subtitle="subtitle"></PostTitle>
+    <PostTitle 
+      :title="$page.title" 
+      :subtitle="subtitle"
+    />
     <v-container>
       <Content />
     </v-container>

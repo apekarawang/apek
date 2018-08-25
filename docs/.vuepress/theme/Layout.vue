@@ -1,21 +1,25 @@
 <template>
   <v-app
-    :class="pageClasses"
     id="apek"
+    :class="pageClasses"
   >
     <!--<Navbar
       v-if="shouldShowNavbar"
       @toggle-sidebar="toggleSidebar"
     />-->
-    <v-toolbar app clipped-left clipped-right>
+    <v-toolbar
+      app
+      clipped-left
+      clipped-right
+    >
 
       <router-link
         :to="$localePath"
         class="d-flex"
       >
         <img
-          class="logo"
           v-if="$site.themeConfig.logo"
+          class="logo"
           :src="$withBase($site.themeConfig.logo)"
           :alt="$siteTitle"
           height="24px"
@@ -23,21 +27,30 @@
       </router-link>
 
       <v-toolbar-title
+        v-if="$siteTitle && $site.themeConfig.navTitle !== false"
         ref="siteName"
         class="pb-1 hidden-xs-only"
-        v-if="$siteTitle && $site.themeConfig.navTitle !== false"
       >{{ $siteTitle }}
       </v-toolbar-title>
 
-      <v-spacer></v-spacer>
+      <v-spacer />
 
-      <NavLinks class="hidden-xs-only"/>
+      <NavLinks class="hidden-xs-only" />
 
-      <v-toolbar-side-icon @click.stop="drawer = !drawer" class="hidden-sm-and-up"/>
+      <v-toolbar-side-icon
+        class="hidden-sm-and-up"
+        @click.stop="drawer = !drawer"
+      />
 
     </v-toolbar>
 
-    <v-navigation-drawer app clipped right temporary v-model="drawer">
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+      clipped
+      right
+      temporary
+    >
       <NavLinks side />
     </v-navigation-drawer>
     <!--<div
@@ -45,45 +58,45 @@
       @click="toggleSidebar(false)"
     ></div>-->
 
-    <!--<Sidebar
+    <!-- <Sidebar
       :items="sidebarItems"
       @toggle-sidebar="toggleSidebar"
     >
       <slot
-        name="sidebar-top"
         slot="top"
+        name="sidebar-top"
       />
       <slot
-        name="sidebar-bottom"
         slot="bottom"
+        name="sidebar-bottom"
       />
-    </Sidebar>-->
+    </Sidebar> -->
 
     <v-content>
       <div
-        class="custom-layout"
         v-if="$page.frontmatter.layout"
+        class="custom-layout"
       >
-        <component :is="$page.frontmatter.layout"/>
+        <component :is="$page.frontmatter.layout" />
       </div>
 
-      <Home v-else-if="$page.frontmatter.home"/>
+      <Home v-else-if="$page.frontmatter.home" />
 
       <Page
         v-else
         :sidebar-items="sidebarItems"
       >
         <slot
-          name="page-top"
           slot="top"
+          name="page-top"
         />
         <slot
-          name="page-bottom"
           slot="bottom"
+          name="page-bottom"
         />
       </Page>
 
-      <SWUpdatePopup :updateEvent="swUpdateEvent"/>
+      <SWUpdatePopup :update-event="swUpdateEvent" />
     </v-content>
   </v-app>
 </template>
@@ -92,15 +105,15 @@
 import Vue from 'vue';
 import nprogress from 'nprogress';
 import Home from './Home.vue';
-import Navbar from './Navbar.vue';
+// import Navbar from './Navbar.vue';
 import Page from './Page.vue';
-import Sidebar from './Sidebar.vue';
+// import Sidebar from './Sidebar.vue';
 import SWUpdatePopup from './SWUpdatePopup.vue';
 import { resolveSidebarItems } from './util';
 import NavLinks from './NavLinks';
 
 export default {
-  components: { Home, Page, Sidebar, Navbar, NavLinks, SWUpdatePopup },
+  components: { Home, Page, NavLinks, SWUpdatePopup },
 
   data() {
     return {
@@ -180,9 +193,9 @@ export default {
   },
 
   methods: {
-    // toggleSidebar(to) {
-    //   this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
-    // },
+    toggleSidebar(to) {
+      this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen;
+    },
 
     // side swipe
     // onTouchStart(e) {

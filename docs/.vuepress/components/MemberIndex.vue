@@ -3,12 +3,12 @@
     grid-list-md
   >
     <v-text-field
-        append-icon="search"
-        label="Search"
-        single-line
-        hide-details
-        v-model="search"
-        class="mb-3"
+      v-model="search"
+      append-icon="search"
+      label="Search"
+      single-line
+      hide-details
+      class="mb-3"
     />
 
     <v-data-iterator
@@ -27,7 +27,12 @@
         sm12
         md6
       >
-        <v-card tile ripple :to="props.item.path" hover>
+        <v-card 
+          tile 
+          ripple 
+          :to="props.item.path" 
+          hover
+        >
           <v-card-title>
             <h4>
               {{ props.item.title }}

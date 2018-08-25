@@ -1,21 +1,21 @@
 <template>
   <header class="navbar">
-    <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
+    <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')" />
 
     <router-link
       :to="$localePath"
       class="home-link"
     >
       <img
-        class="logo"
         v-if="$site.themeConfig.logo"
+        class="logo"
         :src="$withBase($site.themeConfig.logo)"
         :alt="$siteTitle"
       >
       <span
+        v-if="$siteTitle"
         ref="siteName"
         class="site-name"
-        v-if="$siteTitle"
         :class="{ 'can-hide': $site.themeConfig.logo }"
       >{{ $siteTitle }}</span>
     </router-link>
@@ -30,7 +30,7 @@
         v-if="isAlgoliaSearch"
         :options="algolia"
       />
-      <SearchBox v-else-if="$site.themeConfig.search !== false"/>
+      <SearchBox v-else-if="$site.themeConfig.search !== false" />
     </div>
   </header>
 </template>
@@ -39,15 +39,27 @@
 import SidebarButton from './SidebarButton.vue';
 import AlgoliaSearchBox from '@AlgoliaSearchBox';
 import SearchBox from './SearchBox.vue';
-import NavLinks from './NavLinks.vue';
+// import NavLinks from './NavLinks.vue';
 
 export default {
-  components: { SidebarButton, NavLinks, SearchBox, AlgoliaSearchBox },
+  components: { SidebarButton, SearchBox, AlgoliaSearchBox },
 
   data() {
     return {
       linksWrapMaxWidth: null,
     };
+  },
+
+  computed: {
+    algolia() {
+      return (
+        this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
+      );
+    },
+
+    isAlgoliaSearch() {
+      return this.algolia && this.algolia.apiKey && this.algolia.indexName;
+    },
   },
 
   mounted() {
@@ -67,18 +79,6 @@ export default {
     };
     handleLinksWrapWidth();
     window.addEventListener('resize', handleLinksWrapWidth, false);
-  },
-
-  computed: {
-    algolia() {
-      return (
-        this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
-      );
-    },
-
-    isAlgoliaSearch() {
-      return this.algolia && this.algolia.apiKey && this.algolia.indexName;
-    },
   },
 };
 

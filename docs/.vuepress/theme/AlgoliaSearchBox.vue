@@ -14,6 +14,16 @@
 export default {
   props: ['options'],
 
+  watch: {
+    $lang(newValue) {
+      this.update(this.options, newValue);
+    },
+
+    options(newValue) {
+      this.update(newValue, this.$lang);
+    },
+  },
+
   mounted() {
     this.initialize(this.options, this.$lang);
   },
@@ -47,16 +57,6 @@ export default {
       this.$el.innerHTML =
         '<input id="algolia-search-input" class="search-query">';
       this.initialize(options, lang);
-    },
-  },
-
-  watch: {
-    $lang(newValue) {
-      this.update(this.options, newValue);
-    },
-
-    options(newValue) {
-      this.update(newValue, this.$lang);
     },
   },
 };

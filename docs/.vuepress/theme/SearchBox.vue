@@ -1,12 +1,12 @@
 <template>
   <div class="search-box">
     <input
-      @input="query = $event.target.value"
       aria-label="Search"
       :value="query"
       :class="{ 'focused': focused }"
       autocomplete="off"
       spellcheck="false"
+      @input="query = $event.target.value"
       @focus="focused = true"
       @blur="focused = false"
       @keyup.enter="go(focusIndex)"
@@ -14,21 +14,28 @@
       @keyup.down="onDown"
     >
     <ul
-      class="suggestions"
       v-if="showSuggestions"
+      class="suggestions"
       :class="{ 'align-right': alignRight }"
       @mouseleave="unfocus"
     >
       <li
-        class="suggestion"
         v-for="(s, i) in suggestions"
+        :key="i"
+        class="suggestion"
         :class="{ focused: i === focusIndex }"
         @mousedown="go(i)"
         @mouseenter="focus(i)"
       >
-        <a :href="s.path" @click.prevent>
+        <a
+          :href="s.path"
+          @click.prevent
+        >
           <span class="page-title">{{ s.title || s.path }}</span>
-          <span v-if="s.header" class="header">&gt; {{ s.header.title }}</span>
+          <span
+            v-if="s.header"
+            class="header"
+          >&gt; {{ s.header.title }}</span>
         </a>
       </li>
     </ul>

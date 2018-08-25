@@ -17,8 +17,16 @@
         fluid
         class="px-0 py-0"
       >
-        <v-carousel lazy :hide-controls="carousel.length < 2" :hide-delimiters="carousel.length < 2">
-          <v-carousel-item v-for="(item, i) in carousel" :src="item.image" :key="i"></v-carousel-item>
+        <v-carousel 
+          lazy 
+          :hide-controls="carousel.length < 2" 
+          :hide-delimiters="carousel.length < 2"
+        >
+          <v-carousel-item 
+            v-for="(item, i) in carousel" 
+            :key="i" 
+            :src="item.image"
+          />
         </v-carousel>
       </v-container>
     </ClientOnly>
@@ -28,7 +36,8 @@
       class="business-field"
       style="background-image: linear-gradient(322deg,#da2b2b 20%,#000000 78%)"
     >
-      <v-container dark
+      <v-container 
+        dark
         class="text-xs-center"
         grid-list-xl
       >
@@ -46,7 +55,10 @@
               xs12
               class="my-3"
             >
-              <v-icon color="white" size="64px">{{b.icon}}</v-icon>
+              <v-icon 
+                color="white" 
+                size="64px"
+              >{{ b.icon }}</v-icon>
               <div class="title my-4 white--text">{{ b.title }}</div>
             </v-flex>
           </v-layout>
@@ -87,12 +99,12 @@ import VCarousel from '@vuetify/es5/components/VCarousel/VCarousel';
 import VCarouselItem from '@vuetify/es5/components/VCarousel/VCarouselItem';
 import VImg from '@vuetify/es5/components/VImg';
 export default {
-  props: ['cover', 'carousel', 'business', 'sponsor'],
   components: {
     VCarousel,
     VCarouselItem,
     VImg,
   },
+  props: ['cover', 'carousel', 'business', 'sponsor'],
 };
 </script>
 

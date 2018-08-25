@@ -7,25 +7,28 @@
         grid-list-md
       >
 
-        <v-flex sm12 md6>
+        <v-flex 
+          sm12 
+          md6
+        >
           <v-form
-            @submit.prevent="send"
-            v-model="form.valid"
             ref="contact"
+            v-model="form.valid"
             name="contact"
             column
             data-netlify="true"
             netlify-honeypot="bot-field"
             method="post"
+            @submit.prevent="send"
           >
             <div style="display: none">
               <input name="bot-field">
             </div>
             <v-text-field
+              v-model="form.name"
               label="Name"
               name="name"
               :rules="form.nameRules"
-              v-model="form.name"
               autocomplete="off"
               clearable
               flex
@@ -33,18 +36,18 @@
             />
 
             <v-text-field
+              v-model="form.email"
               label="E-mail"
               autocomplete="off"
               name="email"
-              v-model="form.email"
               :rules="form.emailRules"
               clearable
               required
             />
 
             <v-textarea
-              label="Message"
               v-model="form.message"
+              label="Message"
               :rules="form.messageRules"
               name="message"
               rows="3"
@@ -54,7 +57,13 @@
               required
             />
 
-            <v-layout row grid-list-md align-center justify-space-between class="mt-3">
+            <v-layout 
+              row 
+              grid-list-md 
+              align-center 
+              justify-space-between 
+              class="mt-3"
+            >
               <!-- <vue-recaptcha
                 sitekey="6LeN308UAAAAAPSx9gSXVD2HxgV4s3S0rqxhC8PG"
                 ref="invisibleRecaptcha"
@@ -105,7 +114,10 @@
               </v-list-tile-action>
               <v-list-tile-content>
                 <v-list-tile-title v-text="address" />
-                <v-list-tile-sub-title v-if="address2" v-text="address2" />
+                <v-list-tile-sub-title 
+                  v-if="address2" 
+                  v-text="address2"
+                />
               </v-list-tile-content>
             </v-list-tile>
           </v-list>
@@ -117,12 +129,16 @@
       </v-layout>
     </v-container>
     <v-snackbar
+      v-model="snackbar"
       bottom
       right
-      v-model="snackbar"
     >
       {{ snackMsg }}
-      <v-btn flat color="success" @click.native="clear">OK</v-btn>
+      <v-btn 
+        flat 
+        color="success" 
+        @click.native="clear"
+      >OK</v-btn>
     </v-snackbar>
   </div>
 </template>
@@ -140,6 +156,12 @@ function encode(data) {
 }
 
 export default {
+  components: {
+    VForm,
+    VTextField,
+    VTextarea,
+    // VueRecaptcha,
+  },
   props: [
     'title',
     'subtitle',
@@ -150,12 +172,6 @@ export default {
     'fax',
     'social',
   ],
-  components: {
-    VForm,
-    VTextField,
-    VTextarea,
-    // VueRecaptcha,
-  },
   data: () => ({
     snackbar: false,
     snackMsg: '',

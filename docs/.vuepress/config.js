@@ -101,6 +101,9 @@ module.exports = {
               {
                 vuetify: {
                   transform: path.resolve(
+                    __dirname,
+                    "..",
+                    "..",
                     "node_modules",
                     "vuetify",
                     "es5",

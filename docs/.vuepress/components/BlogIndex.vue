@@ -1,5 +1,8 @@
 <template>
-  <v-container fluid grid-list-md>
+  <v-container 
+    fluid 
+    grid-list-md
+  >
     <v-data-iterator
       :items="posts"
       item-key="key"
@@ -22,12 +25,12 @@
                 :src="props.item.frontmatter.thumbnail"
                 height="125px"
                 contain
-              ></v-img>
+              />
             </v-flex>
             <v-flex>
               <v-card-title primary-title>
                 <div>
-                  <div class="headline">{{props.item.frontmatter.title}}</div>
+                  <div class="headline">{{ props.item.frontmatter.title }}</div>
                   <div v-if="props.item.frontmatter.date">
                     {{ new Date(props.item.frontmatter.date).toLocaleDateString() }}
                   </div>
@@ -35,8 +38,8 @@
               </v-card-title>
             </v-flex>
           </v-layout>
-          <v-divider light></v-divider>
-          <v-card-text v-html="props.item.frontmatter.description || props.item.excerpt || props.item.frontmatter.body"></v-card-text>
+          <v-divider light />
+          <v-card-text v-html="props.item.frontmatter.description || props.item.excerpt || props.item.frontmatter.body" />
         </v-card>
       </v-flex>
     </v-data-iterator>
@@ -48,15 +51,15 @@ import VDataIterator from '@vuetify/es5/components/VDataIterator';
 import VImg from '@vuetify/es5/components/VImg';
 
 export default {
+  components: {
+    VImg,
+    VDataIterator,
+  },
   props: {
     cat: {
       type: String,
       default: 'blog',
     },
-  },
-  components: {
-    VImg,
-    VDataIterator,
   },
   data: () => ({
     rowsPerPageItems: [{ text: 'All', value: -1 }, 2, 4, 8, 16, 20],
@@ -64,9 +67,6 @@ export default {
       rowsPerPage: 4,
     },
   }),
-  mounted() {
-    // console.log(this.posts);
-  },
   computed: {
     posts() {
       return this.$site.pages
@@ -75,6 +75,9 @@ export default {
           (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
         );
     },
+  },
+  mounted() {
+    // console.log(this.posts);
   },
   methods: {
     formatDate(date) {

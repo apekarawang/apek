@@ -5,41 +5,48 @@
   >
     <!-- user links -->
     <template
-      v-for="item in userLinks"
+      v-for="(item, i) in userLinks"
     >
-
       <template
         v-if="item.type === 'links'"
       >
-        <v-list-group v-if="side">
+        <v-list-group 
+          v-if="side" 
+          :key="item.link || i"
+        >
           <v-list-tile slot="activator">
             <v-list-tile-content>
               <v-list-tile-title>
-                {{item.text}}
+                {{ item.text }}
               </v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
-          <NavLink v-for="x in item.items" :item="x" side :key="x.link" />
+          <NavLink
+            v-for="x in item.items"
+            :key="x.link"
+            :item="x"
+            side
+          />
         </v-list-group>
         <DropdownLink
           v-else
-          :item="item"
           :key="item.link"
+          :item="item"
         />
       </template>
       <NavLink
         v-else
+        :key="item.link"
         :side="side"
         :item="item"
-        :key="item.link"
       />
     </template>
 
     <!-- repo link -->
     <component
       :is="side ? 'v-list-tile' : 'v-btn'"
-      flat
       v-if="repoLink"
+      flat
       :href="repoLink"
       class="repo-link"
       target="_blank"
@@ -47,7 +54,7 @@
     >
       <template v-if="side">
         <v-list-tile-content>
-          <v-list-tile-title>{{repoLabel}}</v-list-tile-title>
+          <v-list-tile-title>{{ repoLabel }}</v-list-tile-title>
         </v-list-tile-content>
         <v-list-tile-action>
           <v-icon small>call_missed_outgoing</v-icon>
@@ -68,14 +75,13 @@ import { resolveNavLinkItem } from './util';
 import NavLink from './NavLink.vue';
 
 export default {
+  components: { NavLink, DropdownLink },
   props: {
     side: {
       type: Boolean,
       default: false,
     },
   },
-
-  components: { NavLink, DropdownLink },
 
   computed: {
     userNav() {
