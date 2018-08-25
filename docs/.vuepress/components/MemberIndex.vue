@@ -110,11 +110,9 @@ export default {
   }),
   computed: {
     members() {
-      return this.$site.pages
-        .filter(x => x.path.startsWith(`/members/`) && !x.frontmatter.index)
-        .sort(
-          (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
-        );
+      return this.$site.pages.filter(
+        x => x.path.startsWith(`/members/`) && !x.frontmatter.index
+      );
     },
   },
 };
