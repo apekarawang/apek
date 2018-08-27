@@ -17,7 +17,7 @@
             name="contact"
             column
             data-netlify="true"
-            netlify-honeypot="bot-field"
+            data-netlify-honeypot="bot-field"
             method="post"
             @submit.prevent="send"
           >
@@ -212,7 +212,7 @@ export default {
 
     send() {
       if (this.$refs.contact.validate()) {
-        this.onVerify();
+        this.onVerify(Math.random());
       }
     },
     clear() {
