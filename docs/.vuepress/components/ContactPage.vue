@@ -196,7 +196,7 @@ export default {
     resetRecaptcha() {
       this.$refs.recaptcha.reset(); // Direct call reset method
     },
-    onVerify: function(uid) {
+    onVerify: function(response) {
       const { email, name, message } = this.form;
       fetch('https://apek.netlify.com/', {
         method: 'POST',
@@ -207,8 +207,7 @@ export default {
           email,
           name,
           message,
-          uid,
-          'g-recaptcha-response': this.form['g-recaptcha-response'],
+          'g-recaptcha-response': this.form['g-recaptcha-response'] || response,
         }),
       })
         .then(e => {
