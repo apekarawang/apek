@@ -141,11 +141,6 @@
         @click.native="clear"
       >OK</v-btn>
     </v-snackbar>
-    <ClientOnly>
-      <script2
-        src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&amp;render=explicit"
-      />
-    </ClientOnly>
   </div>
 </template>
 

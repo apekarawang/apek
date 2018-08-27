@@ -14,16 +14,12 @@ import VDivider from '@vuetify/es5/components/VDivider'
 import transitions from '@vuetify/es5/components/transitions'
 import directives from '@vuetify/es5/directives'
 
-import VueScript from 'vue-script2'
-
 export default ({
   Vue, // the version of Vue being used in the VuePress app
   options, // the options for the root Vue instance
   router, // the router instance for the app
   siteData, // site metadata
 }) => {
-  Vue.use(VueScript)
-
   Vue.use(Vuetify, {
     components: {
       VApp,
