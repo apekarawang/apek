@@ -5,6 +5,7 @@ module.exports = {
   title: "APEK",
   description: "Asosiasi Pengusaha Engineering Karawang",
   serviceWorker: true,
+  ga: "UA-114389898-1",
   head: [
     [
       "link",
@@ -75,7 +76,7 @@ module.exports = {
   markdown: {
     anchor: { permalink: false, permalinkBefore: true, permalinkSymbol: "#" },
     config: md => {
-      md.set({ breaks: true })
+      md.set({ breaks: true });
     }
   },
   configureWebpack: {
