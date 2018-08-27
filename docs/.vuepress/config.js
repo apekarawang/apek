@@ -5,7 +5,7 @@ module.exports = {
   title: "APEK",
   description: "Asosiasi Pengusaha Engineering Karawang",
   serviceWorker: true,
-  ga: "UA-114389898-1",
+  // ga: "UA-114389898-1",
   head: [
     [
       "link",
