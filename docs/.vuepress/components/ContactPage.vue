@@ -209,6 +209,7 @@ export default {
         }),
       })
         .then(e => {
+          console.log(e);
           this.snackMsg =
             e.status < 400 && e.statusText
               ? 'Your message has been sent, thanks!'
