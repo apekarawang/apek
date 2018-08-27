@@ -9,7 +9,8 @@ export default {
     var el = this.$refs['x_script'];
 
     import('postscribe').then(({ default: postscribe }) => {
-      postscribe(el, '<script src="' + this.src + '"></script>', {
+      // prettier-ignore
+      postscribe(el, '<\script src="' + this.src + '"></\script>', {
         error: function(e) {
           console.log(e);
         },
