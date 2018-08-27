@@ -13,7 +13,7 @@ jobs:
       - restore_cache:
           name: Restore Firebase Deploy Cache
           keys:
-            - firebase-deploy-cache-{{ checksum ".firebase/hosting.ZGlzdA.cache" }}
+            - firebase-deploy-cache-{{ checksum "dist/index.html" }}
             - firebase-deploy-cache-
 
       - restore_cache:
@@ -35,7 +35,7 @@ jobs:
 
       - save_cache:
           name: Save Firebase Deploy Cache
-          key: firebase-deploy-cache-{{ checksum ".firebase/hosting.ZGlzdA.cache" }}
+          key: firebase-deploy-cache-{{ checksum "dist/index.html" }}
           paths:
             - .firebase
 
