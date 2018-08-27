@@ -13,7 +13,8 @@ jobs:
       - restore_cache:
           name: Restore Firebase Deploy Cache
           keys:
-            - firebase-deploy-cache
+            - firebase-deploy-cache-{{ checksum ".firebase/hosting.ZGlzdA.cache" }}
+            - firebase-deploy-cache-
 
       - restore_cache:
           name: Restore Yarn Package Cache
@@ -23,16 +24,18 @@ jobs:
       - run:
           name: Install Dependencies
           command: yarn install
+
       - run:
           name: Build
           command: yarn vuepress build docs -d dist
+
       - run:
           name: Deploy
           command: yarn firebase deploy --token $FIREBASE_TOKEN --project $FIREBASE_PROJECT -m "$(git log -1 --pretty=%B)"
 
       - save_cache:
           name: Save Firebase Deploy Cache
-          key: firebase-deploy-cache
+          key: firebase-deploy-cache-{{ checksum ".firebase/hosting.ZGlzdA.cache" }}
           paths:
             - .firebase
 
@@ -41,4 +44,3 @@ jobs:
           key: cache-packages-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
-            - node_modules

@@ -15,4 +15,3 @@ sitemap.xml.gz
 
 admin/
 !admin/config.yml
-.firebase/
