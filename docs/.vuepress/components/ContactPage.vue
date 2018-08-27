@@ -7,8 +7,8 @@
         grid-list-md
       >
 
-        <v-flex 
-          sm12 
+        <v-flex
+          sm12
           md6
         >
           <v-form
@@ -57,20 +57,20 @@
               required
             />
 
-            <v-layout 
-              row 
-              grid-list-md 
-              align-center 
-              justify-space-between 
+            <v-layout
+              row
+              grid-list-md
+              align-center
+              justify-space-between
               class="mt-3"
             >
-              <!-- <vue-recaptcha
+              <vue-recaptcha
                 sitekey="6LeN308UAAAAAPSx9gSXVD2HxgV4s3S0rqxhC8PG"
                 ref="invisibleRecaptcha"
                 @verify="onVerify"
                 size="invisible"
                 badge="inline"
-              /> -->
+              />
               <v-btn
                 color="secondary"
                 type="submit"
@@ -114,8 +114,8 @@
               </v-list-tile-action>
               <v-list-tile-content>
                 <v-list-tile-title v-text="address" />
-                <v-list-tile-sub-title 
-                  v-if="address2" 
+                <v-list-tile-sub-title
+                  v-if="address2"
                   v-text="address2"
                 />
               </v-list-tile-content>
@@ -134,12 +134,15 @@
       right
     >
       {{ snackMsg }}
-      <v-btn 
-        flat 
-        color="success" 
+      <v-btn
+        flat
+        color="success"
         @click.native="clear"
       >OK</v-btn>
     </v-snackbar>
+    <script2
+      src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&amp;render=explicit"
+    />
   </div>
 </template>
 
@@ -147,7 +150,7 @@
 import VForm from '@vuetify/es5/components/VForm';
 import VTextField from '@vuetify/es5/components/VTextField';
 import VTextarea from '@vuetify/es5/components/VTextarea';
-// import VueRecaptcha from 'vue-recaptcha';
+import VueRecaptcha from 'vue-recaptcha';
 
 function encode(data) {
   return Object.keys(data)
@@ -160,7 +163,7 @@ export default {
     VForm,
     VTextField,
     VTextarea,
-    // VueRecaptcha,
+    VueRecaptcha,
   },
   props: [
     'title',
@@ -200,9 +203,10 @@ export default {
         body: encode({ 'form-name': 'contact', email, name, message, uid }),
       })
         .then(e => {
-          this.snackMsg = e.ok
-            ? 'Your message has been sent, thanks!'
-            : `Failed to send message because of: ${e.statusText}`;
+          this.snackMsg =
+            e.status < 400 && e.statusText
+              ? 'Your message has been sent, thanks!'
+              : `Failed to send message because of: ${e.statusText}`;
           this.snackbar = true;
         })
         .catch(error =>
@@ -212,12 +216,11 @@ export default {
         );
     },
     resetRecaptcha() {
-      // this.$refs.recaptcha.reset(); // Direct call reset method
+      this.$refs.recaptcha.reset(); // Direct call reset method
     },
     send() {
       if (this.$refs.contact.validate()) {
-        this.onVerify(Math.random());
-        // this.$refs.invisibleRecaptcha.execute();
+        this.$refs.invisibleRecaptcha.execute();
       }
     },
     clear() {
