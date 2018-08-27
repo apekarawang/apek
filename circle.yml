@@ -13,7 +13,7 @@ jobs:
       - restore_cache:
           name: Restore Firebase Deploy Cache
           keys:
-            - firebase-deploy-cache-{{ checksum "yarn.lock" }}
+            - firebase-deploy-cache-{{ checksum "firebase.cache" }}
             - firebase-deploy-cache-
 
       - restore_cache:
@@ -31,12 +31,12 @@ jobs:
           name: Deploy
           command: yarn firebase deploy --token $FIREBASE_TOKEN --project $FIREBASE_PROJECT -m "$(git log -1 --pretty=%B)"
       - run:
-          name: Set latest firebase cache to env
-          command: FBCACHEFILE=`ls -t .firebase/ | head -1` && echo 'export FBCACHEFILE="$FBCACHEFILE"' >> $BASH_ENV
+          name: Copy latest generated cache file to firebase.cache
+          command: cp .firebase/`ls -t .firebase/ | head -1` firebase.cache
 
       - save_cache:
           name: Save Firebase Deploy Cache
-          key: firebase-deploy-cache-{{ checksum ".firebase/$FBCACHEFILE" }}
+          key: firebase-deploy-cache-{{ checksum "firebase.cache" }}
           paths:
             - .firebase
 
