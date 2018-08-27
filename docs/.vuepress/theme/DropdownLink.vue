@@ -48,7 +48,6 @@
         <v-list-tile
           v-else
           :to="subItem.link"
-          :item="subItem"
         >
           <v-list-tile-content>
             <v-list-tile-title>{{ subItem.text }}</v-list-tile-title>
