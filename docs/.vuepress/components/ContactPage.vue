@@ -14,7 +14,7 @@
           <v-form
             ref="contact"
             v-model="form.valid"
-            name="contact"
+            name="contact-form"
             column
             data-netlify="true"
             data-netlify-honeypot="bot-field"
