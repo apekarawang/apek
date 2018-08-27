@@ -12,19 +12,16 @@
           md6
         >
           <v-form
-            column
-            v-model="form.valid"
             ref="contact"
+            v-model="form.valid"
             name="contact"
+            column
             data-netlify="true"
             data-netlify-recaptcha="true"
             netlify-honeypot="bot-field"
             method="post"
             @submit.prevent="send"
           >
-            <noscript>
-              <p>This form won’t work with Javascript disabled</p>
-            </noscript>
             <div style="display: none">
               <input name="bot-field">
             </div>
@@ -68,13 +65,16 @@
               justify-space-between
               class="mt-3"
             >
-
+              <vue-recaptcha
+                sitekey="6LeN308UAAAAAPSx9gSXVD2HxgV4s3S0rqxhC8PG"
+                ref="invisibleRecaptcha"
+                @verify="onVerify"
+                size="invisible"
+                badge="inline"
+              />
               <v-btn
                 color="secondary"
                 type="submit"
-                class="g-recaptcha"
-                data-sitekey="6LeN308UAAAAAPSx9gSXVD2HxgV4s3S0rqxhC8PG"
-                :data-callback='onVerify'
                 :disabled="!form.valid"
               >
                 Send
@@ -148,6 +148,7 @@
 import VForm from '@vuetify/es5/components/VForm';
 import VTextField from '@vuetify/es5/components/VTextField';
 import VTextarea from '@vuetify/es5/components/VTextarea';
+import VueRecaptcha from 'vue-recaptcha';
 
 function encode(data) {
   return Object.keys(data)
@@ -160,6 +161,7 @@ export default {
     VForm,
     VTextField,
     VTextarea,
+    VueRecaptcha,
   },
   props: [
     'title',
@@ -190,7 +192,7 @@ export default {
     },
   }),
   methods: {
-    onVerify: function() {
+    onVerify: function(uid) {
       const { email, name, message } = this.form;
       fetch('https://apek.netlify.com/', {
         method: 'POST',
@@ -201,6 +203,7 @@ export default {
           email,
           name,
           message,
+          uid,
           'g-recaptcha-response': this.form['g-recaptcha-response'],
         }),
       })
@@ -217,9 +220,12 @@ export default {
           )
         );
     },
+    resetRecaptcha() {
+      this.$refs.recaptcha.reset(); // Direct call reset method
+    },
     send() {
       if (this.$refs.contact.validate()) {
-        this.onVerify();
+        this.$refs.invisibleRecaptcha.execute();
       }
     },
     clear() {
