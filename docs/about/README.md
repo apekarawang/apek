@@ -1,7 +1,5 @@
 ---
 title: About Us
-layout: PageLayout
-sidebar: auto
 ---
 ## Sejarah Singkat
 
@@ -11,7 +9,7 @@ Bukan segi kemampuanj teknologi, ekonomi dan manajemen saja yang harus di tingka
 
 Seiring bergulirnya kebijakan MEA akan diberlakukan, dibeberapa dikawasan industri sudah mulai terlihat beberapa perusahaan baru dari luar negeri berupa workshop-workshop skala kecil berdiri dengan beberapa pekerja saja, meski demikian mereka memilik link yang kuat hingga merekapun mudah mendapatkan order.
 
-Dari keadaan diatas beberapa para pelaku menggagas perlunya dibentuk suatu perhimpunan yang bisa menjadi suatu mediasi bagaimana para pelaku\_ usaha Engineering di karawang bisa mewujudkan rencanya tadi. Dari beberapa penggegas tadi sebagai inisiator melakukan pendekatan-pendekatan dengan para pelaku usaha lainya yang ada diwilayah Karawang \_berusaha dibidang yang sama dan gagasan para inisiator mendapat dukungan dari parapelaku usaha engineering yang lain dan setelah intend an beberapa kali melakukan pertemuan dengan para pelaku usaha ini, maka terbentuklah Asosiasi Pengusaha Enginering Karawang yang disingkat menjadi APEK yang diresmikan pada tanggal 20 September 2013.
+Dari keadaan diatas beberapa para pelaku menggagas perlunya dibentuk suatu perhimpunan yang bisa menjadi suatu mediasi bagaimana para pelaku_ usaha Engineering di karawang bisa mewujudkan rencanya tadi. Dari beberapa penggegas tadi sebagai inisiator melakukan pendekatan-pendekatan dengan para pelaku usaha lainya yang ada diwilayah Karawang _berusaha dibidang yang sama dan gagasan para inisiator mendapat dukungan dari parapelaku usaha engineering yang lain dan setelah intend an beberapa kali melakukan pertemuan dengan para pelaku usaha ini, maka terbentuklah Asosiasi Pengusaha Enginering Karawang yang disingkat menjadi APEK yang diresmikan pada tanggal 20 September 2013.
 
 Adapun terbentuknya asosiasi ini tidak terlepas dari pihak-pihak yang mendukung antara lain dari pemerintahan Kabupaten dan Pemerintahan Daerah Provinsi Jawa Barat bidang perindustrian, Bidang koprasi dan UMKM, Bidang ketenagakerjaan, juga dari Pemerintah Pusat melalui Kementrian Koprasi dan UMKM, dan kementrian Perindustrian.
 
@@ -35,7 +33,6 @@ Dengan segala upaya dan usaha semoga APEK dapat lebih berkiprah lebih maju dan i
 ## Visi
 
 Sebagai wadah komunikasi, konsultasi, koordinasi dan media informasi bagi para pelaku usaha Engineering di Karawang.
-
 
 ## Misi
 
@@ -65,4 +62,3 @@ Mengadakan Pameran Exhibition dibidang Engineering Manufacturing.
 ## Struktur Organisasi
 
 ![Struktur Organisasi](/images/struktur-org-with-photo.jpg)
-![Pra APEK](/images/pra-APEK@512x.jpg)
