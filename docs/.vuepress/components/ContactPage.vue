@@ -17,6 +17,7 @@
             name="contact"
             column
             data-netlify="true"
+            data-netlify-recaptcha="true"
             netlify-honeypot="bot-field"
             method="post"
             @submit.prevent="send"
@@ -64,14 +65,13 @@
               justify-space-between
               class="mt-3"
             >
-              <!-- <vue-recaptcha
+              <vue-recaptcha
                 sitekey="6LeN308UAAAAAPSx9gSXVD2HxgV4s3S0rqxhC8PG"
                 ref="invisibleRecaptcha"
                 @verify="onVerify"
                 size="invisible"
                 badge="inline"
-              /> -->
-              <div data-netlify-recaptcha></div>
+              />
               <v-btn
                 color="secondary"
                 type="submit"
@@ -141,6 +141,7 @@
         @click.native="clear"
       >OK</v-btn>
     </v-snackbar>
+    <Xcript src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" />
   </div>
 </template>
 
