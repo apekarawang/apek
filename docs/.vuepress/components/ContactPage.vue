@@ -197,7 +197,6 @@ export default {
         }),
       })
         .then(e => {
-          console.log(e);
           this.snackMsg =
             e.status < 400
               ? 'Your message has been sent, thanks!'
@@ -213,7 +212,7 @@ export default {
 
     send() {
       if (this.$refs.contact.validate()) {
-        this.onVerify(Math.random());
+        this.onVerify();
       }
     },
     clear() {
