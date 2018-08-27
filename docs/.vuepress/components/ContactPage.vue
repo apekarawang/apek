@@ -12,15 +12,19 @@
           md6
         >
           <v-form
-            ref="contact"
-            v-model="form.valid"
-            name="contact"
             column
+            v-model="form.valid"
+            ref="contact"
+            name="contact"
             data-netlify="true"
+            data-netlify-recaptcha="true"
             netlify-honeypot="bot-field"
             method="post"
             @submit.prevent="send"
           >
+            <noscript>
+              <p>This form won’t work with Javascript disabled</p>
+            </noscript>
             <div style="display: none">
               <input name="bot-field">
             </div>
@@ -64,10 +68,13 @@
               justify-space-between
               class="mt-3"
             >
-              <div data-netlify-recaptcha></div>
+
               <v-btn
                 color="secondary"
                 type="submit"
+                class="g-recaptcha"
+                data-sitekey="6LeN308UAAAAAPSx9gSXVD2HxgV4s3S0rqxhC8PG"
+                :data-callback='onVerify'
                 :disabled="!form.valid"
               >
                 Send
