@@ -17,6 +17,7 @@
             name="contact"
             column
             data-netlify="true"
+            data-netlify-recaptcha="true"
             netlify-honeypot="bot-field"
             method="post"
             @submit.prevent="send"
@@ -140,11 +141,7 @@
         @click.native="clear"
       >OK</v-btn>
     </v-snackbar>
-    <ClientOnly>
-      <script2
-        src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&amp;render=explicit"
-      />
-    </ClientOnly>
+    <Xcript src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" />
   </div>
 </template>
 
@@ -202,9 +199,17 @@ export default {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'contact', email, name, message, uid }),
+        body: encode({
+          'form-name': 'contact',
+          email,
+          name,
+          message,
+          uid,
+          'g-recaptcha-response': this.form['g-recaptcha-response'],
+        }),
       })
         .then(e => {
+          console.log(e);
           this.snackMsg =
             e.status < 400 && e.statusText
               ? 'Your message has been sent, thanks!'
