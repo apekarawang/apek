@@ -17,6 +17,7 @@
             name="contact"
             column
             data-netlify="true"
+            data-netlify-recaptcha="true"
             netlify-honeypot="bot-field"
             method="post"
             @submit.prevent="send"
@@ -202,7 +203,14 @@ export default {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'contact', email, name, message, uid }),
+        body: encode({
+          'form-name': 'contact',
+          email,
+          name,
+          message,
+          uid,
+          'g-recaptcha-response': this.form['g-recaptcha-response'],
+        }),
       })
         .then(e => {
           this.snackMsg =
