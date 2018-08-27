@@ -30,10 +30,13 @@ jobs:
       - run:
           name: Deploy
           command: yarn firebase deploy --token $FIREBASE_TOKEN --project $FIREBASE_PROJECT -m "$(git log -1 --pretty=%B)"
+      - run:
+          name: Set latest firebase cache to env
+          command: FBCACHEFILE=`ls -t .firebase/ | head -1` && echo 'export FBCACHEFILE="$FBCACHEFILE"' >> $BASH_ENV
 
       - save_cache:
           name: Save Firebase Deploy Cache
-          key: firebase-deploy-cache-{{ checksum ".firebase/*.cache" }}
+          key: firebase-deploy-cache-{{ checksum ".firebase/$FBCACHEFILE" }}
           paths:
             - .firebase
 
