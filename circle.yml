@@ -13,8 +13,7 @@ jobs:
       - restore_cache:
           name: Restore Firebase Deploy Cache
           keys:
-            - firebase-deploy-cache-{{ checksum "firebase.cache" }}
-            - firebase-deploy-cache-
+            - firebase-deploy-cache
 
       - restore_cache:
           name: Restore Yarn Package Cache
@@ -30,13 +29,10 @@ jobs:
       - run:
           name: Deploy
           command: yarn firebase deploy --token $FIREBASE_TOKEN --project $FIREBASE_PROJECT -m "$(git log -1 --pretty=%B)"
-      - run:
-          name: Copy latest generated cache file to firebase.cache
-          command: cp .firebase/`ls -t .firebase/ | head -1` firebase.cache
 
       - save_cache:
           name: Save Firebase Deploy Cache
-          key: firebase-deploy-cache-{{ checksum "firebase.cache" }}
+          key: firebase-deploy-cache
           paths:
             - .firebase
 
