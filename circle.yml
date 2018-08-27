@@ -30,6 +30,9 @@ jobs:
           name: Deploy
           command: yarn firebase deploy --token $FIREBASE_TOKEN --project $FIREBASE_PROJECT -m "$(git log -1 --pretty=%B)"
 
+      - run:
+          name: Show .firebase files
+          command: ls .firebase/
       - save_cache:
           name: Save Firebase Deploy Cache
           key: firebase-deploy-cache
