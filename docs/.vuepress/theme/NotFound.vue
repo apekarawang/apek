@@ -3,11 +3,11 @@
     <v-container fill-height>
       <v-layout align-center>
         <v-flex class="text-xs-center">
-          <h1 :data-heading="404">404</h1>
+          <h1 data-heading="404">404</h1>
           <blockquote>{{ getMsg() }}</blockquote>
-          <v-btn 
-            flat 
-            color="error" 
+          <v-btn
+            outline
+            color="error"
             to="/"
           >Take me home.</v-btn>
         </v-flex>
@@ -17,8 +17,6 @@
 </template>
 
 <script>
-import { VBtn } from 'vuetify';
-
 const msgs = [
   `There's nothing here.`,
   `How did we get here?`,
@@ -27,9 +25,6 @@ const msgs = [
 ];
 
 export default {
-  components: {
-    VBtn,
-  },
   methods: {
     getMsg() {
       return msgs[Math.floor(Math.random() * msgs.length)];
