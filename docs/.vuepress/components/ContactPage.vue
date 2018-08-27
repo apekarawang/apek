@@ -64,13 +64,15 @@
               justify-space-between
               class="mt-3"
             >
-              <vue-recaptcha
-                sitekey="6LeN308UAAAAAPSx9gSXVD2HxgV4s3S0rqxhC8PG"
-                ref="invisibleRecaptcha"
-                @verify="onVerify"
-                size="invisible"
-                badge="inline"
-              />
+              <ClientOnly>
+                <vue-recaptcha
+                  sitekey="6LeN308UAAAAAPSx9gSXVD2HxgV4s3S0rqxhC8PG"
+                  ref="invisibleRecaptcha"
+                  @verify="onVerify"
+                  size="invisible"
+                  badge="inline"
+                />
+              </ClientOnly>
               <v-btn
                 color="secondary"
                 type="submit"
@@ -140,9 +142,11 @@
         @click.native="clear"
       >OK</v-btn>
     </v-snackbar>
-    <script2
-      src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&amp;render=explicit"
-    />
+    <ClientOnly>
+      <script2
+        src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&amp;render=explicit"
+      />
+    </ClientOnly>
   </div>
 </template>
 
