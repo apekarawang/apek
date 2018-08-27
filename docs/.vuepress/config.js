@@ -73,7 +73,10 @@ module.exports = {
     ]
   },
   markdown: {
-    anchor: { permalink: false, permalinkBefore: true, permalinkSymbol: "#" }
+    anchor: { permalink: false, permalinkBefore: true, permalinkSymbol: "#" },
+    config: md => {
+      md.set({ breaks: true })
+    }
   },
   configureWebpack: {
     resolve: {
