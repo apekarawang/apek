@@ -199,7 +199,7 @@ export default {
         .then(e => {
           console.log(e);
           this.snackMsg =
-            e.status < 400 && e.statusText
+            e.status < 400
               ? 'Your message has been sent, thanks!'
               : `Failed to send message because of: ${e.statusText}`;
           this.snackbar = true;
