@@ -1,5 +1,6 @@
 <template>
   <div>
+    <script2 src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" />
     <v-container grid-list-xl>
       <v-layout
         row
@@ -17,6 +18,7 @@
             name="contact-form"
             column
             data-netlify="true"
+            data-netlify-recaptcha="true"
             data-netlify-honeypot="bot-field"
             method="post"
             @submit.prevent="send"
@@ -64,6 +66,13 @@
               justify-space-between
               class="mt-3"
             >
+              <vue-recaptcha
+                sitekey="6LeN308UAAAAAPSx9gSXVD2HxgV4s3S0rqxhC8PG"
+                ref="invisibleRecaptcha"
+                @verify="onVerify"
+                size="invisible"
+                badge="inline"
+              />
               <v-btn
                 color="secondary"
                 type="submit"
@@ -137,6 +146,7 @@
 </template>
 
 <script>
+import VueRecaptcha from 'vue-recaptcha';
 import VForm from '@vuetify/es5/components/VForm';
 import VTextField from '@vuetify/es5/components/VTextField';
 import VTextarea from '@vuetify/es5/components/VTextarea';
@@ -149,6 +159,7 @@ function encode(data) {
 
 export default {
   components: {
+    VueRecaptcha,
     VForm,
     VTextField,
     VTextarea,
@@ -182,6 +193,9 @@ export default {
     },
   }),
   methods: {
+    resetRecaptcha() {
+      this.$refs.recaptcha.reset(); // Direct call reset method
+    },
     onVerify: function(uid) {
       const { email, name, message } = this.form;
       fetch('https://apek.netlify.com/', {
@@ -194,9 +208,12 @@ export default {
           name,
           message,
           uid,
+          'g-recaptcha-response': this.form['g-recaptcha-response'],
         }),
       })
         .then(e => {
+          console.log('response:', e);
+          console.log('form:', this.form);
           this.snackMsg =
             e.status < 400
               ? 'Your message has been sent, thanks!'
@@ -212,10 +229,11 @@ export default {
 
     send() {
       if (this.$refs.contact.validate()) {
-        this.onVerify(Math.random());
+        this.$refs.invisibleRecaptcha.execute();
       }
     },
     clear() {
+      this.resetRecaptcha();
       this.$refs.contact.reset();
       this.snackbar = false;
     },
