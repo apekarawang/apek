@@ -172,6 +172,13 @@ export default {
 
   mounted() {
     import('netlify-identity-widget').then(({ default: identity }) => {
+      identity.on(`init`, user => {
+        if (!user) {
+          identity.on(`login`, () => {
+            document.location.reload();
+          });
+        }
+      });
       identity.init({
         container: '#apek',
         APIUrl: 'https://cms.apek.or.id/.netlify/identity',
