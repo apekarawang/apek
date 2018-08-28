@@ -3,9 +3,6 @@
     id="apek"
     :class="pageClasses"
   >
-    <!-- Netlify Identity -->
-    <script2 src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
-
     <!--<Navbar
       v-if="shouldShowNavbar"
       @toggle-sidebar="toggleSidebar"
@@ -174,6 +171,13 @@ export default {
   },
 
   mounted() {
+    import('netlify-identity-widget').then(({ default: identity }) => {
+      identity.init({
+        container: '#apek',
+        APIUrl: 'https://cms.apek.or.id/.netlify/identity',
+      });
+    });
+
     window.addEventListener('scroll', this.onScroll);
 
     // configure progress bar
