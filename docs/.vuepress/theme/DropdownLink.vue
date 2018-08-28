@@ -60,11 +60,8 @@
 
 <script>
 // import NavLink from './NavLink.vue';
-import VMenu from '../../../node_modules/vuetify/es5/components/VMenu';
 
 export default {
-  components: { VMenu },
-
   props: {
     item: {
       required: true,

@@ -36,7 +36,11 @@
       <v-spacer />
 
       <NavLinks class="hidden-xs-only" />
-
+      <v-toolbar-items v-if="user">
+        <v-btn flat icon data-netlify-identity-button="true" @click.native="identity.open()">
+          <v-icon>account_circle</v-icon>
+        </v-btn>
+      </v-toolbar-items>
       <v-toolbar-side-icon
         class="hidden-sm-and-up"
         @click.stop="toggleSidebar"
@@ -111,12 +115,15 @@ import Page from './Page.vue';
 import SWUpdatePopup from './SWUpdatePopup.vue';
 import { resolveSidebarItems } from './util';
 import NavLinks from './NavLinks';
+import VueScript from 'vue-script2';
 
 export default {
   components: { Home, Page, NavLinks, SWUpdatePopup },
 
   data() {
     return {
+      identity: null,
+      user: null,
       isSidebarOpen: false,
       swUpdateEvent: null,
     };
@@ -171,15 +178,21 @@ export default {
   },
 
   mounted() {
-    import('netlify-identity-widget').then(({ default: identity }) => {
-      identity.on(`init`, user => {
+    VueScript.load(
+      'https://identity.netlify.com/v1/netlify-identity-widget.js'
+    ).then(() => {
+      this.identity = netlifyIdentity;
+      netlifyIdentity.on(`init`, user => {
         if (!user) {
-          identity.on(`login`, () => {
+          netlifyIdentity.on(`login`, user => {
             document.location.reload();
           });
+        } else {
+          this.user = user;
+          console.log(this.user);
         }
       });
-      identity.init({
+      netlifyIdentity.init({
         container: '#apek',
         APIUrl: 'https://cms.apek.or.id/.netlify/identity',
       });
