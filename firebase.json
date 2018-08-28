@@ -6,6 +6,12 @@
       "**/.*",
       "**/node_modules/**",
       "**/cms/**"
+    ],
+    "redirects": [
+      {
+        "source": "/.netlify/*",
+        "destination": "https://cms.apek.or.id/.netlify/"
+      }
     ]
   }
 }
