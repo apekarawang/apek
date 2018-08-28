@@ -25,7 +25,7 @@ jobs:
           command: yarn install
 
       - save_cache:
-          name: Save Cache
+          name: Save Packages Cache
           key: cache-packages-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
