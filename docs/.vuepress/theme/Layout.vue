@@ -223,7 +223,7 @@ export default {
       });
       netlifyIdentity.init({
         container: '#apek',
-        APIUrl: 'https://cms.apek.or.id/.netlify/identity',
+        APIUrl: 'https://apek.netlify.com/.netlify/identity',
       });
     });
 
