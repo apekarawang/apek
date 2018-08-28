@@ -1,6 +1,10 @@
 version: 2
 jobs:
   build:
+    branch:
+      only:
+        - master
+
     docker:
       - image: circleci/node:10
 
@@ -13,7 +17,6 @@ jobs:
       - restore_cache:
           name: Restore Firebase Deploy Cache
           keys:
-            - firebase-deploy-cache-{{ checksum "dist/index.html" }}
             - firebase-deploy-cache-
 
       - restore_cache:
@@ -35,7 +38,7 @@ jobs:
 
       - save_cache:
           name: Save Firebase Deploy Cache
-          key: firebase-deploy-cache-{{ checksum "dist/index.html" }}
+          key: firebase-deploy-cache-{{ checksum ".firebase/hosting.ZGlzdA.cache" }}
           paths:
             - .firebase
 
