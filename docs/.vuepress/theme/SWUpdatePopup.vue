@@ -8,7 +8,7 @@
   >
     {{ message }}
     <v-btn
-      flat
+      outline
       @click.native="reload"
     >{{ buttonText }}</v-btn>
   </v-snackbar>
