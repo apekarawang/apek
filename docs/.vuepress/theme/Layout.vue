@@ -3,6 +3,9 @@
     id="apek"
     :class="pageClasses"
   >
+    <!-- Netlify Identity -->
+    <script2 src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
+
     <!--<Navbar
       v-if="shouldShowNavbar"
       @toggle-sidebar="toggleSidebar"
@@ -39,13 +42,13 @@
 
       <v-toolbar-side-icon
         class="hidden-sm-and-up"
-        @click.stop="drawer = !drawer"
+        @click.stop="toggleSidebar"
       />
 
     </v-toolbar>
 
     <v-navigation-drawer
-      v-model="drawer"
+      v-model="isSidebarOpen"
       app
       clipped
       right
@@ -117,7 +120,6 @@ export default {
 
   data() {
     return {
-      drawer: false,
       isSidebarOpen: false,
       swUpdateEvent: null,
     };
