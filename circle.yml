@@ -38,7 +38,7 @@ jobs:
 
       - run:
           name: Build
-          command: yarn vuepress build docs -d dist
+          command: yarn build
 
       - run:
           name: Deploy
