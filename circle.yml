@@ -4,6 +4,7 @@ jobs:
     branch:
       only:
         - master
+        - /rc-.*/
 
     docker:
       - image: circleci/node:10
@@ -17,6 +18,7 @@ jobs:
       - restore_cache:
           name: Restore Firebase Deploy Cache
           keys:
+            - firebase-deploy-cache-noop
             - firebase-deploy-cache-
 
       - restore_cache:
