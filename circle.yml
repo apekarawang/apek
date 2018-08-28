@@ -16,12 +16,6 @@ jobs:
       - checkout
 
       - restore_cache:
-          name: Restore Firebase Deploy Cache
-          keys:
-            - firebase-deploy-cache-noop
-            - firebase-deploy-cache-
-
-      - restore_cache:
           name: Restore Yarn Package Cache
           keys:
             - cache-packages-{{ checksum "yarn.lock" }}
@@ -29,6 +23,18 @@ jobs:
       - run:
           name: Install Dependencies
           command: yarn install
+
+      - save_cache:
+          name: Save Cache
+          key: cache-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+
+      - restore_cache:
+          name: Restore Build and Deploy Cache
+          keys:
+            - build-deploy-cache-{{ .Environment.CIRCLE_PREVIOUS_BUILD_NUM }}
+            - build-deploy-cache-
 
       - run:
           name: Build
@@ -39,13 +45,9 @@ jobs:
           command: yarn firebase deploy --token $FIREBASE_TOKEN --project $FIREBASE_PROJECT -m "$(git log -1 --pretty=%B)"
 
       - save_cache:
-          name: Save Firebase Deploy Cache
-          key: firebase-deploy-cache-{{ checksum ".firebase/hosting.ZGlzdA.cache" }}
+          name: Save Build and Deploy Cache
+          key: build-deploy-cache-{{ .Environment.CIRCLE_BUILD_NUM }}
           paths:
             - .firebase
-
-      - save_cache:
-          name: Save Cache
-          key: cache-packages-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/.cache/yarn
+            - node_modules/vuepress/node_modules/.cache
+            - node_modules/.cache
