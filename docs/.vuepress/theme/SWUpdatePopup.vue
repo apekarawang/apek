@@ -1,13 +1,14 @@
 <template>
   <v-snackbar
     bottom
-    color="error"
     right
     :value="enabled"
+    color="error"
+    :timeout="0"
   >
     {{ message }}
-    <v-btn 
-      flat 
+    <v-btn
+      flat
       @click.native="reload"
     >{{ buttonText }}</v-btn>
   </v-snackbar>
