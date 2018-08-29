@@ -1,6 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("vuepress-html-webpack-plugin");
-const HtmlWebpackExternalsPlugin = require("html-webpack-externals-plugin");
+// const HtmlWebpackExternalsPlugin = require("html-webpack-externals-plugin");
 const { VueLoaderPlugin } = require("vue-loader");
 
 module.exports = (e, a) => ({
@@ -13,7 +13,11 @@ module.exports = (e, a) => ({
   },
   externals: {
     "netlify-cms": "CMS",
-    "react-virtualized-select": "VirtualizedSelect"
+    "react-virtualized-select": "VirtualizedSelect",
+    "react": "React",
+    "react-dom": "ReactDOM",
+    "vue": "Vue",
+    "vuetify": "Vuetify"
   },
   resolve: {
     alias: {
@@ -78,45 +82,46 @@ module.exports = (e, a) => ({
   plugins: [
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
+      template: './cms/index.html',
       title: "Content Manager"
     }),
-    new HtmlWebpackExternalsPlugin({
-      externals: [
-        {
-          module: "netlify-identity-widget",
-          entry: "https://identity.netlify.com/v1/netlify-identity-widget.js",
-          global: "netlifyIdentity"
-        },
-        {
-          module: "react",
-          entry: "umd/react.production.min.js",
-          global: "React"
-        },
-        {
-          module: "react-dom",
-          entry: "umd/react-dom.production.min.js",
-          global: "ReactDOM"
-        },
-        {
-          module: "netlify-cms",
-          entry: "https://unpkg.com/netlify-cms@2/dist/netlify-cms.js",
-          global: "CMS"
-        },
-        {
-          module: "react-select",
-          entry: "dist/react-select.css"
-        },
-        {
-          module: "react-virtualized",
-          entry: "styles.css"
-        },
-        {
-          module: "react-virtualized-select",
-          global: "VirtualizedSelect",
-          entry: ["styles.css", "dist/umd/react-virtualized-select.js"]
-        }
-      ]
-    })
+    // new HtmlWebpackExternalsPlugin({
+    //   externals: [
+    //     {
+    //       module: "netlify-identity-widget",
+    //       entry: "https://identity.netlify.com/v1/netlify-identity-widget.js",
+    //       global: "netlifyIdentity"
+    //     },
+    //     {
+    //       module: "react",
+    //       entry: "umd/react.production.min.js",
+    //       global: "React"
+    //     },
+    //     {
+    //       module: "react-dom",
+    //       entry: "umd/react-dom.production.min.js",
+    //       global: "ReactDOM"
+    //     },
+    //     {
+    //       module: "netlify-cms",
+    //       entry: "https://unpkg.com/netlify-cms@2/dist/netlify-cms.js",
+    //       global: "CMS"
+    //     },
+    //     {
+    //       module: "react-select",
+    //       entry: "dist/react-select.css"
+    //     },
+    //     {
+    //       module: "react-virtualized",
+    //       entry: "styles.css"
+    //     },
+    //     {
+    //       module: "react-virtualized-select",
+    //       global: "VirtualizedSelect",
+    //       entry: ["styles.css", "dist/umd/react-virtualized-select.js"]
+    //     }
+    //   ]
+    // })
   ],
   devtool: "source-map"
 });

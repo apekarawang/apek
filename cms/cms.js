@@ -1,33 +1,8 @@
-import "netlify-identity-widget";
 import React from "react";
 import Vue from "vue";
 import ClientOnly from "vuepress/lib/app/components/ClientOnly";
-import {
-  Vuetify,
-  VApp,
-  VToolbar,
-  VBtn,
-  VGrid,
-  VCard,
-  VList,
-  VIcon,
-  VSnackbar
-} from "vuetify";
 
 Vue.component("ClientOnly", ClientOnly);
-
-Vue.use(Vuetify, {
-  components: {
-    VApp,
-    VToolbar,
-    VGrid,
-    VCard,
-    VList,
-    VBtn,
-    VIcon,
-    VSnackbar
-  }
-});
 
 import("netlify-cms")
   .then(async ({default: CMS}) => {
