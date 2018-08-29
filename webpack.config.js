@@ -98,7 +98,7 @@ module.exports = (e, a) => ({
         },
         {
           module: "netlify-cms",
-          entry: "dist/netlify-cms.js",
+          entry: "https://unpkg.com/netlify-cms/dist/netlify-cms.js",
           global: "CMS"
         },
         {
