@@ -15,7 +15,7 @@
           <v-form
             ref="contact"
             v-model="form.valid"
-            name="contact-form"
+            name="contact"
             column
             data-netlify="true"
             data-netlify-honeypot="bot-field"
@@ -146,14 +146,14 @@
 
 <script>
 // import VueRecaptcha from 'vue-recaptcha';
-import VForm from '@vuetify/es5/components/VForm';
-import VTextField from '@vuetify/es5/components/VTextField';
-import VTextarea from '@vuetify/es5/components/VTextarea';
+import VForm from '@vuetify/es5/components/VForm'
+import VTextField from '@vuetify/es5/components/VTextField'
+import VTextarea from '@vuetify/es5/components/VTextarea'
 
 function encode(data) {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&');
+    .join('&')
 }
 
 export default {
@@ -193,10 +193,10 @@ export default {
   }),
   methods: {
     resetRecaptcha() {
-      this.$refs.recaptcha.reset(); // Direct call reset method
+      // this.$refs.recaptcha.reset(); // Direct call reset method
     },
     onVerify: function(response) {
-      const { email, name, message } = this.form;
+      const { email, name, message } = this.form
       fetch('https://apek.netlify.com/', {
         method: 'POST',
         mode: 'no-cors',
@@ -210,32 +210,32 @@ export default {
         }),
       })
         .then(e => {
-          console.log('response:', e);
-          console.log('form:', this.form);
+          console.log('response:', e)
+          console.log('form:', this.form)
           this.snackMsg =
             e.status < 400
               ? 'Your message has been sent, thanks!'
-              : `Failed to send message because of: ${e.statusText}`;
-          this.snackbar = true;
+              : `Failed to send message because of: ${e.statusText}`
+          this.snackbar = true
         })
         .catch(error =>
           alert(
             'Unable to send message. Please use an alternative contact, thanks.'
           )
-        );
+        )
     },
 
     send() {
       if (this.$refs.contact.validate()) {
         // this.$refs.invisibleRecaptcha.execute();
-        this.onVerify();
+        this.onVerify()
       }
     },
     clear() {
       // this.resetRecaptcha();
-      this.$refs.contact.reset();
-      this.snackbar = false;
+      this.$refs.contact.reset()
+      this.snackbar = false
     },
   },
-};
+}
 </script>
