@@ -1,25 +1,26 @@
-import React from "react";
-import Home from "@components/HomePage.vue";
+import React from 'react'
+import Home from '@components/HomePage.vue'
 const HomePreview = ({ entry, getAsset, widgetFor, widgetsFor }) => {
+  const cover = getAsset(entry.getIn(['data', 'cover']))
   return (
     <Home
-      cover={getAsset(entry.getIn(["data", "cover"])).toString()}
-      carousel={widgetsFor("carousel")
-        .map(c => ({ image: getAsset(c.getIn(["data", "image"])).toString() }))
+      cover={cover && cover.toString()}
+      carousel={widgetsFor('carousel')
+        .map(c => ({ image: getAsset(c.getIn(['data', 'image'])).toString() }))
         .toArray()}
-      business={widgetsFor("business")
+      business={widgetsFor('business')
         .map(b => ({
-          title: b.getIn(["data", "title"]),
-          icon: b.getIn(["data", "icon"])
+          title: b.getIn(['data', 'title']),
+          icon: b.getIn(['data', 'icon']),
         }))
         .toJS()}
-      sponsor={widgetsFor("sponsor")
+      sponsor={widgetsFor('sponsor')
         .map(s => ({
-          title: s.getIn(["data", "title"]),
-          image: getAsset(s.getIn(["data", "image"])).toString()
+          title: s.getIn(['data', 'title']),
+          image: getAsset(s.getIn(['data', 'image'])).toString(),
         }))
         .toJS()}
     />
-  );
-};
-export default HomePreview;
+  )
+}
+export default HomePreview
