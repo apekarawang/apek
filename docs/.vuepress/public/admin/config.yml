@@ -59,16 +59,19 @@ collections:
         fields:
           - name: cover
             label: Cover
+            required: false
             widget: image
 
           - name: carousel
             label: Carousel
+            required: false
             widget: list
             fields:
               - { label: Image, name: image, widget: image }
 
           - name: business
             label: Business Fields
+            required: false
             widget: list
             fields:
               - { label: Title, name: title, widget: string }
@@ -76,6 +79,7 @@ collections:
 
           - name: sponsor
             label: Sponsors
+            required: false
             widget: list
             fields:
               - { label: Title, name: title, widget: string }
@@ -86,26 +90,26 @@ collections:
         file: docs/about/README.md
         fields:
           - { name: title, label: Title, widget: string, required: true }
-          - { name: body, label: Body, widget: markdown }
+          - { name: body, label: Body, widget: markdown, required: false }
 
       - name: contact
         label: Contact
         file: docs/contact/README.md
         fields:
           - { name: title, label: Title, widget: string }
-          - { name: subtitle, label: Subtitle, widget: text }
-          - { name: address, label: Address, widget: string }
-          - { name: address2, label: Address 2, widget: string }
-          - { name: email, label: Email, widget: list }
-          - { name: phone, label: Phone, widget: list }
-          - { name: fax, label: Fax, widget: list }
+          - { name: subtitle, label: Subtitle, widget: text, required: false }
+          - { name: address, label: Address, widget: string, required: false }
+          - { name: address2, label: Address 2, widget: string, required: false }
+          - { name: email, label: Email, widget: list, required: false }
+          - { name: phone, label: Phone, widget: list, required: false }
+          - { name: fax, label: Fax, widget: list, required: false }
           - name: social
             label: Social
             widget: list
             fields:
-              - { name: vendor, label: Vendor, widget: string }
-              - { name: url, label: URL, widget: string }
-              - { name: color, label: Color, widget: color }
+              - { name: vendor, label: Vendor, widget: string, required: false }
+              - { name: url, label: URL, widget: string, required: false }
+              - { name: color, label: Color, widget: color, required: false }
 
   - name: activity
     label: Activities
@@ -130,7 +134,7 @@ collections:
           widget: image,
           required: false,
         }
-      - { label: Body, name: body, widget: markdown }
+      - { label: Body, name: body, widget: markdown, required: false }
 
   - name: announcement
     label: Announcements
@@ -153,7 +157,7 @@ collections:
           widget: image,
           required: false,
         }
-      - { label: Body, name: body, widget: markdown }
+      - { label: Body, name: body, widget: markdown, required: false }
 
   - name: technology
     label: Technologies
@@ -176,7 +180,7 @@ collections:
           widget: image,
           required: false,
         }
-      - { label: Body, name: body, widget: markdown }
+      - { label: Body, name: body, widget: markdown, required: false }
 
   - name: member
     label: Member
@@ -193,7 +197,7 @@ collections:
         default: "MemberLayout"
       - { label: Category, name: category, widget: hidden, default: member }
       - { label: Company, name: title, widget: string }
-      - { label: Address, name: address, widget: string }
+      - { label: Address, name: address, widget: string, required: false }
       - { label: Businness, name: business, widget: list, required: false }
       - { label: Email, name: email, widget: list, required: false }
       - { label: Phone, name: phone, widget: list, required: false }
