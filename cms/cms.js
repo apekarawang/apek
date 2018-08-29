@@ -1,4 +1,4 @@
-import NetlifyIdentity from "netlify-identity-widget";
+import netlifyIdentity from "netlify-identity-widget";
 import React from "react";
 import Vue from "vue";
 import CMS from "netlify-cms";
@@ -23,9 +23,18 @@ import ContactPreview from "./Preview/ContactPreview";
 import PostPreview from "./Preview/PostPreview";
 import MemberPreview from "./Preview/MemberPreview";
 
-NetlifyIdentity.init({
+netlifyIdentity.on(`init`, user => {
+  if (!user) {
+    netlifyIdentity.on(`login`, user => {
+      document.location.reload();
+    });
+  }
+});
+
+netlifyIdentity.init({
   APIUrl: 'https://apek.netlify.com/.netlify/identity',
 })
+
 
 Vue.component("ClientOnly", ClientOnly);
 

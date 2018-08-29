@@ -6,10 +6,7 @@ const { VueLoaderPlugin } = require("vue-loader");
 module.exports = (e, a) => ({
   entry: "./cms/cms.js",
   output: {
-    path:
-      a.mode === "production"
-        ? path.resolve("dist")
-        : path.resolve(__dirname, "docs/.vuepress", "dist")
+    path: a.output || path.resolve(__dirname, "docs/.vuepress", "public", "admin")
   },
   externals: {
     "netlify-cms": "CMS",
@@ -82,6 +79,11 @@ module.exports = (e, a) => ({
     }),
     new HtmlWebpackExternalsPlugin({
       externals: [
+        {
+          module: "netlify-identity-widget",
+          entry: "https://identity.netlify.com/v1/netlify-identity-widget.js",
+          global: "netlifyIdentity"
+        },
         {
           module: "react",
           entry: "umd/react.production.min.js",
