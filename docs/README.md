@@ -1,5 +1,4 @@
 ---
-layout: HomePage
 cover: ''
 carousel:
   - image: /images/ioi-mai.jpeg

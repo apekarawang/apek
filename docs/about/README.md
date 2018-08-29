@@ -1,5 +1,4 @@
 ---
-layout: PageLayout
 title: About Us
 ---
 ## Sejarah Singkat

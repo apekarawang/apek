@@ -1,5 +1,5 @@
 ---
-layout: ContactPage
+layout: PageLayout
 title: Contact Us
 subtitle: >-
   Please use the message form or one of our contacts below in order to get in
@@ -30,3 +30,4 @@ social:
     icon: fab google-plus-g
     color: '#F44336'
 ---
+<ContactPage v-bind="$page.frontmatter"/>

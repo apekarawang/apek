@@ -1,5 +1,5 @@
 <template>
-  <PageLayout>
+  <div>
     <!-- <script2 src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" /> -->
     <v-container grid-list-xl>
       <v-layout
@@ -85,39 +85,39 @@
 
         <v-flex>
           <v-list style="background: transparent">
-            <v-list-tile v-if="doc.email">
+            <v-list-tile v-if="email">
               <v-list-tile-action>
                 <v-icon>email</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
-                <v-list-tile-title v-text="doc.email.join(', ')" />
+                <v-list-tile-title v-text="email.join(', ')" />
               </v-list-tile-content>
             </v-list-tile>
-            <v-list-tile v-if="doc.phone">
+            <v-list-tile v-if="phone">
               <v-list-tile-action>
                 <v-icon>phone</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
-                <v-list-tile-title v-text="doc.phone.join(', ')" />
+                <v-list-tile-title v-text="phone.join(', ')" />
               </v-list-tile-content>
             </v-list-tile>
-            <v-list-tile v-if="doc.fax">
+            <v-list-tile v-if="fax">
               <v-list-tile-action>
                 <v-icon>print</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
-                <v-list-tile-title v-text="doc.fax.join(', ')" />
+                <v-list-tile-title v-text="fax.join(', ')" />
               </v-list-tile-content>
             </v-list-tile>
-            <v-list-tile v-if="doc.address">
+            <v-list-tile v-if="address">
               <v-list-tile-action>
                 <v-icon>place</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
-                <v-list-tile-title v-text="doc.address" />
+                <v-list-tile-title v-text="address" />
                 <v-list-tile-sub-title
-                  v-if="doc.address2"
-                  v-text="doc.address2"
+                  v-if="address2"
+                  v-text="address2"
                 />
               </v-list-tile-content>
             </v-list-tile>
@@ -141,19 +141,19 @@
         @click.native="clear"
       >OK</v-btn>
     </v-snackbar>
-  </PageLayout>
+  </div>
 </template>
 
 <script>
 // import VueRecaptcha from 'vue-recaptcha';
-import VForm from '@vuetify/es5/components/VForm'
-import VTextField from '@vuetify/es5/components/VTextField'
-import VTextarea from '@vuetify/es5/components/VTextarea'
+import VForm from '@vuetify/es5/components/VForm';
+import VTextField from '@vuetify/es5/components/VTextField';
+import VTextarea from '@vuetify/es5/components/VTextarea';
 
 function encode(data) {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&')
+    .join('&');
 }
 
 export default {
@@ -163,7 +163,16 @@ export default {
     VTextField,
     VTextarea,
   },
-
+  props: [
+    'title',
+    'subtitle',
+    'address',
+    'address2',
+    'email',
+    'phone',
+    'fax',
+    'social',
+  ],
   data: () => ({
     snackbar: false,
     snackMsg: '',
@@ -182,17 +191,12 @@ export default {
       messageRules: [v => !!v || 'Message is required'],
     },
   }),
-  computed: {
-    doc() {
-      return this.$page.frontmatter
-    },
-  },
   methods: {
     resetRecaptcha() {
-      this.$refs.recaptcha.reset() // Direct call reset method
+      this.$refs.recaptcha.reset(); // Direct call reset method
     },
     onVerify: function(response) {
-      const { email, name, message } = this.form
+      const { email, name, message } = this.form;
       fetch('https://apek.netlify.com/', {
         method: 'POST',
         mode: 'no-cors',
@@ -206,32 +210,32 @@ export default {
         }),
       })
         .then(e => {
-          console.log('response:', e)
-          console.log('form:', this.form)
+          console.log('response:', e);
+          console.log('form:', this.form);
           this.snackMsg =
             e.status < 400
               ? 'Your message has been sent, thanks!'
-              : `Failed to send message because of: ${e.statusText}`
-          this.snackbar = true
+              : `Failed to send message because of: ${e.statusText}`;
+          this.snackbar = true;
         })
         .catch(error =>
           alert(
             'Unable to send message. Please use an alternative contact, thanks.'
           )
-        )
+        );
     },
 
     send() {
       if (this.$refs.contact.validate()) {
         // this.$refs.invisibleRecaptcha.execute();
-        this.onVerify()
+        this.onVerify();
       }
     },
     clear() {
       // this.resetRecaptcha();
-      this.$refs.contact.reset()
-      this.snackbar = false
+      this.$refs.contact.reset();
+      this.snackbar = false;
     },
   },
-}
+};
 </script>
