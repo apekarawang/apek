@@ -37,9 +37,7 @@ Vue.use(Vuetify, {
 
 import('netlify-identity-widget')
   .then(({default: netlifyIdentity}) => {
-    netlifyIdentity.init({
-      APIUrl: 'https://apek.netlify.com/.netlify/identity',
-    })
+    netlifyIdentity.init()
     netlifyIdentity.on('init', user => {
       if (!user) {
         netlifyIdentity.on(`login`, user => {
