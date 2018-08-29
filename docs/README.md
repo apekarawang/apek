@@ -1,44 +1,35 @@
 ---
-layout: BlankLayout
-cover: /images/dirgahayu.jpg
-carousel: [
-  {
-    image: /images/ioi-mai.jpeg
-  },
-  {
-    image: /images/cover-andri.jpg
-  }
-]
+cover: ''
+carousel:
+  - image: /images/ioi-mai.jpeg
+  - image: /images/cover-andri.jpg
 business:
-  - title: Mesin Produksi
-    icon: perm_data_setting
-  - title: Spare-part Industri
-    icon: extension
-  - title: Alat Kerja Pabrik
-    icon: assignment_turned_in
-  - title: Sarana Pabrik
-    icon: business
-  - title: Construction & Civil
-    icon: people
-  - title: Mechanical Electrical
-    icon: bolt
-  - title: Technical Supplier
-    icon: person_add
+  - icon: perm_data_setting
+    title: Mesin Produksi
+  - icon: extension
+    title: Spare-part Industri
+  - icon: assignment_turned_in
+    title: Alat Kerja Pabrik
+  - icon: business
+    title: Sarana Pabrik
+  - icon: people
+    title: Construction & Civil
+  - icon: bolt
+    title: Mechanical Electrical
+  - icon: person_add
+    title: Technical Supplier
 sponsor:
-  - title: Kemenkop
-    image: /images/kemenkop.jpg
-  - title: Kemenristekdikti
-    image: /images/kemenristekdikti.png
-  - title: bp2d
-    image: /images/bp2d.png
-  - title: perindustrian
-    image: /images/perindustrian.png
-  - title: Kab. Karawang
-    image: /images/karawangkab.png
-  - title: Jawa Barat
-    image: /images/jabar.png
+  - image: /images/kemenkop.jpg
+    title: Kemenkop
+  - image: /images/kemenristekdikti.png
+    title: Kemenristekdikti
+  - image: /images/bp2d.png
+    title: bp2d
+  - image: /images/perindustrian.png
+    title: perindustrian
+  - image: /images/karawangkab.png
+    title: Kab. Karawang
+  - image: /images/jabar.png
+    title: Jawa Barat
 ---
 
-<HomePage 
-  v-bind="$page.frontmatter"
-/>
