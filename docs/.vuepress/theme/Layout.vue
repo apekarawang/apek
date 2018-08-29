@@ -3,7 +3,7 @@
     id="apek"
     :class="pageClasses"
   >
-  <script2 src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
+    <script2 src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
     <!--<Navbar
       v-if="shouldShowNavbar"
       @toggle-sidebar="toggleSidebar"
@@ -38,7 +38,12 @@
 
       <NavLinks class="hidden-xs-only" />
       <v-toolbar-items v-if="user">
-        <v-btn flat icon data-netlify-identity-button="true" @click.native="identity.open()">
+        <v-btn 
+          flat 
+          icon 
+          data-netlify-identity-button="true" 
+          @click.native="identity.open()"
+        >
           <v-icon>account_circle</v-icon>
         </v-btn>
       </v-toolbar-items>
@@ -103,7 +108,7 @@
 
       <SWUpdatePopup :update-event="swUpdateEvent" />
     </v-content>
-     <v-footer
+    <v-footer
       height="auto"
     >
       <v-layout
@@ -136,16 +141,16 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import nprogress from 'nprogress';
-import Home from './Home.vue';
+import Vue from 'vue'
+import nprogress from 'nprogress'
+import Home from './Home.vue'
 // import Navbar from './Navbar.vue';
-import Page from './Page.vue';
+import Page from './Page.vue'
 // import Sidebar from './Sidebar.vue';
-import SWUpdatePopup from './SWUpdatePopup.vue';
-import { resolveSidebarItems } from './util';
-import NavLinks from './NavLinks';
-import VueScript from 'vue-script2';
+import SWUpdatePopup from './SWUpdatePopup.vue'
+import { resolveSidebarItems } from './util'
+import NavLinks from './NavLinks'
+import VueScript from 'vue-script2'
 
 export default {
   components: { Home, Page, NavLinks, SWUpdatePopup },
@@ -156,15 +161,15 @@ export default {
       user: null,
       isSidebarOpen: false,
       swUpdateEvent: null,
-    };
+    }
   },
 
   computed: {
     shouldShowNavbar() {
-      const { themeConfig } = this.$site;
-      const { frontmatter } = this.$page;
+      const { themeConfig } = this.$site
+      const { frontmatter } = this.$page
       if (frontmatter.navbar === false || themeConfig.navbar === false) {
-        return false;
+        return false
       }
       return (
         this.$title ||
@@ -172,17 +177,17 @@ export default {
         themeConfig.repo ||
         themeConfig.nav ||
         this.$themeLocaleConfig.nav
-      );
+      )
     },
 
     shouldShowSidebar() {
-      const { frontmatter } = this.$page;
+      const { frontmatter } = this.$page
       return (
         !frontmatter.layout &&
         !frontmatter.home &&
         frontmatter.sidebar !== false &&
         this.sidebarItems.length
-      );
+      )
     },
 
     sidebarItems() {
@@ -191,11 +196,11 @@ export default {
         this.$route,
         this.$site,
         this.$localePath
-      );
+      )
     },
 
     pageClasses() {
-      const userPageClass = this.$page.frontmatter.pageClass;
+      const userPageClass = this.$page.frontmatter.pageClass
       return [
         {
           // 'no-navbar': !this.shouldShowNavbar,
@@ -203,34 +208,34 @@ export default {
           // 'no-sidebar': !this.shouldShowSidebar,
         },
         userPageClass,
-      ];
+      ]
     },
   },
 
   mounted() {
-    window.addEventListener('scroll', this.onScroll);
+    window.addEventListener('scroll', this.onScroll)
 
     // configure progress bar
-    nprogress.configure({ showSpinner: false });
+    nprogress.configure({ showSpinner: false })
 
     this.$router.beforeEach((to, from, next) => {
       if (to.path !== from.path && !Vue.component(to.name)) {
-        nprogress.start();
+        nprogress.start()
       }
-      next();
-    });
+      next()
+    })
 
     this.$router.afterEach(() => {
-      nprogress.done();
-      this.isSidebarOpen = false;
-    });
+      nprogress.done()
+      this.isSidebarOpen = false
+    })
 
-    this.$on('sw-updated', this.onSWUpdated);
+    this.$on('sw-updated', this.onSWUpdated)
   },
 
   methods: {
     toggleSidebar(to) {
-      this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen;
+      this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
     },
 
     // side swipe
@@ -254,10 +259,10 @@ export default {
     // },
 
     onSWUpdated(e) {
-      this.swUpdateEvent = e;
+      this.swUpdateEvent = e
     },
   },
-};
+}
 </script>
 
 <!--<style src="prismjs/themes/prism-tomorrow.css"></style>-->
