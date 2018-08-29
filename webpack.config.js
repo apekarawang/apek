@@ -6,7 +6,7 @@ const { VueLoaderPlugin } = require("vue-loader");
 module.exports = (e, a) => ({
   entry: "./cms/cms.js",
   output: {
-    path: e.mode === 'production' ?
+    path: a.mode === 'production' ?
       path.resolve('dist') :
       path.resolve(__dirname, "docs/.vuepress", "public", "admin")
   },
