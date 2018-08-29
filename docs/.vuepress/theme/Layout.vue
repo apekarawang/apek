@@ -18,8 +18,10 @@ export default {
       'https://identity.netlify.com/v1/netlify-identity-widget.js'
     ).then(() => {
       netlifyIdentity.on(`init`, user => {
+        console.log(`identity has been initialized`, { user });
         if (!user) {
           netlifyIdentity.on(`login`, user => {
+            console.log(`user logged in`, { user });
             this.$emit('userLoggedIn', user);
             console.log({ user });
             document.location.reload();
