@@ -3,7 +3,7 @@ layout: HomeLayout
 cover: ''
 carousel:
   - image: /images/ioi-mai.jpeg
-  - image: /images/cover-andri.jpg
+  - image: /images/2013-06-19-09.30.30.jpg
 business:
   - icon: perm_data_setting
     title: Mesin Produksi
