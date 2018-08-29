@@ -11,9 +11,9 @@ export default ({ entry, getAsset, widgetFor, widgetsFor }) => {
     <div>
       <SiteTitle title={_f('title')} subtitle={_f('subtitle')} />
       <ContactPage
-        email={_f('email') && _f('email').toArray()}
-        phone={_f('phone') && _f('phone').toArray()}
-        fax={_f('fax') && _f('fax').toArray()}
+        email={_f('email')}
+        phone={_f('phone')}
+        fax={_f('fax')}
         address={_f('address')}
         address2={_f('address2')}
       />

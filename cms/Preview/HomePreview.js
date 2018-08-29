@@ -6,7 +6,11 @@ const HomePreview = ({ entry, getAsset, widgetFor, widgetsFor }) => {
     <Home
       cover={cover && cover.toString()}
       carousel={widgetsFor('carousel')
-        .map(c => ({ image: getAsset(c.getIn(['data', 'image'])).toString() }))
+        .map(c => ({
+          image:
+            c.getIn(['data', 'image']) &&
+            getAsset(c.getIn(['data', 'image'])).toString(),
+        }))
         .toArray()}
       business={widgetsFor('business')
         .map(b => ({
@@ -17,7 +21,9 @@ const HomePreview = ({ entry, getAsset, widgetFor, widgetsFor }) => {
       sponsor={widgetsFor('sponsor')
         .map(s => ({
           title: s.getIn(['data', 'title']),
-          image: getAsset(s.getIn(['data', 'image'])).toString(),
+          image:
+            s.getIn(['data', 'image']) &&
+            getAsset(s.getIn(['data', 'image'])).toString(),
         }))
         .toJS()}
     />
