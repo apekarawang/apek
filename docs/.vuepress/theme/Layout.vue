@@ -127,7 +127,7 @@
           white--text
           xs12
         >
-          &copy;{{ (new Date()).getFullYear() }} — <strong>{{ $title }}</strong>
+          &copy;{{ (new Date()).getFullYear() }} — <strong>{{ $site.title }}</strong>
         </v-flex>
       </v-layout>
     </v-footer>
