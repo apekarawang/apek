@@ -5,7 +5,7 @@ subtitle: >-
   Please use the message form or one of our contacts below in order to get in
   touch with us.
 address: 'Jl. Bypass Jomin, Jomin Barat'
-address2: 'Kotabaru, Karawang, Jawa Barat.'
+address2: 'Kotabaru, Karawang, Jawa Barat'
 email:
   - sekretariat@apek.or.id
 phone:
