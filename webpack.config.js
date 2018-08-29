@@ -9,7 +9,7 @@ module.exports = (e, a) => ({
     path:
       a.mode === "production"
         ? path.resolve("dist")
-        : path.resolve(__dirname, "docs/.vuepress", "dist")
+        : path.resolve(__dirname, "docs/.vuepress", "public", "admin")
   },
   externals: {
     "netlify-cms": "CMS",
