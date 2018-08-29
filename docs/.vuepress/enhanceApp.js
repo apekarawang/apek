@@ -12,6 +12,7 @@ import VIcon from '@vuetify/es5/components/VIcon'
 import VSnackbar from '@vuetify/es5/components/VSnackbar'
 import VDivider from '@vuetify/es5/components/VDivider'
 import VMenu from '@vuetify/es5/components/VMenu'
+import VImg from '@vuetify/es5/components/VImg';
 import VFooter from '@vuetify/es5/components/VFooter'
 import transitions from '@vuetify/es5/components/transitions'
 import directives from '@vuetify/es5/directives'
@@ -33,6 +34,7 @@ export default ({
       VNavigationDrawer,
       VGrid,
       VCard,
+      VImg,
       VList,
       VBtn,
       VIcon,

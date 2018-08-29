@@ -1,13 +1,13 @@
 <template>
-  <div class="post-layout">
-    <PostTitle 
-      :title="$page.title" 
+  <MainLayout class="post-layout">
+    <PostTitle
+      :title="$page.title"
       :subtitle="subtitle"
     />
     <v-container>
       <Content />
     </v-container>
-  </div>
+  </MainLayout>
 </template>
 
 <script>

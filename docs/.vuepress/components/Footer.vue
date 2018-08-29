@@ -1,0 +1,22 @@
+<template>
+  <v-footer
+      height="auto"
+    >
+      <v-layout
+        justify-center
+        row
+        wrap
+      >
+        <v-flex
+          red
+          darken-2
+          py-3
+          text-xs-center
+          white--text
+          xs12
+        >
+          &copy;{{ (new Date()).getFullYear() }} — <strong>{{ $title }}</strong>
+        </v-flex>
+      </v-layout>
+    </v-footer>
+</template>

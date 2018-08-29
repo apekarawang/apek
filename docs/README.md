@@ -1,5 +1,5 @@
 ---
-layout: BlankLayout
+layout: MainLayout
 cover: /images/dirgahayu.jpg
 carousel: [
   {

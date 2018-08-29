@@ -27,10 +27,10 @@
         sm12
         md6
       >
-        <v-card 
-          tile 
-          ripple 
-          :to="props.item.path" 
+        <v-card
+          tile
+          ripple
+          :to="props.item.path"
           hover
         >
           <v-card-title>

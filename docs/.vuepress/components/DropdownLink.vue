@@ -59,8 +59,6 @@
 </template>
 
 <script>
-// import NavLink from './NavLink.vue';
-
 export default {
   props: {
     item: {
@@ -81,7 +79,3 @@ export default {
   },
 };
 </script>
-
-<style lang="stylus">
-@import './styles/config.styl'
-</style>
