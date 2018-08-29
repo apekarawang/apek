@@ -57,6 +57,11 @@ collections:
         label: Home
         file: docs/README.md
         fields:
+          - label: Layout
+            name: layout
+            widget: hidden
+            default: HomePage
+
           - name: cover
             label: Cover
             required: false
@@ -89,6 +94,10 @@ collections:
         label: About
         file: docs/about/README.md
         fields:
+          - label: Layout
+            name: layout
+            widget: hidden
+            default: PageLayout
           - { name: title, label: Title, widget: string, required: true }
           - { name: body, label: Body, widget: markdown, required: false }
 
@@ -96,6 +105,10 @@ collections:
         label: Contact
         file: docs/contact/README.md
         fields:
+          - label: Layout
+            name: layout
+            widget: hidden
+            default: ContactPage
           - { name: title, label: Title, widget: string }
           - { name: subtitle, label: Subtitle, widget: text, required: false }
           - { name: address, label: Address, widget: string, required: false }

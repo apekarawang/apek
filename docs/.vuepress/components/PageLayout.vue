@@ -1,11 +1,13 @@
 <template>
   <div class="page-layout">
-    <SiteTitle 
-      :title="$page.title" 
+    <SiteTitle
+      :title="$page.title"
       :subtitle="$page.frontmatter.subtitle"
     />
-    <v-container>
-      <Content />
-    </v-container>
+    <slot>
+      <v-container>
+        <Content />
+      </v-container>
+    </slot>
   </div>
 </template>
