@@ -3,6 +3,7 @@
     id="apek"
     :class="pageClasses"
   >
+  <script2 src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
     <!--<Navbar
       v-if="shouldShowNavbar"
       @toggle-sidebar="toggleSidebar"
@@ -207,26 +208,6 @@ export default {
   },
 
   mounted() {
-    VueScript.load(
-      'https://identity.netlify.com/v1/netlify-identity-widget.js'
-    ).then(() => {
-      this.identity = netlifyIdentity;
-      netlifyIdentity.on(`init`, user => {
-        if (!user) {
-          netlifyIdentity.on(`login`, user => {
-            document.location.reload();
-          });
-        } else {
-          this.user = user;
-          console.log(this.user);
-        }
-      });
-      netlifyIdentity.init({
-        container: '#apek',
-        APIUrl: 'https://cms.apek.or.id/.netlify/identity',
-      });
-    });
-
     window.addEventListener('scroll', this.onScroll);
 
     // configure progress bar
