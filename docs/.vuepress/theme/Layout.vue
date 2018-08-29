@@ -218,7 +218,6 @@ export default {
           });
         } else {
           this.user = user;
-          console.log(this.user);
         }
       });
       netlifyIdentity.init({
