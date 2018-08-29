@@ -18,23 +18,25 @@ jobs:
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
-            - cache-packages-{{ checksum "yarn.lock" }}
+            - v2-cache-packages-{{ checksum "yarn.lock" }}
+            - v2-cache-packages-
 
       - run:
           name: Install Dependencies
           command: yarn install
 
       - save_cache:
-          name: Save Packages Cache
-          key: cache-packages-{{ checksum "yarn.lock" }}
+          name: Save Yarn Packages Cache
+          key: v2-cache-packages-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
+            - node_modules
 
       - restore_cache:
           name: Restore Build and Deploy Cache
           keys:
-            - build-deploy-cache-{{ .Environment.CIRCLE_PREVIOUS_BUILD_NUM }}
-            - build-deploy-cache-
+            - v2-build-deploy-cache-{{ .Environment.CIRCLE_PREVIOUS_BUILD_NUM }}
+            - v2-build-deploy-cache-
 
       - run:
           name: Build
@@ -46,8 +48,6 @@ jobs:
 
       - save_cache:
           name: Save Build and Deploy Cache
-          key: build-deploy-cache-{{ .Environment.CIRCLE_BUILD_NUM }}
+          key: v2-build-deploy-cache-{{ .Environment.CIRCLE_BUILD_NUM }}
           paths:
             - .firebase
-            - node_modules/vuepress/node_modules/.cache
-            - node_modules/.cache
