@@ -1,8 +1,9 @@
 <template>
   <div class="post-layout">
-    <PostTitle 
-      :title="$page.title" 
+    <PostTitle
+      :title="$page.title"
       :subtitle="subtitle"
+      :img="$page.frontmatter.thumbnail"
     />
     <v-container>
       <Content />
@@ -15,8 +16,8 @@ export default {
   components: {},
   computed: {
     subtitle() {
-      return (this.$page.frontmatter.subtitle || []).join(', ');
+      return (this.$page.frontmatter.subtitle || []).join(', ')
     },
   },
-};
+}
 </script>
