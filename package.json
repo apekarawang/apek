@@ -17,20 +17,10 @@
     "build:cms": "webpack --mode=production",
     "build": "npm-run-all --parallel build:*",
     "postbuild": "cpr dist docs/.vuepress/dist/admin -o",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "lint-staged"
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
-  "lint-staged": {
-    "*.{js,vue}": [
-      "prettier --ignore-path .gitignore --parser vue --single-quote --trailing-comma es5 --write",
-      "eslint --ignore-path .gitignore --fix",
-      "git add"
-    ],
-    "*.{png,jpeg,jpg,gif,svg}": [
-      "git add",
-      "imagemin-lint-staged",
-      "git add"
-    ]
+  "gitHooks": {
+    "pre-commit": "lint-staged"
   },
   "dependencies": {
     "@pake/react-color": "^3.0.0",
@@ -53,12 +43,12 @@
     "eslint": "^5.4.0",
     "eslint-plugin-vue": "^5.0.0-beta.3",
     "firebase-tools": "^4.2.0",
-    "husky": "^0.14.3",
     "imagemin-lint-staged": "^0.3.0",
     "lint-staged": "^7.0.4",
     "npm-run-all": "^4.1.3",
-    "prettier": "^1.12.0",
+    "prettier": "^1.14.2",
     "to-string-loader": "^1.1.5",
-    "webpack-cli": "^3.1.0"
+    "webpack-cli": "^3.1.0",
+    "yorkie": "^2.0.0"
   }
 }
