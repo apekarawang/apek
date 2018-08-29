@@ -1,7 +1,9 @@
 import React from "react";
 import Vue from "vue";
+import CMS from "netlify-cms";
 import ClientOnly from "vuepress/lib/app/components/ClientOnly";
-
+import NetlifyCMSWidgetMaterialIcons from "netlify-cms-widget-material-icons";
+import NetlifyCMSWidgetColor from "netlify-cms-widget-color";
 import {
   Vuetify,
   VApp,
@@ -35,38 +37,28 @@ Vue.use(Vuetify, {
   }
 });
 
-import('netlify-identity-widget')
-  .then(({default: netlifyIdentity}) => {
-    netlifyIdentity.init({
-      APIUrl: 'https://apek.netlify.com/.netlify/identity',
-    })
-    netlifyIdentity.on('init', user => {
-      if (!user) {
-        netlifyIdentity.on(`login`, user => {
-          document.location.reload();
-        });
-      }
-    })
-  })
-
-import('netlify-cms')
-  .then(({default: CMS}) => {
-    import("netlify-cms-widget-material-icons")
-      .then(({Control}) => {
-        CMS.registerWidget("material-icons", Control);
+import('netlify-identity-widget').then(({default: netlifyIdentity}) => {
+  netlifyIdentity.on(`init`, user => {
+    if (!user) {
+      netlifyIdentity.on(`login`, user => {
+        document.location.reload();
       });
-    import("netlify-cms-widget-color")
-      .then(({Control}) => {
-        CMS.registerWidget("color", Control);
-      });
-
-    CMS.registerPreviewStyle(require('to-string-loader!./cms.css'), {raw: true});
-
-    CMS.registerPreviewTemplate("home", HomePreview);
-    CMS.registerPreviewTemplate("about", AboutPreview);
-    CMS.registerPreviewTemplate("contact", ContactPreview);
-    CMS.registerPreviewTemplate("technology", PostPreview);
-    CMS.registerPreviewTemplate("announcement", PostPreview);
-    CMS.registerPreviewTemplate("activities", PostPreview);
-    CMS.registerPreviewTemplate("member", MemberPreview);
+    }
+  });
+  netlifyIdentity.init({
+    APIUrl: 'https://apek.netlify.com/.netlify/identity',
   })
+})
+
+CMS.registerWidget("material-icons", NetlifyCMSWidgetMaterialIcons.Control);
+CMS.registerWidget("color", NetlifyCMSWidgetColor.Control);
+
+CMS.registerPreviewStyle(require('to-string-loader!./cms.css'), {raw: true});
+
+CMS.registerPreviewTemplate("home", HomePreview);
+CMS.registerPreviewTemplate("about", AboutPreview);
+CMS.registerPreviewTemplate("contact", ContactPreview);
+CMS.registerPreviewTemplate("technology", PostPreview);
+CMS.registerPreviewTemplate("announcement", PostPreview);
+CMS.registerPreviewTemplate("activities", PostPreview);
+CMS.registerPreviewTemplate("member", MemberPreview);

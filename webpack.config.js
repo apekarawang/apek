@@ -82,11 +82,6 @@ module.exports = (e, a) => ({
     new HtmlWebpackExternalsPlugin({
       externals: [
         {
-          module: "netlify-identity-widget",
-          entry: "https://identity.netlify.com/v1/netlify-identity-widget.js",
-          global: "netlifyIdentity"
-        },
-        {
           module: "react",
           entry: "umd/react.production.min.js",
           global: "React"
