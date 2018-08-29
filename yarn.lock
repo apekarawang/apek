@@ -1219,7 +1219,7 @@ ajv@^5.1.0, ajv@^5.3.0:
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.3.0"
 
-ajv@^6.0.1, ajv@^6.1.0, ajv@^6.1.1, ajv@^6.4.0, ajv@^6.5.0, ajv@^6.5.2:
+ajv@^6.0.1, ajv@^6.1.0, ajv@^6.4.0, ajv@^6.5.0, ajv@^6.5.2:
   version "6.5.3"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.5.3.tgz#71a569d189ecf4f4f321224fecb166f071dd90f9"
   dependencies:
@@ -2828,7 +2828,7 @@ copy-descriptor@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
 
-copy-webpack-plugin@^4.4.1, copy-webpack-plugin@^4.5.1:
+copy-webpack-plugin@^4.5.1:
   version "4.5.2"
   resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-4.5.2.tgz#d53444a8fea2912d806e78937390ddd7e632ee5c"
   dependencies:
@@ -2869,10 +2869,6 @@ cosmiconfig@^5.0.2, cosmiconfig@^5.0.5:
     is-directory "^0.3.1"
     js-yaml "^3.9.0"
     parse-json "^4.0.0"
-
-cp@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/cp/-/cp-0.2.0.tgz#a0874183a09e885eb72792582ab68ce3932b135d"
 
 cpr@^3.0.1:
   version "3.0.1"
@@ -5306,22 +5302,6 @@ html-minifier@^3.2.3:
 html-void-elements@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/html-void-elements/-/html-void-elements-1.0.3.tgz#956707dbecd10cf658c92c5d27fee763aa6aa982"
-
-html-webpack-externals-plugin@^3.8.0:
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/html-webpack-externals-plugin/-/html-webpack-externals-plugin-3.8.0.tgz#e3f38419c67b7599e69afab0966a2164d2a3d838"
-  dependencies:
-    ajv "^6.1.1"
-    copy-webpack-plugin "^4.4.1"
-    html-webpack-include-assets-plugin "^1.0.2"
-
-html-webpack-include-assets-plugin@^1.0.2:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/html-webpack-include-assets-plugin/-/html-webpack-include-assets-plugin-1.0.4.tgz#279cfdf001301f5a945b2525f7f6394d48a3a157"
-  dependencies:
-    glob "^7.1.2"
-    minimatch "^3.0.4"
-    slash "^1.0.0"
 
 html-whitespace-sensitive-tag-names@^1.0.0:
   version "1.0.0"
@@ -8978,10 +8958,6 @@ raw-body@2.3.3:
     iconv-lite "0.4.23"
     unpipe "1.0.0"
 
-raw-loader@^0.5.1:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/raw-loader/-/raw-loader-0.5.1.tgz#0c3d0beaed8a01c966d9787bf778281252a979aa"
-
 rc@^1.0.1, rc@^1.1.2, rc@^1.1.6, rc@^1.2.7:
   version "1.2.8"
   resolved "https://registry.yarnpkg.com/rc/-/rc-1.2.8.tgz#cd924bf5200a075b83c188cd6b9e211b7fc0d3ed"
@@ -10606,13 +10582,6 @@ stubs@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/stubs/-/stubs-3.0.0.tgz#e8d2ba1fa9c90570303c030b6900f7d5f89abe5b"
 
-style-loader@^0.22.1:
-  version "0.22.1"
-  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.22.1.tgz#901ea28aac78fcc00c5075585ac07d7ef3f87a52"
-  dependencies:
-    loader-utils "^1.1.0"
-    schema-utils "^0.4.5"
-
 stylis-rule-sheet@^0.0.10:
   version "0.0.10"
   resolved "https://registry.yarnpkg.com/stylis-rule-sheet/-/stylis-rule-sheet-0.0.10.tgz#44e64a2b076643f4b52e5ff71efc04d8c3c4a430"
@@ -11737,9 +11706,9 @@ vuera@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/vuera/-/vuera-0.2.2.tgz#944e0320f7ee2be260c5926a68d0e283cd1891f2"
 
-vuetify@^1.2.0-beta.3:
-  version "1.2.0-beta.3"
-  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-1.2.0-beta.3.tgz#4b3abc873fdcbd79f7078b27f56e5d94a865615a"
+vuetify@^1.2.0:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-1.2.1.tgz#00fc9568bd7ceeaa906b5c339be5f6934411ffa9"
 
 ware@^1.2.0:
   version "1.3.0"
