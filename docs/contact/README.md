@@ -9,24 +9,21 @@ address2: 'Kotabaru, Karawang, Jawa Barat.'
 email:
   - sekretariat@apek.or.id
 phone:
-  - (+62) 264 300 898
+  - (+62) 264-300-898
 fax:
-  - (+62) 264 301 687
+  - (+62) 264-301-687
 social:
-  - vendor: Facebook
+  - color: '#3F51B5'
     url: 'https://fb.me/apekarawang'
-    icon: fab facebook-square
-    color: '#3F51B5'
-  - vendor: Instagram
+    vendor: Facebook
+  - color: '#6A1B9A'
     url: 'https://www.instagram.com/apekarawang'
-    icon: fab instagram
-    color: '#6A1B9A'
-  - vendor: Twitter
+    vendor: Instagram
+  - color: '#2196F3'
     url: 'https://twitter.com/apekarawang'
-    icon: fab twitter
-    color: '#2196F3'
-  - vendor: Google Plus
+    vendor: Twitter
+  - color: '#F44336'
     url: 'https://goo.gl/tLi2s9'
-    icon: fab google-plus-g
-    color: '#F44336'
+    vendor: Google Plus
 ---
+
