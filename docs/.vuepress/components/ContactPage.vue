@@ -1,6 +1,6 @@
 <template>
   <div>
-    <script2 src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" />
+    <!-- <script2 src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" /> -->
     <v-container grid-list-xl>
       <v-layout
         row
@@ -18,7 +18,6 @@
             name="contact-form"
             column
             data-netlify="true"
-            data-netlify-recaptcha="true"
             data-netlify-honeypot="bot-field"
             method="post"
             @submit.prevent="send"
@@ -66,13 +65,13 @@
               justify-space-between
               class="mt-3"
             >
-              <vue-recaptcha
+              <!-- <vue-recaptcha
                 sitekey="6LeN308UAAAAAPSx9gSXVD2HxgV4s3S0rqxhC8PG"
                 ref="invisibleRecaptcha"
                 @verify="onVerify"
                 size="invisible"
                 badge="inline"
-              />
+              /> -->
               <v-btn
                 color="secondary"
                 type="submit"
@@ -146,7 +145,7 @@
 </template>
 
 <script>
-import VueRecaptcha from 'vue-recaptcha';
+// import VueRecaptcha from 'vue-recaptcha';
 import VForm from '@vuetify/es5/components/VForm';
 import VTextField from '@vuetify/es5/components/VTextField';
 import VTextarea from '@vuetify/es5/components/VTextarea';
@@ -159,7 +158,7 @@ function encode(data) {
 
 export default {
   components: {
-    VueRecaptcha,
+    // VueRecaptcha,
     VForm,
     VTextField,
     VTextarea,
@@ -194,7 +193,7 @@ export default {
   }),
   methods: {
     resetRecaptcha() {
-      this.$refs.recaptcha.reset(); // Direct call reset method
+      // this.$refs.recaptcha.reset(); // Direct call reset method
     },
     onVerify: function(response) {
       const { email, name, message } = this.form;
@@ -207,7 +206,7 @@ export default {
           email,
           name,
           message,
-          'g-recaptcha-response': this.form['g-recaptcha-response'] || response,
+          // 'g-recaptcha-response': this.form['g-recaptcha-response'] || response,
         }),
       })
         .then(e => {
@@ -228,11 +227,12 @@ export default {
 
     send() {
       if (this.$refs.contact.validate()) {
-        this.$refs.invisibleRecaptcha.execute();
+        // this.$refs.invisibleRecaptcha.execute();
+        this.onVerify();
       }
     },
     clear() {
-      this.resetRecaptcha();
+      // this.resetRecaptcha();
       this.$refs.contact.reset();
       this.snackbar = false;
     },
