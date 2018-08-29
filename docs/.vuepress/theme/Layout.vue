@@ -9,7 +9,6 @@ import VueScript from 'vue-script2';
 export default {
   data() {
     return {
-      identity: null,
       user: null,
     };
   },
@@ -18,15 +17,16 @@ export default {
     VueScript.load(
       'https://identity.netlify.com/v1/netlify-identity-widget.js'
     ).then(() => {
-      this.identity = netlifyIdentity;
       netlifyIdentity.on(`init`, user => {
         if (!user) {
           netlifyIdentity.on(`login`, user => {
             this.$emit('userLoggedIn', user);
+            console.log({ user });
             document.location.reload();
           });
         } else {
           this.$emit('userLoggedIn', user);
+          console.log({ user });
         }
       });
       netlifyIdentity.init({
