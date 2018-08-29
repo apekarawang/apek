@@ -129,18 +129,20 @@
         </v-flex>
       </v-layout>
     </v-container>
-    <v-snackbar
-      v-model="snackbar"
-      bottom
-      right
-    >
-      {{ snackMsg }}
-      <v-btn
-        flat
-        color="success"
-        @click.native="clear"
-      >OK</v-btn>
-    </v-snackbar>
+    <ClientOnly>
+      <v-snackbar
+        v-model="snackbar"
+        bottom
+        right
+      >
+        {{ snackMsg }}
+        <v-btn
+          flat
+          color="success"
+          @click.native="clear"
+        >OK</v-btn>
+      </v-snackbar>
+    </ClientOnly>
   </div>
 </template>
 
