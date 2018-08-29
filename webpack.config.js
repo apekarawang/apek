@@ -6,7 +6,9 @@ const { VueLoaderPlugin } = require("vue-loader");
 module.exports = (e, a) => ({
   entry: "./cms/cms.js",
   output: {
-    path: a.output || path.resolve(__dirname, "docs/.vuepress", "public", "admin")
+    path: e.mode === 'production' ?
+      path.resolve('dist') :
+      path.resolve(__dirname, "docs/.vuepress", "public", "admin")
   },
   externals: {
     "netlify-cms": "CMS",
