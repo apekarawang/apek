@@ -17,8 +17,6 @@
             v-model="form.valid"
             name="contact"
             column
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
             method="post"
             @submit.prevent="send"
           >
