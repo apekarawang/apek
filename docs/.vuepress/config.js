@@ -1,5 +1,6 @@
 const path = require('path')
 const merge = require('deepmerge')
+const VimgIfy = require('./markdown/v-img')
 
 module.exports = {
   title: 'APEK',
@@ -77,6 +78,7 @@ module.exports = {
     anchor: { permalink: false, permalinkBefore: true, permalinkSymbol: '#' },
     config: md => {
       md.set({ breaks: true })
+      md.use(VimgIfy)
     },
   },
   configureWebpack: {

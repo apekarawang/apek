@@ -1,6 +1,6 @@
 <template>
-  <v-container 
-    fluid 
+  <v-container
+    fluid
     grid-list-md
   >
     <v-data-iterator
@@ -47,12 +47,10 @@
 </template>
 
 <script>
-import VDataIterator from '@vuetify/es5/components/VDataIterator';
-import VImg from '@vuetify/es5/components/VImg';
+import VDataIterator from '@vuetify/es5/components/VDataIterator'
 
 export default {
   components: {
-    VImg,
     VDataIterator,
   },
   props: {
@@ -73,7 +71,7 @@ export default {
         .filter(x => x.path.startsWith(`/${this.cat}/`) && !x.frontmatter.index)
         .sort(
           (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
-        );
+        )
     },
   },
   mounted() {
@@ -81,9 +79,9 @@ export default {
   },
   methods: {
     formatDate(date) {
-      const d = new Date(date);
-      return [d.getDay(), d.getMonth(), d.getFullYear()].join('-');
+      const d = new Date(date)
+      return [d.getDay(), d.getMonth(), d.getFullYear()].join('-')
     },
   },
-};
+}
 </script>

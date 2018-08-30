@@ -10,6 +10,7 @@ import VList from '@vuetify/es5/components/VList'
 import VBtn from '@vuetify/es5/components/VBtn'
 import VIcon from '@vuetify/es5/components/VIcon'
 import VSnackbar from '@vuetify/es5/components/VSnackbar'
+import VImg from '@vuetify/es5/components/VImg'
 import VDivider from '@vuetify/es5/components/VDivider'
 import VMenu from '@vuetify/es5/components/VMenu'
 import VFooter from '@vuetify/es5/components/VFooter'
@@ -38,6 +39,7 @@ export default ({
       VIcon,
       VMenu,
       VSnackbar,
+      VImg,
       VDivider,
       transitions,
     },
