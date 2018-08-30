@@ -23,7 +23,7 @@ function markdownitLinkifyImages(md, config) {
     }
     return `
     <a href="${url}" ${linkClass} ${target}>
-      <v-img src="${url}" alt="${caption}" ${imgClass} ${title} />
+      <v-img src="${url}" alt="${caption}" ${imgClass} ${title} contain />
     </a>
     `
   }
