@@ -204,8 +204,7 @@ export default {
         }),
       })
         .then(e => {
-          console.log('response:', e)
-          console.log('form:', this.form)
+          console.log('response:', response)
           this.snackMsg =
             e.status < 400
               ? 'Your message has been sent, thanks!'
