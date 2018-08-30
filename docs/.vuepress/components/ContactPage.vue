@@ -65,7 +65,7 @@
                 ref="invisibleRecaptcha"
                 @verify="onVerify"
                 size="invisible"
-                badge="inline"
+                :badge="captchaBadge"
               />
               <v-btn
                 color="secondary"
@@ -184,6 +184,18 @@ export default {
       messageRules: [v => !!v || 'Message is required'],
     },
   }),
+  computed: {
+    captchaBadge() {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+          return 'bottomright'
+        case 'sm':
+          return 'bottomright'
+        default:
+          return 'inline'
+      }
+    },
+  },
   methods: {
     resetRecaptcha() {
       this.$refs.invisibleRecaptcha.reset() // Direct call reset method
