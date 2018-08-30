@@ -61,11 +61,11 @@
               class="mt-3"
             >
               <vue-recaptcha
-                sitekey="6LeN308UAAAAAPSx9gSXVD2HxgV4s3S0rqxhC8PG"
                 ref="invisibleRecaptcha"
-                @verify="onVerify"
+                sitekey="6LeN308UAAAAAPSx9gSXVD2HxgV4s3S0rqxhC8PG"
                 size="invisible"
                 :badge="captchaBadge"
+                @verify="onVerify"
               />
               <v-btn
                 color="secondary"
