@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <script2 src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" /> -->
+    <script2 src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" />
     <v-container grid-list-xl>
       <v-layout
         row
@@ -15,16 +15,12 @@
           <v-form
             ref="contact"
             v-model="form.valid"
-            name="contact"
+            name="contact-us"
             column
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
             method="post"
             @submit.prevent="send"
           >
-            <div style="display: none">
-              <input name="bot-field">
-            </div>
+            <input type="hidden" name="form-name" value="contact-us" />
             <v-text-field
               v-model="form.name"
               label="Name"
@@ -65,13 +61,13 @@
               justify-space-between
               class="mt-3"
             >
-              <!-- <vue-recaptcha
+              <vue-recaptcha
                 sitekey="6LeN308UAAAAAPSx9gSXVD2HxgV4s3S0rqxhC8PG"
                 ref="invisibleRecaptcha"
                 @verify="onVerify"
                 size="invisible"
                 badge="inline"
-              /> -->
+              />
               <v-btn
                 color="secondary"
                 type="submit"
@@ -122,10 +118,6 @@
               </v-list-tile-content>
             </v-list-tile>
           </v-list>
-
-          <!-- <no-ssr class="mt-4">
-            <social-networks :networks="social" btn-class="mx-3" icon-size="2x"/>
-          </no-ssr> -->
         </v-flex>
       </v-layout>
     </v-container>
@@ -147,7 +139,7 @@
 </template>
 
 <script>
-// import VueRecaptcha from 'vue-recaptcha';
+import VueRecaptcha from 'vue-recaptcha'
 import VForm from '@vuetify/es5/components/VForm'
 import VTextField from '@vuetify/es5/components/VTextField'
 import VTextarea from '@vuetify/es5/components/VTextarea'
@@ -160,7 +152,7 @@ function encode(data) {
 
 export default {
   components: {
-    // VueRecaptcha,
+    VueRecaptcha,
     VForm,
     VTextField,
     VTextarea,
@@ -195,7 +187,7 @@ export default {
   }),
   methods: {
     resetRecaptcha() {
-      // this.$refs.recaptcha.reset(); // Direct call reset method
+      this.$refs.invisibleRecaptcha.reset() // Direct call reset method
     },
     onVerify: function(response) {
       const { email, name, message } = this.form
@@ -204,16 +196,15 @@ export default {
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({
-          'form-name': 'contact',
+          'form-name': 'contact-us',
           email,
           name,
           message,
-          // 'g-recaptcha-response': this.form['g-recaptcha-response'] || response,
+          'g-recaptcha-response': this.form['g-recaptcha-response'] || response,
         }),
       })
         .then(e => {
-          console.log('response:', e)
-          console.log('form:', this.form)
+          console.log('response:', response)
           this.snackMsg =
             e.status < 400
               ? 'Your message has been sent, thanks!'
@@ -229,12 +220,11 @@ export default {
 
     send() {
       if (this.$refs.contact.validate()) {
-        // this.$refs.invisibleRecaptcha.execute();
-        this.onVerify()
+        this.$refs.invisibleRecaptcha.execute()
       }
     },
     clear() {
-      // this.resetRecaptcha();
+      this.resetRecaptcha()
       this.$refs.contact.reset()
       this.snackbar = false
     },
