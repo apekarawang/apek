@@ -12,6 +12,7 @@
   },
   "scripts": {
     "start": "vuepress dev docs",
+    "cms": "webpack-serve --content docs/.vuepress/public/ --open-path admin/",
     "clean": "rimraf node_modules/vuepress/node_modules/.cache/",
     "build:docs": "vuepress build docs",
     "build:cms": "webpack --mode=production",

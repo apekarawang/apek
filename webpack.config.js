@@ -1,31 +1,32 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("vuepress-html-webpack-plugin");
-const { VueLoaderPlugin } = require("vue-loader");
+const path = require('path')
+const HtmlWebpackPlugin = require('vuepress-html-webpack-plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = (e, a) => ({
-  entry: "./cms/cms.js",
+  mode: (a && a.mode) || 'development',
+  entry: './cms/cms.js',
   output: {
     path:
-      a.mode === "production"
-        ? path.resolve("dist")
-        : path.resolve(__dirname, "docs/.vuepress", "public", "admin")
+      a && a.mode === 'production'
+        ? path.resolve('dist')
+        : path.resolve(__dirname, 'docs/.vuepress', 'public', 'admin'),
   },
   externals: {
-    "netlify-cms": "CMS",
-    "react-virtualized-select": "VirtualizedSelect",
-    "react": "React",
-    "react-dom": "ReactDOM",
-    "vue": "Vue",
-    "vuetify": "Vuetify"
+    'netlify-cms': 'CMS',
+    'react-virtualized-select': 'VirtualizedSelect',
+    react: 'React',
+    'react-dom': 'ReactDOM',
+    vue: 'Vue',
+    vuetify: 'Vuetify',
   },
   resolve: {
     alias: {
-      vue$: "vue/dist/vue.esm.js",
-      "@components": path.resolve(__dirname, "docs", ".vuepress", "components"),
-      "@docs": path.resolve(__dirname, "docs"),
-      "@theme": path.resolve(__dirname, "docs", ".vuepress", "theme"),
-      "@vuetify": path.resolve(__dirname, "node_modules", "vuetify")
-    }
+      vue$: 'vue/dist/vue.esm.js',
+      '@components': path.resolve(__dirname, 'docs', '.vuepress', 'components'),
+      '@docs': path.resolve(__dirname, 'docs'),
+      '@theme': path.resolve(__dirname, 'docs', '.vuepress', 'theme'),
+      '@vuetify': path.resolve(__dirname, 'node_modules', 'vuetify'),
+    },
   },
   module: {
     rules: [
@@ -33,52 +34,52 @@ module.exports = (e, a) => ({
         test: /\.jsx?$/,
         use: [
           {
-            loader: "cache-loader",
+            loader: 'cache-loader',
             options: {
-              cacheDirectory: path.resolve("node_modules", ".cache", "loader")
-            }
+              cacheDirectory: path.resolve('node_modules', '.cache', 'loader'),
+            },
           },
           {
-            loader: "babel-loader"
-          }
+            loader: 'babel-loader',
+          },
         ],
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.vue$/,
         use: [
           {
-            loader: "cache-loader",
+            loader: 'cache-loader',
             options: {
-              cacheDirectory: path.resolve("node_modules", ".cache", "loader")
-            }
+              cacheDirectory: path.resolve('node_modules', '.cache', 'loader'),
+            },
           },
           {
-            loader: "vue-loader",
+            loader: 'vue-loader',
             options: {
               compilerOptions: {
-                preserveWhitespace: true
-              }
-            }
-          }
-        ]
+                preserveWhitespace: true,
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.styl(us)?$/,
-        use: ["css-loader", "stylus-loader"]
+        use: ['css-loader', 'stylus-loader'],
       },
       {
         test: /\.css$/,
-        loader: ["css-loader"]
-      }
-    ]
+        loader: ['css-loader'],
+      },
+    ],
   },
   plugins: [
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       template: './cms/index.html',
-      title: "Content Manager"
+      title: 'Content Manager',
     }),
   ],
-  devtool: "source-map"
-});
+  devtool: 'source-map',
+})
