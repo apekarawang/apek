@@ -7,6 +7,7 @@
     >
       <v-img
         :src="cover"
+        lazy-src="/favicon-16x16.png"
         aspect-ratio="1.7"
       />
     </v-container>

@@ -23,6 +23,7 @@
             <v-flex xs5>
               <v-img
                 :src="props.item.frontmatter.thumbnail"
+                lazy-src="/favicon-16x16.png"
                 height="125px"
                 contain
               />
