@@ -130,7 +130,7 @@
         <v-btn
           flat
           color="success"
-          @click.native="clear"
+          @click.native="clear(false)"
         >OK</v-btn>
       </v-snackbar>
     </ClientOnly>
@@ -208,7 +208,7 @@ export default {
             e.status < 400
               ? 'Your message has been sent, thanks!'
               : `Failed to send message because of: ${e.statusText}`
-          this.snackbar = true
+          this.clear(true)
         })
         .catch(error =>
           alert(
@@ -222,10 +222,10 @@ export default {
         this.$refs.invisibleRecaptcha.execute()
       }
     },
-    clear() {
+    clear(snackbar) {
       this.resetRecaptcha()
       this.$refs.contact.reset()
-      this.snackbar = false
+      this.snackbar = snackbar
     },
   },
 }
