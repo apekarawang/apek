@@ -6,7 +6,9 @@ export default ({ entry, getAsset, widgetFor, widgetsFor }) => {
   return (
     <div>
       <SiteTitle title={entry.getIn(['data', 'title'])} />
-      <VContainer className="markdown-body">{widgetFor('body')}</VContainer>
+      <VContainer>
+        <div className="markdown-body">{widgetFor('body')}</div>
+      </VContainer>
     </div>
   )
 }

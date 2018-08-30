@@ -9,7 +9,9 @@ export default ({ entry, getAsset, widgetFor, widgetsFor }) => {
         title={entry.getIn(['data', 'title'])}
         subtitle={entry.getIn(['data', 'business'] || []).join(', ')}
       />
-      <VContainer className="markdown-body">{widgetFor('body')}</VContainer>
+      <VContainer>
+        <div className="markdown-body">{widgetFor('body')}</div>
+      </VContainer>
     </div>
   )
 }
