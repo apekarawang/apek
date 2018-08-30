@@ -190,7 +190,7 @@ export default {
     },
     onVerify: function(response) {
       const { email, name, message } = this.form
-      fetch('/', {
+      fetch('https://contact.apek.or.id/', {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
