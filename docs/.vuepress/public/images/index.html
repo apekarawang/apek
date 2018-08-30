@@ -3,11 +3,10 @@
 <head>
 </head>
 <body>
-  <form name="contact" method="post" netlify-recaptcha netlify>
-    <input type="text" name="name">
-    <input type="text" name="email">
-    <input type="text" name="message">
-    <button>Send</button>
+  <form name="contact" netlify-recaptcha netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <textarea name="message"></textarea>
   </form>
 </body>
 </html>

@@ -20,7 +20,6 @@
             method="post"
             @submit.prevent="send"
           >
-            <input type="hidden" name="form-name" value="contact" />
             <v-text-field
               v-model="form.name"
               label="Name"
