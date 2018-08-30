@@ -191,7 +191,7 @@ export default {
     },
     onVerify: function(response) {
       const { email, name, message } = this.form
-      fetch('/', {
+      fetch('https://apek.netlify.com/', {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
