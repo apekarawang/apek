@@ -7,7 +7,7 @@
       :img="$page.frontmatter.thumbnail"
     />
     <v-container>
-      <Content />
+      <Content class="markdown-body" />
     </v-container>
   </div>
 </template>
@@ -17,8 +17,12 @@ export default {
   components: {},
   computed: {
     subtitle() {
-      return (this.$page.frontmatter.business || []).join(', ');
+      return (this.$page.frontmatter.business || []).join(', ')
     },
   },
-};
+}
 </script>
+
+<style lang="stylus" scoped>
+@require '~github-markdown-css/github-markdown.css'
+</style>

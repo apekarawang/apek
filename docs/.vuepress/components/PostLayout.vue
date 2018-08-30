@@ -6,7 +6,7 @@
       :img="$page.frontmatter.thumbnail"
     />
     <v-container>
-      <Content />
+      <Content class="markdown-body" />
     </v-container>
   </div>
 </template>
@@ -21,3 +21,7 @@ export default {
   },
 }
 </script>
+
+<style lang="stylus" scoped>
+@require '~github-markdown-css/github-markdown.css'
+</style>

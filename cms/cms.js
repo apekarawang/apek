@@ -17,6 +17,10 @@ import('netlify-cms').then(async ({ default: CMS }) => {
   const MemberPreview = await import('./Preview/MemberPreview')
 
   CMS.registerPreviewStyle(require('to-string-loader!./cms.css'), { raw: true })
+  CMS.registerPreviewStyle(
+    require('to-string-loader!github-markdown-css/github-markdown.css'),
+    { raw: true }
+  )
   CMS.registerPreviewTemplate('home', HomePreview.default)
   CMS.registerPreviewTemplate('about', AboutPreview.default)
   CMS.registerPreviewTemplate('contact', ContactPreview.default)

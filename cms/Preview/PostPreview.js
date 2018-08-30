@@ -12,7 +12,7 @@ export default ({ entry, getAsset, widgetFor, widgetsFor }) => {
           new Date(entry.getIn(['data', 'date'])).toLocaleDateString()
         }
       />
-      <VContainer>{widgetFor('body')}</VContainer>
+      <VContainer className="markdown-body">{widgetFor('body')}</VContainer>
     </div>
   )
 }

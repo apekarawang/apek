@@ -1,5 +1,5 @@
 ---
-layout: PageLayout
+layout: MarkdownPageLayout
 title: About Us
 ---
 ## Sejarah Singkat
