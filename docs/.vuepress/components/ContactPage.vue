@@ -15,12 +15,12 @@
           <v-form
             ref="contact"
             v-model="form.valid"
-            name="contact-us"
+            name="contact"
             column
             method="post"
             @submit.prevent="send"
           >
-            <input type="hidden" name="form-name" value="contact-us" />
+            <input type="hidden" name="form-name" value="contact" />
             <v-text-field
               v-model="form.name"
               label="Name"
@@ -191,12 +191,12 @@ export default {
     },
     onVerify: function(response) {
       const { email, name, message } = this.form
-      fetch('https://apek.netlify.com/', {
+      fetch('/', {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({
-          'form-name': 'contact-us',
+          'form-name': 'contact',
           email,
           name,
           message,
