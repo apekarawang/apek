@@ -4,7 +4,6 @@
       bottom
       offset-y
       open-on-hover
-      :close-on-content-click="false"
     >
 
       <v-btn
@@ -71,15 +70,15 @@ export default {
   data() {
     return {
       open: false,
-    };
+    }
   },
 
   methods: {
     toggle() {
-      this.open = !this.open;
+      this.open = !this.open
     },
   },
-};
+}
 </script>
 
 <style lang="stylus">
