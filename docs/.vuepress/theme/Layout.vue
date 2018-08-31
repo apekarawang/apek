@@ -2,6 +2,7 @@
   <v-app
     id="apek"
     :class="pageClasses"
+    class="font-weight-light"
   >
     <script2 src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
     <!--<Navbar
@@ -38,10 +39,10 @@
 
       <NavLinks class="hidden-xs-only" />
       <v-toolbar-items v-if="user">
-        <v-btn 
-          flat 
-          icon 
-          data-netlify-identity-button="true" 
+        <v-btn
+          flat
+          icon
+          data-netlify-identity-button="true"
           @click.native="identity.open()"
         >
           <v-icon>account_circle</v-icon>
