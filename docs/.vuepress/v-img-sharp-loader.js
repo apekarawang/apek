@@ -33,7 +33,7 @@ module.exports = function loader(contentBuffer) {
 
     sharpImg
       .jpeg({ quality: config.quality || 10 })
-      .resize(config.size || 9)
+      .resize(config.size || 32)
       .toBuffer({ resolveWithObject: true })
       .then(({ data, info }) => {
         const result = {
