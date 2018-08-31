@@ -118,7 +118,10 @@ module.exports = {
       .oneOf('v-img')
       .resourceQuery(/vuetify-preload/)
       .use('vuetify-loader/progressive-loader')
-      .loader('vuetify-loader/progressive-loader')
+      .loader(path.resolve(__dirname, 'v-img-sharp-loader.js'))
+      .options({
+        sharp: true,
+      })
       .end()
       .use('url-loader')
       .loader('url-loader')
