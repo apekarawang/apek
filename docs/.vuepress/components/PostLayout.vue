@@ -6,7 +6,7 @@
       :img="$page.frontmatter.thumbnail"
     />
     <v-container>
-      <Content class="markdown-body" />
+      <Content class="markdown-body font-weight-thin" />
     </v-container>
   </div>
 </template>
