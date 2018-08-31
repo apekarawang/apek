@@ -1,44 +1,31 @@
-function markdownitLinkifyImages(md, config) {
+function markdownitLinkifyImages(
+  md,
+  config = {
+    target: '_self',
+    classes: ['v-imgify'],
+  }
+) {
   md.renderer.rules.image = function(tokens, idx, options, env, self) {
     config = config || {}
+    const token = tokens[idx]
+    const srcIndex = token.attrIndex('src')
+    const url = token.attrs[srcIndex][1]
+    let title = ''
 
-    var token = tokens[idx]
-
-    var srcIndex = token.attrIndex('src')
-
-    var url = token.attrs[srcIndex][1]
-
-    var title = ''
-
-    var caption = token.content
-
-    var target = generateTargetAttribute(config.target)
-
-    var linkClass = generateClass(config.linkClass)
-
-    var imgClass = generateClass(config.imgClass)
+    const caption = token.content
 
     if (token.attrIndex('title') !== -1) {
       title = ' title="' + token.attrs[token.attrIndex('title')][1] + '"'
     }
+
     return `
-    <a href="${url}" ${linkClass} ${target}>
-      <v-img src="${url}" alt="${caption}" ${imgClass} ${title} contain />
+    <a href="${url}" class="${config.classes.join(' ')}" target="${
+      config.target
+    }">
+      <v-img src="@public${url}" alt="${caption}" ${title} />
     </a>
     `
   }
-}
-
-function generateTargetAttribute(target) {
-  target = target || '_self'
-
-  return ' target="' + target + '"'
-}
-
-function generateClass(className) {
-  if (!className) return ''
-
-  return ' class="' + className + '"'
 }
 
 module.exports = markdownitLinkifyImages

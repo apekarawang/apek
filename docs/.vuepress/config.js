@@ -1,5 +1,6 @@
 const path = require('path')
 const merge = require('deepmerge')
+const { VuetifyProgressiveModule } = require('vuetify-loader')
 const VimgIfy = require('./markdown/v-img')
 
 module.exports = {
@@ -91,11 +92,49 @@ module.exports = {
           'node_modules',
           'vuetify'
         ),
-        '@docs': path.resolve(__dirname),
+        '@docs': path.resolve(__dirname, '..'),
+        '@public': path.resolve(__dirname, 'public'),
       },
     },
   },
   chainWebpack: config => {
-    //
+    config.module
+      .rule('vue')
+      .use('vue-loader')
+      .loader('vue-loader')
+      .tap(options =>
+        merge(options, {
+          compilerOptions: {
+            modules: [VuetifyProgressiveModule],
+          },
+        })
+      )
+      .end()
+
+    config.module.rules.delete('images')
+    config.module
+      .rule('images')
+      .test(/\.(png|jpe?g|gif)$/)
+      .oneOf('v-img')
+      .resourceQuery(/vuetify-preload/)
+      .use('vuetify-loader/progressive-loader')
+      .loader('vuetify-loader/progressive-loader')
+      .end()
+      .use('url-loader')
+      .loader('url-loader')
+      .options({
+        loader: 'url-loader',
+        options: { limit: 8000 },
+      })
+      .end()
+      .end()
+      .oneOf('img')
+      .use('url-loader')
+      .loader('url-loader')
+      .options({
+        loader: 'url-loader',
+        options: { limit: 8000 },
+      })
+      .end()
   },
 }

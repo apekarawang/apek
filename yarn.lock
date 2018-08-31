@@ -1420,9 +1420,17 @@ array-map@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/array-map/-/array-map-0.0.0.tgz#88a2bab73d1cf7bcd5c1b118a003f66f665fa662"
 
+array-parallel@~0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/array-parallel/-/array-parallel-0.1.3.tgz#8f785308926ed5aa478c47e64d1b334b6c0c947d"
+
 array-reduce@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/array-reduce/-/array-reduce-0.0.0.tgz#173899d3ffd1c7d9383e4479525dbe278cab5f2b"
+
+array-series@~0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/array-series/-/array-series-0.1.5.tgz#df5d37bfc5c2ef0755e2aa4f92feae7d4b5a972f"
 
 array-union@^1.0.1:
   version "1.0.2"
@@ -4779,6 +4787,15 @@ glogg@^1.0.0:
   resolved "https://registry.yarnpkg.com/glogg/-/glogg-1.0.1.tgz#dcf758e44789cc3f3d32c1f3562a3676e6a34810"
   dependencies:
     sparkles "^1.0.0"
+
+gm@^1.23.1:
+  version "1.23.1"
+  resolved "https://registry.yarnpkg.com/gm/-/gm-1.23.1.tgz#2edeeb958084d0f8ea7988e5d995b1c7dfc14777"
+  dependencies:
+    array-parallel "~0.1.3"
+    array-series "~0.1.5"
+    cross-spawn "^4.0.0"
+    debug "^3.1.0"
 
 good-listener@^1.2.2:
   version "1.2.2"
@@ -11701,6 +11718,13 @@ vuepress@^0.14.2:
 vuera@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/vuera/-/vuera-0.2.2.tgz#944e0320f7ee2be260c5926a68d0e283cd1891f2"
+
+vuetify-loader@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/vuetify-loader/-/vuetify-loader-0.2.0.tgz#8ec223871746da74c24062218ff90c3af99070fe"
+  dependencies:
+    gm "^1.23.1"
+    loader-utils "^1.1.0"
 
 vuetify@^1.2.0:
   version "1.2.1"
