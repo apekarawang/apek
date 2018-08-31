@@ -9,6 +9,8 @@ module.exports = {
   serviceWorker: true,
   ga: 'UA-114389898-1',
   head: [
+    ['link', { rel: 'dns-prefetch', href: '//fonts.googleapis.com' }],
+    ['link', { rel: 'dns-prefetch', href: '//www.google-analytics.com' }],
     [
       'link',
       {
