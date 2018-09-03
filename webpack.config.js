@@ -13,7 +13,6 @@ module.exports = (e, a) => ({
   },
   externals: {
     'netlify-cms': 'CMS',
-    'react-virtualized-select': 'VirtualizedSelect',
     react: 'React',
     'react-dom': 'ReactDOM',
     vue: 'Vue',

@@ -1,7 +1,7 @@
 import React from 'react'
 import Vue from 'vue'
 import ClientOnly from 'vuepress/lib/app/components/ClientOnly'
-import NetlifyCMSWidgetMaterialIcons from 'netlify-cms-widget-material-icons'
+import NetlifyCMSWidgetMaterialIcons from 'netlify-cms-widget-material-icons/dist/umd/material-icons'
 import NetlifyCMSWidgetColor from 'netlify-cms-widget-native-color'
 
 Vue.component('ClientOnly', ClientOnly)
