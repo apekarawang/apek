@@ -14,6 +14,15 @@ module.exports = {
     [
       'link',
       {
+        rel: 'preload',
+        as: 'style',
+        href:
+          'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons',
+      },
+    ],
+    [
+      'link',
+      {
         rel: 'apple-touch-icon',
         sizes: '180x180',
         href: '/apple-touch-icon.png',
