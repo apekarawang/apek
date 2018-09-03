@@ -1,12 +1,12 @@
 import React from 'react'
 import Vue from 'vue'
 import ClientOnly from 'vuepress/lib/app/components/ClientOnly'
+import NetlifyCMSWidgetMaterialIcons from 'netlify-cms-widget-material-icons'
+import NetlifyCMSWidgetColor from 'netlify-cms-widget-native-color'
 
 Vue.component('ClientOnly', ClientOnly)
 
 import('netlify-cms').then(async ({ default: CMS }) => {
-  const NetlifyCMSWidgetMaterialIcons = await import('netlify-cms-widget-material-icons')
-  const NetlifyCMSWidgetColor = await import('netlify-cms-widget-native-color')
   CMS.registerWidget('material-icons', NetlifyCMSWidgetMaterialIcons.Control)
   CMS.registerWidget('color', NetlifyCMSWidgetColor.Control)
 
