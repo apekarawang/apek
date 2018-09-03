@@ -27,7 +27,7 @@
             v-for="(item, i) in carousel"
             :key="i"
             :src="item.image"
-            :lazy-src="$site.themeConfig.logo"
+            lazy-src="/favicon-16x16.png"
           />
         </v-carousel>
       </v-container>
