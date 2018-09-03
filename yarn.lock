@@ -942,6 +942,12 @@
     reactcss "^1.2.0"
     tinycolor2 "^1.4.1"
 
+"@pake/react-list@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@pake/react-list/-/react-list-1.0.0.tgz#5b549c3cf4d7d839e915bd8dd19914e536b636ed"
+  dependencies:
+    prop-types "15"
+
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@samverschueren/stream-to-observable/-/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"
@@ -3896,6 +3902,10 @@ esrever@^0.2.0:
 estraverse@^4.0.0, estraverse@^4.1.0, estraverse@^4.1.1:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/estraverse/-/estraverse-4.2.0.tgz#0dee3fed31fcd469618ce7342099fc1afa0bdb13"
+
+estree-walker@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-0.5.2.tgz#d3850be7529c9580d815600b53126515e146dd39"
 
 esutils@^2.0.0, esutils@^2.0.2:
   version "2.0.2"
@@ -7110,6 +7120,10 @@ material-colors@^1.2.1:
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/material-colors/-/material-colors-1.2.6.tgz#6d1958871126992ceecc72f4bcc4d8f010865f46"
 
+material-design-icon-list@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/material-design-icon-list/-/material-design-icon-list-3.0.3.tgz#42f7ff3924ad9fb8637909be67489879021e1766"
+
 math-expression-evaluator@^1.2.14:
   version "1.2.17"
   resolved "https://registry.yarnpkg.com/math-expression-evaluator/-/math-expression-evaluator-1.2.17.tgz#de819fdbcd84dccd8fae59c6aeb79615b9d266ac"
@@ -7692,10 +7706,6 @@ netlify-cms-widget-boolean@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/netlify-cms-widget-boolean/-/netlify-cms-widget-boolean-2.0.4.tgz#da1b17c9f62c7b4415d4883f4bd99cb1003fec6b"
 
-netlify-cms-widget-color@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/netlify-cms-widget-color/-/netlify-cms-widget-color-3.0.0.tgz#1c907f430dfe0a8cad4759465a9a7273fd34bda2"
-
 netlify-cms-widget-date@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/netlify-cms-widget-date/-/netlify-cms-widget-date-2.0.5.tgz#ee06c6124ae91e88440c84ca975885afee3ef9b5"
@@ -7750,9 +7760,17 @@ netlify-cms-widget-markdown@^2.0.6:
     unist-builder "^1.0.2"
     unist-util-visit-parents "^1.1.1"
 
-netlify-cms-widget-material-icons@^3.0.0:
+netlify-cms-widget-material-icons@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/netlify-cms-widget-material-icons/-/netlify-cms-widget-material-icons-4.0.1.tgz#a1f701b04cb66c48e59caa099faa1cf5777eb728"
+  dependencies:
+    "@pake/react-list" "^1.0.0"
+    material-design-icon-list "^3.0.3"
+    rollup-plugin-json "^3.0.0"
+
+netlify-cms-widget-native-color@^3.0.0:
   version "3.0.0"
-  resolved "https://registry.yarnpkg.com/netlify-cms-widget-material-icons/-/netlify-cms-widget-material-icons-3.0.0.tgz#bb0ca71c4bb3fc808ca207b7069a126e48630284"
+  resolved "https://registry.yarnpkg.com/netlify-cms-widget-native-color/-/netlify-cms-widget-native-color-3.0.0.tgz#c43b02a463502c528c676d3de2b265e33a345fb4"
 
 netlify-cms-widget-number@^2.0.4:
   version "2.0.4"
@@ -8878,7 +8896,7 @@ prompt@1.0.0:
     utile "0.3.x"
     winston "2.1.x"
 
-prop-types@^15.0.0, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2:
+prop-types@15, prop-types@^15.0.0, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
   dependencies:
@@ -9880,6 +9898,19 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
   dependencies:
     hash-base "^3.0.0"
     inherits "^2.0.1"
+
+rollup-plugin-json@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-json/-/rollup-plugin-json-3.0.0.tgz#aeed2ff36e6c4fd0c60c4a8fc3d0884479e9dfce"
+  dependencies:
+    rollup-pluginutils "^2.2.0"
+
+rollup-pluginutils@^2.2.0:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.3.1.tgz#760d185ccc237dedc12d7ae48c6bcd127b4892d0"
+  dependencies:
+    estree-walker "^0.5.2"
+    micromatch "^2.3.11"
 
 router@^1.3.1:
   version "1.3.3"
