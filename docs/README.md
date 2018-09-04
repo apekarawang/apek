@@ -1,7 +1,6 @@
 ---
 layout: HomeLayout
-cover: ''
-carousel:
+cover:
   - image: /images/ioi-mai.jpeg
   - image: /images/2013-06-19-09.30.30.jpg
 business:

@@ -6,32 +6,52 @@
       class="px-0 py-0"
     >
       <v-img
-        :src="cover"
+        v-if="cover.length === 1"
+        :src="cover[0].image"
         lazy-src="/favicon-16x16.png"
         aspect-ratio="1.7"
-      />
-    </v-container>
-
-    <ClientOnly>
-      <v-container
-        v-if="carousel && carousel.length > 0"
-        fluid
-        class="px-0 py-0"
+        max-height="90vh"
       >
+        <v-layout pa-2 column align-center fill-height class="lightbox white--text"
+          v-if="cover[0].title || cover[0].description"
+        >
+          <v-spacer></v-spacer>
+          <v-flex>
+            <div class="display-2" v-if="cover[0].title">
+              {{ cover[0].title }}
+            </div>
+            <div class="body-1" v-if="cover[0].description">
+              {{ cover[0].description }}
+            </div>
+          </v-flex>
+        </v-layout>
+      </v-img>
+      <ClientOnly v-else>
         <v-carousel
-          lazy
-          :hide-controls="carousel.length < 2"
-          :hide-delimiters="carousel.length < 2"
+          :hide-controls="cover.length < 2"
+          hide-delimiters
         >
           <v-carousel-item
-            v-for="(item, i) in carousel"
+            v-for="(item, i) in cover"
             :key="i"
             :src="item.image"
             lazy-src="/favicon-16x16.png"
-          />
+          >
+            <v-layout pa-2 column align-center fill-height class="lightbox white--text" v-if="item.title || item.description">
+              <v-spacer></v-spacer>
+              <v-flex>
+                <div v-if="item.title" class="display-2">
+                  {{ item.title }}
+                </div>
+                <div v-if="item.description" class="body-1">
+                  {{ item.description }}
+                </div>
+              </v-flex>
+            </v-layout>
+          </v-carousel-item>
         </v-carousel>
-      </v-container>
-    </ClientOnly>
+      </ClientOnly>
+    </v-container>
 
     <div
       v-if="business"

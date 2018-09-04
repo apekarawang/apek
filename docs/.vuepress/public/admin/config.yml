@@ -61,17 +61,15 @@ collections:
             name: layout
             widget: hidden
             default: HomeLayout
+
           - name: cover
             label: Cover
             required: false
-            widget: image
-
-          - name: carousel
-            label: Carousel
-            required: false
             widget: list
             fields:
-              - { label: Image, name: image, widget: image }
+              - { label: Image, name: image, widget: image, required: true }
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: string }
 
           - name: business
             label: Business Fields
