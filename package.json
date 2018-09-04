@@ -25,8 +25,8 @@
   },
   "dependencies": {
     "@pake/react-color": "^3.0.0",
-    "netlify-cms": "^2.0.10",
-    "netlify-cms-widget-material-icons": "^4.0.1",
+    "netlify-cms": "^2.0.11",
+    "netlify-cms-widget-material-icons": "^4.0.3",
     "netlify-cms-widget-native-color": "^3.0.0",
     "netlify-identity-widget": "^1.4.14",
     "vue-recaptcha": "^1.1.1",
@@ -36,11 +36,11 @@
     "vuetify": "^1.2.0"
   },
   "devDependencies": {
-    "@babel/preset-react": "^7.0.0-rc.2",
-    "babel-eslint": "^8.2.6",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^9.0.0",
     "babel-plugin-transform-imports": "^1.5.0",
     "cpr": "^3.0.1",
-    "eslint": "^5.4.0",
+    "eslint": "^5.5.0",
     "eslint-plugin-vue": "^5.0.0-beta.3",
     "github-markdown-css": "^2.10.0",
     "imagemin-lint-staged": "^0.3.0",
