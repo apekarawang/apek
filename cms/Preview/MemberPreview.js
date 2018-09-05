@@ -6,6 +6,7 @@ export default ({ entry, getAsset, widgetFor, widgetsFor }) => {
   return (
     <div>
       <PostTitle
+        img={getAsset(entry.getIn(['data', 'thumbnail']))}
         title={entry.getIn(['data', 'title'])}
         subtitle={entry.getIn(['data', 'business'] || []).join(', ')}
       />

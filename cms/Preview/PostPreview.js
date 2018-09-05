@@ -6,6 +6,8 @@ export default ({ entry, getAsset, widgetFor, widgetsFor }) => {
   return (
     <div>
       <PostTitle
+        className="overlay"
+        img={getAsset(entry.getIn(['data', 'thumbnail']))}
         title={entry.getIn(['data', 'title'])}
         subtitle={
           entry.getIn(['data', 'subtitle']) ||
