@@ -6,6 +6,11 @@ module.exports = (e, a) => ({
   mode: (a && a.mode) || 'development',
   entry: './cms/cms.js',
   output: {
+    filename: chunkData => {
+      return chunkData.chunk.name === 'main'
+        ? '[name].[hash].js'
+        : '[name]/[name].[hash].js'
+    },
     path:
       a && a.mode === 'production'
         ? path.resolve('dist')
@@ -80,5 +85,4 @@ module.exports = (e, a) => ({
       title: 'Content Manager',
     }),
   ],
-  devtool: 'source-map',
 })
