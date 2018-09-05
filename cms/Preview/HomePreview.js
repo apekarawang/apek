@@ -1,15 +1,15 @@
 import React from 'react'
 import Home from '@components/HomePage.vue'
 const HomePreview = ({ entry, getAsset, widgetFor, widgetsFor }) => {
-  const cover = getAsset(entry.getIn(['data', 'cover']))
   return (
     <Home
-      cover={cover && cover.toString()}
-      carousel={widgetsFor('carousel')
+      cover={widgetsFor('cover')
         .map(c => ({
           image:
             c.getIn(['data', 'image']) &&
             getAsset(c.getIn(['data', 'image'])).toString(),
+          title: c.getIn(['data', 'title']),
+          description: c.getIn(['data', 'description']),
         }))
         .toArray()}
       business={widgetsFor('business')
