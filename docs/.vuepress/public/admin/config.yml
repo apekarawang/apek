@@ -224,12 +224,12 @@ collections:
           widget: image,
           required: false,
         }
-      - label: Products
-        name: products
-        widget: list
-        required: false
-        fields:
-          - { label: Name, name: name, widget: string }
-          - { label: Image, name: image, widget: image }
-          - { label: Description, name: description, widget: text }
+      # - label: Products
+      #   name: products
+      #   widget: list
+      #   required: false
+      #   fields:
+      #     - { label: Name, name: name, widget: string }
+      #     - { label: Image, name: image, widget: image }
+      #     - { label: Description, name: description, widget: text }
       - { label: Body, name: body, widget: markdown, required: false }
