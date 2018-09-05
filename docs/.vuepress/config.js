@@ -122,6 +122,11 @@ module.exports = {
       )
       .end()
 
+    const fileLoaderOptions = {
+      limit: 10000,
+      name: `assets/img/[name].[hash:8].[ext]`,
+    }
+
     config.module.rules.delete('images')
     config.module
       .rule('images')
@@ -136,19 +141,13 @@ module.exports = {
       .end()
       .use('url-loader')
       .loader('url-loader')
-      .options({
-        loader: 'url-loader',
-        options: { limit: 8000 },
-      })
+      .options(fileLoaderOptions)
       .end()
       .end()
       .oneOf('img')
       .use('url-loader')
       .loader('url-loader')
-      .options({
-        loader: 'url-loader',
-        options: { limit: 8000 },
-      })
+      .options(fileLoaderOptions)
       .end()
   },
 }
