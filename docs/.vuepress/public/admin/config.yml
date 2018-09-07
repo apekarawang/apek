@@ -10,8 +10,12 @@ backend:
     deleteMedia: "chore(cms): delete {{path}}"
 publish_mode: editorial_workflow
 display_url: https://apek.or.id
-media_folder: docs/.vuepress/public/images # Media files will be stored in the repo under static/images
-public_folder: /images # The src attribute for uploaded media will begin with /images
+media_folder: docs/.vuepress/public/images
+public_folder: /images
+media_library:
+  name: uploadcare
+  config:
+    publicKey: b4e88063b7ad199fb285
 collections:
   # - name: setting
   #   label: Setting
