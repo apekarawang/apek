@@ -15,7 +15,7 @@ public_folder: /images
 media_library:
   name: uploadcare
   config:
-    publicKey: 09eb16ee23b497382078
+    publicKey: 9995008164079fd31dda
 collections:
   # - name: setting
   #   label: Setting
@@ -73,7 +73,7 @@ collections:
             options:
               media_library:
                 config:
-                  multiple: false
+                  multiple: true
             fields:
               - { label: Image, name: image, widget: image, required: true }
               - { label: Title, name: title, widget: string }
