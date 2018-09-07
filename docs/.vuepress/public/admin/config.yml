@@ -70,6 +70,10 @@ collections:
             label: Cover
             required: false
             widget: list
+            options:
+              media_library:
+                config:
+                  multiple: false
             fields:
               - { label: Image, name: image, widget: image, required: true }
               - { label: Title, name: title, widget: string }
