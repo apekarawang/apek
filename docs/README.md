@@ -1,8 +1,8 @@
 ---
 layout: HomeLayout
 cover:
-  - image: /images/ioi-mai.jpeg
-  - image: /images/2013-06-19-09.30.30.jpg
+  - image: 'https://ucarecdn.com/5f3ab7c2-bcb9-472b-953d-0666d6af044c/'
+  - image: 'https://ucarecdn.com/aadac97d-2bb2-40cf-873e-dd45d7fb3085/'
 business:
   - icon: perm_data_setting
     title: Mesin Produksi
