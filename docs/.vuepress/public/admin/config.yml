@@ -15,7 +15,7 @@ public_folder: /images
 media_library:
   name: uploadcare
   config:
-    publicKey: b4e88063b7ad199fb285
+    publicKey: 09eb16ee23b497382078
 collections:
   # - name: setting
   #   label: Setting
