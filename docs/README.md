@@ -1,8 +1,8 @@
 ---
 layout: HomeLayout
 cover:
-  - image: 'https://ucarecdn.com/5f3ab7c2-bcb9-472b-953d-0666d6af044c/'
-  - image: 'https://ucarecdn.com/aadac97d-2bb2-40cf-873e-dd45d7fb3085/'
+  - image: 'https://ucarecdn.com/9b27e216-57f7-47e4-ac5a-d4dacb62dfe7/'
+  - image: 'https://ucarecdn.com/a95298da-3e8a-4ef0-98d3-fc0b6a29f23e/'
 business:
   - icon: perm_data_setting
     title: Mesin Produksi
