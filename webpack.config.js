@@ -17,7 +17,6 @@ module.exports = (e, a) => ({
         : path.resolve(__dirname, 'docs/.vuepress', 'public', 'admin'),
   },
   externals: {
-    'netlify-cms': 'CMS',
     react: 'React',
     'react-dom': 'ReactDOM',
     vue: 'Vue',
