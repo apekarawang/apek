@@ -13,10 +13,9 @@ display_url: https://apek.or.id
 media_folder: docs/.vuepress/public/images
 public_folder: /images
 media_library:
-  name: simple-cloudinary
+  name: uploadcare
   config:
-    cloud_name: apek
-    api_key: '579987246275824'
+    publicKey: 9995008164079fd31dda
 collections:
   # - name: setting
   #   label: Setting

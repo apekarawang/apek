@@ -6296,10 +6296,6 @@ netlify-cms-media-library-uploadcare@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/netlify-cms-media-library-uploadcare/-/netlify-cms-media-library-uploadcare-0.2.0.tgz#d167331d08931d13eec476099e5649fce97bda9b"
 
-netlify-cms-simple-cloudinary@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/netlify-cms-simple-cloudinary/-/netlify-cms-simple-cloudinary-0.0.1.tgz#3947724ac7f36d9d89ecb7a0296d2c9e5464d0ce"
-
 netlify-cms-ui-default@^2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/netlify-cms-ui-default/-/netlify-cms-ui-default-2.0.6.tgz#58ef5a0e4e833de2e0800dd36a8578c8fae9d7c6"
