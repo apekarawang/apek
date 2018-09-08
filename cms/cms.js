@@ -7,7 +7,9 @@ Vue.component('ClientOnly', ClientOnly)
 import('netlify-cms').then(async ({ default: CMS }) => {
   const NetlifyCMSWidgetMaterialIcons = await import('netlify-cms-widget-material-icons')
   const NetlifyCMSWidgetColor = await import('netlify-cms-widget-native-color')
+  const cloudinaryLibrary = await import('netlify-cms-simple-cloudinary')
 
+  CMS.registerMediaLibrary(cloudinaryLibrary.default || cloudinaryLibrary)
   CMS.registerWidget('material-icons', NetlifyCMSWidgetMaterialIcons.Control)
   CMS.registerWidget('color', NetlifyCMSWidgetColor.Control)
   CMS.registerEditorComponent({
