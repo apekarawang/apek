@@ -1,2 +1,5 @@
 /member/*  /members/:splat 301!
 /members/*/  /members/:splat.html 301!
+
+/vision-mission /about
+/technology/teknologi-robotik/ /technologies/teknologi-robotik.html
