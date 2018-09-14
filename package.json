@@ -17,6 +17,7 @@
     "clean": "rimraf node_modules/vuepress/node_modules/.cache/",
     "build:docs": "vuepress build docs",
     "build:cms": "webpack --mode=production",
+    "prebuild": "node ./docs/.vuepress/sitemap.js",
     "build": "npm-run-all --parallel build:*",
     "postbuild": "cpr dist docs/.vuepress/dist/admin -o",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
@@ -30,6 +31,7 @@
     "netlify-cms-widget-material-icons": "^4.0.3",
     "netlify-cms-widget-native-color": "^3.0.0",
     "netlify-identity-widget": "^1.4.14",
+    "sitemap": "^2.0.1",
     "vue-recaptcha": "^1.1.1",
     "vue-script2": "^2.0.3",
     "vuepress": "^0.14.2",
