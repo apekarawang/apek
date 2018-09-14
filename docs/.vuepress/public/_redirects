@@ -1,2 +1,2 @@
 /member/*  /members/:splat 301!
-/members/*  /members/:splat.html 301!
+/members/*/  /members/:splat.html 301!
