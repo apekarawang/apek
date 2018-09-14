@@ -2,6 +2,7 @@
   publish = "docs/.vuepress/dist"
   command = "yarn build"
 [build.environment]
+  NETLIFY = "true"
   NODE_VERSION = "8"
   NPM_VERSION = "6.3.0"
   YARN_VERSION = "1.9.4"
