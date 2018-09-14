@@ -63,6 +63,7 @@ module.exports = {
   ],
   themeConfig: {
     navTitle: false,
+    lastUpdated: true,
     logo: '/logo/logo-only.png',
     docsDir: 'docs',
     serviceWorker: {
